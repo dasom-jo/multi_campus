@@ -1,0 +1,228 @@
+/* 바디를 폼태그 전체로 묶지 말기
+레이아웃 먼저 구분할것
+헤더할떄 플렉스 가능 
+위에서 각 부분의 범위를 줫는데 각 부분에서 범위를 지정하면  처음 부분에서 후에 지정한
+부분만큼만 나옴
+width (100% - 2 ) 띄어 쓰기해주고 계산임 저기서 저거 빼는값
+푸터 피테그에 마진 주고싶으면 first-child {margin-top :50px }
+width:fit-content 
+메일은 @로 나눠져잇다면 앞에느 텍스트 텍스트임 
+카피라이터 쓰기
+중복확인 에 submit 하면 전송 회원가입됨 타입 버튼으로 적어야함
+이메일 고치기
+*/
+
+
+
+
+
+@font-face {
+    font-family: 'NPSfontBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2310@1.0/NPSfontBold.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    display: grid;
+    grid-template-areas: "header" "main" "footer";
+    grid-template-rows: 80px 1fr 200px;
+} 
+
+/* 틀린부분 main을 작성하지않음\
+헤더 메인 푸터를 먼저 작성해서 부분 나누기 가능  */
+header {
+    box-shadow: 2px 2px 3px black;
+    /* display: flex; */
+    grid-area: header;
+    background-color: rgb(238, 204, 235);
+    position: block;
+    z-index: 1;
+    width: 100%;
+
+    /* justify-content: space-between; 
+    이거하면 떨어지는데 나느 플룻이랑 포지션으로 나눔
+    만약 저스티 파이로 하면 는 그 셋도 나누고 다시 저스티파이브 플렉스 스타트
+    엔드 등으로 위치 재조정
+    글씨 가운데로 하려면 라인하이트로 뫂이를 맞추면 가운데로 조정됨*/
+
+}
+
+
+
+
+
+ul li a {
+    
+    text-decoration: none;
+    color: white;
+    font-family: 'NPSfontBold';
+    }
+
+
+
+
+ul li {
+    
+    list-style: none;
+    font-size: 30px;
+    display: inline-block;
+    margin: 15px;
+
+}
+
+
+nav ul li.left {
+    float: left;
+}
+
+nav ul li.right {
+    float: right; 
+}
+
+nav ul li#center {
+    position: absolute; 
+    top: 0; 
+    left: 50%; 
+    transform: translateX(-50%); 
+}
+
+nav a:link{
+    color: white;
+}
+
+nav a:hover {
+    text-shadow: 3px 3px 2px black ;
+}
+
+main {
+    grid-area: main;
+    display: grid;
+    grid-template-columns: 15% 1fr 15%;
+    grid-template-areas: ". container .";
+    min-height: 500px;
+}
+
+#container {
+    margin: 10px;
+    grid-area: container;
+}
+
+#login {
+    margin: 10px;
+    padding: 10px;
+    font-size: 30px;
+    text-align: justify;
+}
+/* 테두리 그림자로 만드는법main {
+    grid-area: main;
+    display: grid;
+    grid-template-areas: ".container.";
+    grid-template-columns: 15% 1fr 15%;
+    min-height: 500px;
+}
+
+#contaniner {
+    gred-area :container
+    aligh-items:center
+
+padding:50px 0    */
+
+#basis{
+    
+    font-family: 'NPSfontBold';
+    
+}
+
+input,select {
+    padding: 5px;
+    font-family: 'NPSfontBold';
+    border-radius: 20px;
+    box-shadow: 1px 1px 1px black inset;
+}
+
+#text_color {
+    color: red;
+}
+
+input:hover {
+   background-color: rgb(236, 196, 236);
+}
+
+button {
+    
+    font-family: 'NPSfontBold';
+    border-radius: 20px;
+    padding: 5px;
+    box-shadow: 2px 2px 4px black ;
+}
+
+.last_button {
+    margin: 5px;
+    padding: 5px;
+    box-shadow: 2px 2px 4px black ;
+}
+
+table {
+    width: 100%;
+    margin: 20px auto;
+    /* 자동으로 하면 이미지 잘맞음 */
+    border-top: 1px solid black;
+    border-bottom: 1px solid black;
+    border-collapse: collapse;
+}
+th{
+    border-right: 1px dotted black;
+    background-color: rgb(236, 196, 236);
+}
+
+th,
+td {
+    border-top: 1px dotted black;
+    /* border: 1px dotted black; */
+    padding: 20px;
+    text-align: center;
+}
+
+
+#pw2 {
+    margin: 5px;
+}
+
+
+.last {
+    margin: 10px;
+    padding: 5px;
+}
+
+footer{
+    padding: 30px 200px;
+    grid-area: footer;
+    background-color: rgb(238, 204, 235);
+    text-align: center;
+    font-family: 'NPSfontBold';
+    color: white;
+    /* p:first-child {
+        margin-bottom:30px */
+     /* p:nth-child(n-2)
+     @@@    */
+    }
+
+
+
+footer > p {
+    margin: 7px 10px;
+    
+    
+}
+
+a {
+    text-decoration: none;
+    color: white
+
+}

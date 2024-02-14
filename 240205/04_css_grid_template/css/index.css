@@ -1,0 +1,76 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    display: grid;
+    grid-template-areas: "header" "main" "footer";
+    grid-template-rows: 50px 500px 100px;
+}
+
+    /* 헤더메인풋터에 높이 안줘도됨 에이러랑 로우 */
+
+
+
+    header {
+        grid-area: header;
+        background-color: lightblue;
+    }
+    
+
+    nav ul {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        line-height: 50px;
+        list-style: none;
+        grid-area: header;
+    }
+    
+    nav ul li {
+        /* width: 20%; */
+        text-align: center;
+    }
+    
+
+
+
+    main {
+        display: grid;
+        grid-template-columns: 70% 1fr;
+        grid-template-rows: 80% 1fr;
+        grid-template-areas: 
+            "container aside"
+            "summary summary";
+        grid-area: main;
+        background-color: lightpink;
+    }
+    
+
+section {
+    grid-area: container;
+    /* width: 70%; */
+    /* height: 80%; */
+    background-color: lightgreen;
+    /* display: flex;
+    flex-flow: column;
+    justify-content: space-between; */
+}
+
+summary {
+    display: grid;
+    grid-row: 1;
+    background-color: fuchsia;
+    grid-area: summary;
+}
+
+
+
+
+footer {
+    grid-area: 100px;
+    background-color: lightcoral;
+    
+}
+
+

@@ -1,0 +1,8 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}/* 전체선택바 별을 만들어 작성하셈  */
+h1 {
+    background-color: violet;
+    /* margin: 0px; */
+}/* 여기서 마진 줘도 안됨 */

@@ -1,0 +1,231 @@
+:root {
+    --profile-text-color: #000000;
+    --profile-main-color: rgb(133, 131, 131);
+    --profile-bg-color: rgb(163, 158, 163);
+    --profile-main1-color: rgb(82, 81, 81);
+}
+
+
+@font-face {
+    font-family: 'MapoGoldenPier';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2001@1.1/MapoGoldenPierA.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'HSBombaram3_Regular';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_20-10@1.1/HSBombaram3_Regular.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@keyframes typing {
+    from {
+        width: 0
+    }
+}
+
+    @keyframes blink {
+    50% {
+        border-color: var(--profile-main-color)
+    }
+}
+
+*{
+    margin: 0;
+}
+
+#wrapper {
+    display: grid;
+    grid-template-rows: 200px 1fr 355px;
+    grid-template-areas: "header" "main" "footer";
+    background-color: var(--profile-main-color);
+    
+}
+
+header nav {grid-area: header;
+    
+    display: inline-flex;
+    flex-direction: row;
+    line-height: 20px;
+    
+    
+}
+nav .click {
+    font-family: 'MapoGoldenPier';
+    display: inline-block; 
+    justify-content: space-between;
+    margin: 20px 40px ; 
+    padding: 10px;
+    text-align: center;
+    padding: 10px;
+    font-size: 20px;
+    border: none;
+    text-shadow: 5px 5px 4px var(--profile-text-color);
+    background-color: var(--profile-main-color)
+}
+
+button:active {
+    
+    transform: translateY(1px); 
+}
+
+main {
+    grid-area: main;
+}
+
+
+
+.hello {
+    display: inline-block; 
+    font-family: 'MapoGoldenPier';
+    text-align: center;
+    line-height: 100px;
+    margin-top: 100px;
+    margin-left: 200px;
+    font-size: 25px;
+    
+}
+
+#span1{
+    height: auto;
+    display: flex;
+    
+    place-items: center;
+    width: 10ch;
+    
+    animation: typing 2s steps(22), blink .5s step-end infinite ;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid;
+    font-size: 2em;
+}
+
+
+
+footer {
+    grid-area: footer;
+}
+
+#end{
+    font-family: 'MapoGoldenPier';
+    text-align: center;
+    display: inline-block;
+    justify-content: center;
+    align-items: flex-end;
+    margin-bottom: 20px;
+    margin-top: 100px;
+    margin-left: 200px;
+    padding-top: 70px;
+
+}
+
+address a {
+    text-decoration: none;
+    color: var(--profile-text-color);
+}
+
+/* 자기소개서 css */
+
+@keyframes box123 {
+    0%{
+        transform: rotatey(0deg);
+    }
+    100%{
+        transform: rotatey(180deg);
+    }
+}
+
+@keyframes box45 {
+    0%{
+        transform: rotatey(0deg);
+    }
+    100%{
+        transform: rotatey(180deg);
+    }
+}
+
+#header1 {
+    height: 150px;
+    box-shadow: 2px 2px 4px black ;
+}
+
+#inst {
+    font-family: 'MapoGoldenPier';
+    text-align: center;
+    line-height: 20px;
+    font-size: 50px;
+}
+
+.full {
+    font-family: 'MapoGoldenPier';
+    background-color: var(--profile-main-color);
+}
+
+main {
+    background-color: var(--profile-main1-color);
+    }
+
+/* section {
+    width: 300px;
+    height: 300px;
+    flex: 1; 동일한 너비로 설정 
+    margin: 150px 40px 50px 40px; 섹션 사이의 간격 조정 
+    justify-content: space-between;
+    
+    } */
+.grid_box {
+    margin: 15px;
+    display: inline-grid;
+    grid-template-rows: repeat(4, 200px); 
+    grid-template-columns: repeat(3, 250px);
+    grid-template-areas:
+    "grid_box9 grid_box8 grid_box7"
+    "grid_box6 grid_box5 grid_box4"
+    "grid_box3 grid_box2 grid_box1"
+    "grid_box3 grid_box2 grid_box1";
+    gap: 10px 20px;
+}
+
+
+.grid_box4, .grid_box5 img{
+    width: 10px;
+    height: 10px;
+}
+.grid_box1{
+    background-color: red;
+    grid-area:grid_box1;
+}
+.grid_box2{
+    background-color: orange;
+    grid-area:grid_box2;
+}
+.grid_box3{
+    background-color: green;
+    grid-area:grid_box3;
+}
+/* .grid_box4{
+    background-color: yellow;
+    grid-area: grid_box4;
+} */
+.grid_box5{
+    background-color: yellow;
+    grid-area:grid_box5;
+}
+.grid_box6{
+    background-color: violet;
+    grid-area:grid_box6;
+}
+.grid_box7{
+    background-color: navy;
+    grid-area:grid_box7;
+}
+.grid_box8{
+    background-color:white;
+    grid-area:grid_box8;
+}
+.grid_box9{
+    background-color:rgb(160, 159, 159);
+    grid-area:grid_box9;
+}

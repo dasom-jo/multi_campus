@@ -1,0 +1,52 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #fffde7;
+}
+
+header {
+    height: 100px;
+    background-color: #ffe082;
+}
+
+nav {
+    height: 100px;
+    background-color: #ffd54f;
+}
+
+section {
+    background-color: #ffca28;
+    overflow: hidden;
+    padding: 2%;
+}
+
+section > div {
+    height: 170px;
+    width: 23%;
+    margin: 1%;
+    background-color: #ff9807;
+    float: left;
+    border-radius: 5px;
+}
+
+footer {
+    height: 100px;
+    background-color: #ffb300;
+}
+
+@media (max-width: 768px) {
+    section > div {
+        width: 29.333333333%;
+        margin: 2%;
+    }
+}
+
+@media (max-width: 425px) {
+    section>div {
+        width: 44%;
+        margin: 3%;
+    }
+}

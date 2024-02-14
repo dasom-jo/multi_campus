@@ -1,0 +1,65 @@
+/* div{
+    width: 80px;
+    height: 80px;
+} */
+
+
+.box1 {
+    float: right;
+    background-color: blue;
+}
+.box2 {
+    float: left;
+    background-color: blueviolet;
+}
+
+.box3 {
+    /* float: none; */
+    float: left; 
+    background-color: aqua;
+    
+}
+
+.box4 { 
+     float: right;
+    /* float: none; */
+    /* clear:both */
+    border: 1px solid;
+} 
+
+/* 오른쪽 두개면 먼저잇는데 오른쪽에 먼저 도착하는 느낌으로 가장 오른쪽에 잇음 
+none은 속성 무효화 대신 한쪽으로 몰린다면 그윗 배치를 따라감
+플릇트는 따라가기때문에 클리어 보쓰로 영향력을 지움
+*/    
+
+
+
+
+div {
+    width: 100px;
+    height: 100px;
+}
+
+.box5 {
+    float: left;
+    background-color: palevioletred;
+}
+
+
+.box6 {
+    float: right;
+    background-color:pink;
+}
+
+
+.box7 {
+    float: right;
+    background-color: gold;
+}
+
+
+.box8 {
+    float: right;
+    background-color:yellowgreen;
+}
+

@@ -1,0 +1,26 @@
+
+
+.box1 {
+    float: left; 
+    width: 100px;
+    position:static;
+    /* top: 30px; position:static 에서는 이용불가 */
+    padding: 20px;
+    margin-right: 10px;
+    border: 30px solid;
+    background-color: blue;
+}
+.box2 {
+    width: 300px;
+    padding: 20px;
+    /* float: left; */
+    background-color: blueviolet;
+}
+
+
+
+/* 오른쪽 두개면 먼저잇는데 오른쪽에 먼저 도착하는 느낌으로 가장 오른쪽에 잇음 
+none은 속성 무효화 대신 한쪽으로 몰린다면 그윗 배치를 따라감
+플릇트는 따라가기때문에 클리어 보쓰로 영향력을 지움
+*/    
+

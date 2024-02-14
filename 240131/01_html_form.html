@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>form 기초</title>
+</head>
+<body><!--액션은 폼내부에 작성한 입력값을 어디에 전송할지 서버의 주소를 지정-->
+    <form action="https://search.naver.com/search.naver" method="get">
+        <!--입력양식 태그의 name 속성으로 입력한 값이 전달된다.값을 전달하기위한 이름부여-->
+        <input type="search" name="query"/>
+        <input type="submit" value="검색">
+
+    </form><!--네이버 주소창에잇는 마지막 주소 query=html/네이버 검색창 낑겨스는데 네이버는 method에서 get
+    방식만 하지 post방식은 지원하지않음/기본값은 겟/ 겟은 정보르 손으로들고 가는거고 포스트는 여러 주머니에들고간다 포스트가 더 많은
+데이터를 가지고갈수잇다 /대신 겟은 노출되잇다보니 보안에 취약하다 포스트는 숨겨져잇어 보안에 좋음/로그인은 포스트에좋음
+  겟방식은 텍스트만 포스트는 이미지파d일등등이동가능/-->
+<hr>
+        <form>
+            <fieldset><!--필드셋은 입력양식태글르 그룹으로 묶는 태그-->
+                <legend>로그인선택</legend><!--레전드는 각 필드셋에대한 범례/필드셋안에 하나씩만/-->
+                <!--for와id 요소가 같아야함 name도 같으면 편해짐-->
+                <label for="id">아이디</label>
+                <input type="text" id="id" name="id"><br>
+
+                <label for="password">비밀번호</label>
+                <input type="text" id="password" name="password"><br>
+                <!--아이디를 누르면 아이디 칸이 눌림/-->
+                <input type="submit" value="로그인">
+            </fieldset>
+        </form>
+</body>
+</html>

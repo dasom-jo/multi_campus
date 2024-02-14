@@ -1,0 +1,40 @@
+#flex_box {
+    height: 200px;
+    border: 1px solid black;
+    display: flex;
+    flex-direction: column;  /*row, row-inverse,column, column-inverse*/
+}
+
+/* inline-fex는  박스 테두리까지 줌
+flex 그냥 박스만 수평. 개발자도구로 보면 보라색 격자 잇음. 개발자 도구에서 아이콘으로 
+변경 가능 
+flex-wrap은 뷰포트 작아지면 상wk하나가 아래로 갈수잇도록 함 개발자도구 참조 
+heigh부여시 테두리 넓어지고 그사이에서 또 상자 이동 가능 개발자 참조
+main axis  기본가로축
+frlx-dierction: row row-p-invwese column----
+flex-flow: 플랙스 방향, 줄배치
+order 플렉스 항목 배치 바꾸기
+flex 기본크기정하기grow,shrink,basis*/
+
+
+
+.flex_item {
+    margin: 1px;
+    background-color: red;
+    width: 100px;
+    height: 100px;
+}
+
+.box1 {
+    order: 1;
+}
+.box2 {
+    order: 2;
+}
+.box3 {
+    order: 3;
+}
+
+/* jusify-content 플렉스 항목(가로축)을 주축 방향으로 배치할지 flex-start,end,center,space-between,around
+align-otem,align-self교차축(꼭지점)을 기준으로 배치 
+align-cotent 플렉스항목이 여러줄로 표시될때 배치  */

@@ -1,0 +1,22 @@
+giothub t
+240131
+1.crud
+creat회원가입
+read 로그인
+update 수정
+delete탈퇴
+
+form 태그 
+method  -get post
+
+fieldset 폼요소를 그룹으로 묶음
+
+http:// 와 https 의차이는 s는 인증서가 
+잇다는뜻으로 사용하기 까다롭지만
+보안에 좋고 유료임
+
+
+input
+-radio
+-checkbox
+-

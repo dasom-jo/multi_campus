@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>어떤스타일이 적용될까요</title>
+    <link rel="stylesheet" href="./css/main.css" >
+</head>
+<style>
+    h2 {
+    color: orange  /*!important*/; 
+    }/* !넣으면 너무 중요 우선시해짐 하지만 굳이 쓰지마셈 */
+    p {
+    background-color: orange; 
+    }
+</style>
+<body>
+    <h2 style="color: yellow;" >cascading의 의미를 생각해보자</h2>
+    <p style="background-color: yellow;">실습으로 확인해보자  </p>
+</body><!--폭포 처럼 들어가서 가장 아래인 엘로우가 됨 인라인요소 우선 -->
+</html>

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+>
+
+<p>20240131</p>
+
+<label for="datalist">선택상자</label>
+<input type="text" list="datalist">
+<datalist id="datalist" name="season">
+    <option selected disabled>=계절을 선택하세요=</option>
+    <option value="spring">봄</option>
+    <option value="summer">여름</option>
+    <option value="fall">가을</option>
+    <option value="winter">겨울</option>
+</datalist>
+<hr>
+<label for="select">선택상자</label>
+<select name="season" id="select">
+<option selected disabled>계절을 선택해주세요</option>
+<option value="spring">봄</option>
+<option value="summer">여름</option>
+<option value="fall">가을</option>
+<option value="winter">겨울</option>
+</select>
+
+
+<hr> 
+
+<form action="" method="get">
+    <fieldset>
+        <legend >계정 생성</legend>
+        <label for="user_id">아이디:</label>
+        <input type="text" name="user_id" id="user_id" placeholder="아이디를 입력해주세요" required>
+        <button type="button" onclick="alert('사용 가능한 아이디입니다.')">확인</button>
+        <br>
+    <label for="user_pw">비밀번호:</label>
+    <input type="text" name="user_pw" id="user_pw" required>
+    </fieldset>
+
+    <fieldset>
+        <legend>필수입력</legend>
+        <label for="user_name">이름:</label>
+        <input type="text" name="user_name" id="user_name" required>
+        <br>
+        <label for="user_birth">생년월일:</label>
+        <input type="date" name="user_birth" id="user_birth" min="1900-01-01" max="2024-12-31"required>
+        <br>
+        <label for="user_age">나이:</label>
+        <input type="number" name="user_age" id="user_age" min="0" max="100"required>
+        <br>
+        <label>성별:</label>
+        <input type="radio" name="user_gender" id="man" checked>
+        <label for="man">남자</label>
+        <input type="radio" name="user_gender" id="woman" >
+        <label for="woman">여자</label>
+        <br>
+        <label>취미:</label>
+        <input type="checkbox" name="user_hobby" id="climb" checked>
+        <label for="climb">등산</label>
+        
+        <input type="checkbox" name="user_hobby" id="read">
+        <label for="read">독서</label>
+        
+        <input type="checkbox" name="user_hobby" id="shoping">
+        <label for="shoping">쇼핑</label>
+        <br>
+        <label for="file">프로필 이미지 등록:</label>
+        <input type="file" name="user_file" id="user_file" accept="image/*" required>
+        <br>
+        <label for="phone">전화번호:</label>
+        <input type="tel" name="user_phone" id="phone" required>
+        <br>
+        <label for="email">이메일:</label>
+        <input type="email" name="user_email" id="user_email" required>
+        <br>
+    </fieldset>
+    <fieldset>
+        <legend>SNS(선택입력)</legend>
+        <label for="user_url">SNS 주소:</label>
+        <input type="url" name="user_url" id="user_url">
+        <br>
+        <label for="user_range">SNS 인기도 등급(1~5):</label>
+        <input type="range" name="user_range" id="user_range" min="1" max="5">
+        <br>
+        <label for="user_keyword">검색 키워드:</label>
+        <input type="search" name="user_keyword" id="user_keyword">
+
+    </fieldset>
+    <fieldset>
+        <legend>추가 정보 (선택입력)</legend>
+        <label for="user_fav_color">좋아하는 색:</label>
+        <input type="color" name="user_fav_color" id="user_fav_color" >
+        <br>
+        <label for="sleep_time">취침시간</label>
+        <input type="time" name="sleep_time" id="sleep_time">
+        <br>
+        <label for="user_alarm">희망 알람 날짜 및 시간:</label>
+        <input type="datetime-local" name="user_alarm" id="user_alarm">
+    </fieldset>
+    <button type="submit" >회원가입</button>
+    <button type="reset" >다시입력</button>
+    <button type="button" onclick="alert('수고하셨습니다')">이벤트 문구</button>
+</form>
+
+
+</body>
+</html>

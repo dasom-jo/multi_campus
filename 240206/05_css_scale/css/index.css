@@ -1,0 +1,38 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+section {
+    width: 200px;
+    height: 200px;
+    background-color: antiquewhite;
+    margin: 50px;
+    perspective: 150px;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: aquamarine
+}
+
+.box1:hover {
+    transform: scalex(1.2);
+    transform-origin: left top;
+}
+/* transform-origin: left top;왼쪽을 기준으로
+그쪽은 안ㄷ늘어나고 오른쪽으로만 쭊 늘어짐 기준점은 고정은되지만 쪼끔 커질수동*/
+
+
+.box2:hover {
+    transform: scaley(0.5);
+    transform-origin: right bottom;
+}
+
+.box3:hover {
+    transform: scale(1.5, 0.8);
+
+    /* 하나만 쓰면 엑스값와이값 다 먹음 */
+}
+

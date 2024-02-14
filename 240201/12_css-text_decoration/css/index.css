@@ -1,0 +1,10 @@
+ul{
+    list-style:circle;
+}
+/* ul은 리스트이기때뮨에 텍스트가 아니라 리스트 */
+ul > li > a{
+    text-decoration: none;
+    color: black;
+} 
+/* 밑둘 사라짐 글자색까지 검정되서 주소 코드인지 모를정도 */
+

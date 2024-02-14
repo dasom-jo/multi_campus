@@ -1,0 +1,43 @@
+input[placeholder] {
+    background-color: red;
+}
+
+input[value] {
+    color: red;
+} 
+
+/* [attr ~= value]: (속성과 속성값)이 완벽히 일치하는 요소에 스타일을 적용!!! */
+input [type="email"], input[type="tel"] {
+    background-color: blue;
+}
+
+fieldset[class="input-box"] {
+    border:10px dotted black
+}
+/* 인풋-옵션박스는 적용안됨 완전히 일치하지않아서 */
+/* [attr ~= "value"]:  속성과 속성값)이일치하는 요소에 스타일을 적용(단어기준,공백구분) */
+fieldset[class~="input-box"] {
+    border:10px dotted black
+}
+
+/* [attr | = "value"]:  (속성과 속성값)이일치하는 요소에 스타일을 적용(단어기준,공백구분,하이픈앞에잇는것만[접두사],완벽히) */
+fieldset[class |="option"] {
+    border:10px dotted red
+}
+/* [attr ^ = "value"]:  value로 시작하는 속성값!!! */
+fieldset[class ^="input"] {
+    border:10px dotted orange
+}
+
+
+/* [attr $ = "value"]:  value로 끝나는 속성값!!! */
+fieldset[class $="input"] {
+    border:10px dotted green
+}
+
+
+/* [attr * = "value"]:  value이 포함된 속성값 */
+input[name *="_" ]{
+    background-color: aqua;
+}
+

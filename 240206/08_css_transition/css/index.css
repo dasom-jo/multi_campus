@@ -1,0 +1,37 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    width: 500px;
+    height: 500px;
+}
+
+.to_blue {
+    width: 100px;
+    height: 100px;
+    background-color: skyblue;
+}
+
+/* .to_blue {
+    transition-property: background-color;
+    transition-duration:5s
+    transition-2s
+    tran
+}
+ */
+
+
+.to_circle {
+    width: 100px;
+    height: 100px;
+    background-color: yellow;
+    border: 2px solid black;
+}
+
+.to_circle:hover {
+    transition: 1s 1s ease-in;
+    border: 2px solid red;
+    border-radius: 100%;
+}

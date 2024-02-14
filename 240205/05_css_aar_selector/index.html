@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="KO">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>회원가입</title>
+    <link rel="stylesheet" href="./css/index.css">
+    <style>
+        legend{
+            background-color: blanchedalmond;
+        }
+       
+    </style><!--.클래스/ 태그 legend 아무것도안쓰면/id는 # -->
+</head>
+       
+<body>
+    <form action="" method="get">
+        <!--<div></div> 의미없는 블록 name은 중요하니 통일성을 갖추도록 -->
+        <fieldset class="input-box">
+            <legend>계정 생성</legend>
+            <label for="id">아이디:</label>
+            <input type="text" name="user_id" id="id" placeholder="아이디를 입력해주세요" autofocus required>
+            <button type="button" onclick="alert('사용가능한 아이디입니다.')">확인</button><br>
+            <label for="password">비밀번호:</label>
+            <input type="text" name="user_password" id="password"required >
+
+        </fieldset>
+    
+        <fieldset class="input-box basis-input">
+            <legend>필수입력</legend>
+            <label for="name">이름:</label>
+            <input type="text" name="user_name" id="name" required><br>
+            <label for="date">생년월일:</label>
+            <input type="date" name="user_birthday" id="date" min="1900-01-01" max="2024-12-31"required><br>
+            <label for="age">나이:</label>
+            <input type="number" name="user_age" id="age" min="0" max="100" required><br>
+            
+            <label>성별:</label><!--두가지 유형으로써봄/name 값은 같은 값-->     
+            <label for="man">
+                <input type="radio" name="user_gender" id="man" value="m">
+                <span>남자</span>
+            </label>          
+            <input type="radio" name="user_gender" id="woman" value="w" checked>
+            <label for="woman">여자</label> <br>
+            
+            <label>취미:</label>
+            <input type="checkbox" name="user_hobby" id="climb" value="climb">
+            <label for="climb">등산</label>
+            <input type="checkbox" name="user_hobby" id="game" value="game" >
+            <label for="game">게임</label>
+            <input type="checkbox" name="user_hobby" id="read" value="read" >
+            <label for="read">독서</label>
+            <input type="checkbox" name="user_hobby" id="movie" value="movie">
+            <label for="movie">영화감상</label>
+            <br>
+            
+            <label for="file">프로필이미지등록:</label>
+            <input type="file" name="user_image" id="file" accept="image/*"  required><br>
+            <label for="phone">전화번호:</label>
+            <input type="tel" name="user_phone" id="phone"required><br>
+            <label for="email">이메일:</label>
+            <input type="email" name="user_email" id="email" required>
+        </fieldset>
+        <fieldset class="option-input">
+            <legend>SNS(선택입력)</legend>
+            <label for="url">SNS 주소:</label>
+            <input type="url" name="user_url" id="url"><br>
+            <label for="popular">SNS 인기도 등급(1~5):</label>
+            <input type="range" name="user_popular" id="popular" min="1" max="5" ><br>
+            <label for="keyword">검색키워드:</label>
+            <input type="search" name="user_keyword" id="keyword">
+
+        </fieldset>
+        <fieldset class="option-input"><!--띄어쓰기 대신 언더바등을 쓰기-->
+            <legend>추가 정보 (선택입력)</legend>
+            <label for="color">좋아하는 색:</label>
+            <input type="color" name="user_color" id="color"><br>
+            <label for="sleeptime"> 취침시간:</label>
+            <input type="time" name="user_sleeptime" id="sleeptime"><br>
+            <label for="alram">희망 알람 날짜 및 시간:</label>
+            <input type="datetime-local" name="user_alram" id="alram">
+        </fieldset>
+        <button type="submit">회원가입</button>
+        <button type="reset">다시입력</button>
+        <button type="submit" onclick="alert('수고하셨습니다.')" >이벤트 버튼</button>
+    </form>
+</body>
+</html>

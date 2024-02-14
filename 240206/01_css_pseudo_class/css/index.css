@@ -1,0 +1,63 @@
+ul {
+    list-style: none;
+}
+
+li.hot::after {
+    content: "hot!";
+    font-size: x-small;
+    background-color: blue;
+    color: antiquewhite;
+    margin: 0 10px;
+    padding: 2px 4px;
+    border-radius: 3px;
+
+}
+
+li.new::after {
+    content: "new!";
+    font-size: x-small;
+    background-color: red;
+    color: antiquewhite;
+    margin: 0 10px;
+    padding: 2px 4px;
+    border-radius: 3px;
+ 
+}
+
+
+/* li:not(.hot)::after {
+    content: "특가";
+    font-size: x-small;
+    background-color: red;
+    color: antiquewhite;
+    margin: 0 10px;
+    padding: 2px 4px;
+    border-radius: 3px;
+
+} */
+
+/* 에프 비포터에는 콘텐ㅌ츠 무조건  hotnew 동시에 안나옴*/
+
+li::before {
+    display: inline-block;
+    content: "";
+    background-image: url(https://cdn-icons-png.flaticon.com/512/3342/3342137.png);
+    background-size: 12px 12px; /*여기까지하면 반복되서 이상한 모양 */
+    background-repeat: no-repeat;
+    width: 12px;
+    height: 12px;
+    margin-right: 10px;
+}
+/* 아이콘 이미지 넣기 위엣거  */
+
+
+
+p::first-letter {
+    font-size: large;
+    font-weight: bold;
+
+}
+
+p::first-line {
+    font-weight: bold;
+}

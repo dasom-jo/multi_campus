@@ -1,0 +1,14 @@
+@font-face {
+    font-family: 'WagleWagle';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2301-wagle@1.0/WagleWagle.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;}
+
+p {
+    font: italic small-caps 400 20px/10px "WagleWagle", serif ;
+}
+/* style,variant,weight,size,/line-height family  중간생략 가능 
+
+font-style,font-variant,font-weoght는 font-size 앞으로 와야한다
+line-height는 사이즈 다음에 와야하며 /로 구분
+폰트 패밀리는 마지막에 온당*/

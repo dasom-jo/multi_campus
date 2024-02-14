@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박스모델</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <h1>박스모델</h1>
+    <p>박스모델은 콘텐츠 영역, 테두리, 마진으로 구성된다.</p>
+    <div class="container"><!--박스모델구성-->
+        <input type="text" name="user_text" id="user_text" placeholder="입력하세요">
+    </div>
+    <div class=container id="mother">
+        <div id="child">
+        </div>
+    </div>
+    
+    <!--ㄴ뫂이와 너비-->
+    <!--dispay:block 인라인 요소를 블록으로 변환-->
+    <div class="container">
+        <img src="https://placehold.co/100x100" alt="이미지">
+        <img src="https://placehold.co/100x100" alt="이미지">
+        <img src="https://placehold.co/100x100" alt="임지">
+    </div>
+ <!--dispay:inlime 인라인 요소로변환-->
+    <div class="container">
+        <ul id="inline">
+            <li><a href="#">home</a></li>
+            <li><a href="#">about</a></li>
+            <li><a href="#">product</a></li>
+            <li><a href="#">service</a></li>
+            <li><a href="#">community</a></li>
+        </ul>
+    </div>
+<!--display-inlin block-->
+    <!--인라인 요소에 inline- block을 주면 ㅡ 크기를 가질수이삳-->
+    <!--블록요소에 인라인-블록을 주면 줄바꿈이 일어나지않은다(수평으로 쌓인다)-->
+<div class="container">
+
+        <ul id="inline-block">
+
+            <li><a href="#">home</a></li>
+            <li><a href="#">about</a></li>
+            <li><a href="#">product</a></li>
+            <li><a href="#">service</a></li>
+            <li><a href="#">community</a></li>
+        </ul>
+    </div>
+
+    <!--display:none/visibility:hidden-->
+    <div class="container" > 
+        <p>display:none과 visibility는 다르다</p>
+            <div class="blue-box none"></div>
+            <div class="blue-box hidden"></div>
+    </div>
+</body>
+</html>

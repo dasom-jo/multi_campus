@@ -1,0 +1,75 @@
+시험정리
+
+1.html hyper text markup language
+<태그명 속성="속성값" 속성="속성값속성값">내용</태그명>
+
+##주석 
+<!---->
+주석은 브라우러에서 무시된다. 
+코드에대한 설명이나 메모를 추가할때 사용한다.
+
+css주석 /**/
+
+3.태그
+html-head body
+head-meta,title,link,style,script
+body-script,.......
+        제목태그 h1-h6 
+        리스트oluldl
+	테이블:table,caption,tr ,th ,td 
+	폼:[form(action,method,target){fieldset-legend,input{type-text,pw,url.....}-label,select-option,}
+		selext-option이건 타입으로 안들어가고 단독태그로들어감
+	앵커태그 [a(href=같은현재페이지,웹페이지, 전화 이메일등 으로 이동가능)
+###시멘틱태그  : 의미상의  의미론적인 이라는 의미를 가진 단어로 ,의미없는 태그에 의미를 부여해서 사용하는것입니다. //div----hearder,main, footer
+		이득:1검색엔진 최적화 seo
+			2:소외된 약자에게 공평한 서비스제공
+			3.개발자 편리 
+
+4.css cascading style sheets
+선택자 { 
+		속성:속성값;
+		속성:속성값; 
+}
+
+<link rel="style sheet" href="./css/경로.css">
+
+텍스트속성
+font-size,font-weight,font-style...........
+color
+text-decoration,text-align,jutify-,text-shadow
+
+디자인
+list-style-type
+background-color,background-image
+border
+boerder-radius
+box-shadow
+margin,padding(상하,좌우/상우하좌 )
+
+레이아웃
+box-sizing: border-box/<content-box> (기본값)
+		{margin:0px  padding:0px  bax-sizing: border-box}
+ /*주석*/
+
+float, clear ,
+position 
+z-index 요소가 쌓이는 순서  z축 
+flex.grid - 높은 브라우저 호환성을 적용하지않는다 
+
+
+-------------------------------
+변형 (transform)특정요소의 크기나 형태등 스타일이 바뀌는것
+transform:함수
+
+keyframes!!중요중요 
+@keyframes <이름> {<선택자>{<스타일>}}
+
+
+
+
+
+
+
+
+
+

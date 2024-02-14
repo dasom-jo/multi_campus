@@ -1,0 +1,48 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+section {
+    width: 200px;
+    height: 200px;
+    background-color: antiquewhite;
+    margin: 50px;
+    perspective: 150px;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: aquamarine
+}
+
+.box1:hover {
+    transform: translateX(-50px);
+    
+}
+/* 호버는 마우스 올렷을떄 움직임 */
+
+.box2:hover {
+    transform: translatey(-50px);
+}
+
+.box3:hover {
+    transform: translatez(-50px);
+}
+/* z는 한화면에서 높낲이 구분이 안되서 그냥으 ㄴ안보임 대신 
+perspective: 150px; 를 넣어줌 */
+
+button{
+    margin: 20px;
+    padding: 20px;
+}
+
+button:active {
+    margin: 20px;
+    padding: 20px;
+    box-shadow: 0 1px 1px black inset;
+    transform: translate(1px,-5px);
+    /* transform: translate(x,y,z); */
+}
+/*transform: translate(1px,-1px); 각 엑스값 와이값임  */
