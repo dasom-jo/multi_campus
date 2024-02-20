@@ -4,7 +4,7 @@ const section = document.querySelector('section');
 const p = document.querySelector('p');
 
 function bubbling(e) {
-    console.log(`버블링 => e.target:${e.target.tagName},e.currentTarget:'${e.currentTarget.tagName}}`);
+    console.log(`버블링 => e.target:${e.target.tagName},e.currentTarget:${e.currentTarget.tagName}}`);
 }  
 
 

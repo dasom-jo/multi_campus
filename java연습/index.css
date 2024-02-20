@@ -1,21 +1,49 @@
-*{
-    margin: 0px;
-    padding: 0px;
-}
-
 #container {
     width: 400px;
-    height: 300px;
-    border: 2px solid #bbb;
-    display: flex;
-    justify-content: space-between;
-    align-items:center ;
+    margin: 10px;
 }
 
-.arrow{
-    font-size: 2em;
-    padding: 0 10px;
-    background-color: pink;
-    cursor: pointer;
+#userInput {
+    list-style: none;
+    width: 400px;
 }
 
+#userInput label {
+    width: 50px;
+    margin-right: 10px;
+    line-height: 30px;
+}
+
+#userInput input {
+    width: 200px;
+    height: 30px;
+    margin-bottom: 10px;
+}
+
+button {
+    width: 300px;
+    padding: 15px;
+}
+
+#attendant {
+    margin-top: 20px;
+}
+
+table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+}
+
+th,
+td {
+    border: 1px solid #ccc;
+    padding: 10px;
+}
+
+th:first-of-type {
+    width: 150px;
+}
+
+th:last-of-type {
+    width: 250px;
+}

@@ -4,10 +4,9 @@ let name = document.querySelector('#username').value;
 let major = document.querySelector('#major').value;
 
 let add = (e) => {
-    e.
-addBtn.addEventListener('click',(e)=>{
-    //console.log(`${name}, ${major}`); 콘솔창에 찍히게만듬
-   // e.preventDefault();
+    e.addBtn.addEventListener('click',(e)=>{
+    console.log(`${name}, ${major}`); //콘솔창에 찍히게만듬
+    e.preventDefault();//여기 e가잇기때문에 매개변수를 e로지정하면 좋음?
 
     if(name && major) {//이값이 잇으면
 
@@ -37,16 +36,16 @@ let tdMajor = document.createElement('td');
     //console.log(tr,tdName,tdMajor);
 
     }
-})
+})}
 
 document.addEventListener('click',(e => {
     e.prevenyDefault();
     add();
-});
+}));
 
 document.querySelector('#major').addEventListener('keyup', (e) => {
     if (e.code == "Enter") {
         add();
-    }
+    }})
 
 
