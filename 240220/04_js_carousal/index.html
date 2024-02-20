@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>캐리셀</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div id="container">
+        <div class="arrow" id="left">&lang;</div>
+        <div class="arrow" id="right">&rang;</div>
+    </div>
+
+    <script>
+        const container = document.querySelector('#container');
+        //container.style.backgroundImage = "url(./images/pic-1.jpg)";
+        const imgArr = ['pic-1.jpg','pic-2.jpg','pic-3.jpg','pic-4.jpg','pic-5.jpg','pic-6.jpg']
+        let imgIdx = 0;
+        container.style.backgroundImage =`url(./images/${imgArr[imgIdx]})`;
+
+
+    
+
+        // const left_arrow = document.querySelector('#left');
+        // const right_arrow = document.querySelector('#right');
+
+
+        function right_arrow_func() { //wo사용을 위해
+            right_arrow.addEventListener('click', () => {
+                imgIdx++;
+                if(imgIdx >= imgArr.length) {
+                    imgIdx = 0;
+                }
+            container.style.backgroundImage = "url(./images/pic-3.jpg)";
+            })
+        }
+
+        left_arrow.addEventListener('click', () => {
+            imgIdx--; //이미지 자릿수 감소
+            if(imgIdx < 0) {
+                imgIdx = imgArr.length - 1;
+            }
+            container.style.backgroundImage =  "url(./images/pic-2.jpg)";
+        })
+
+        // right_arrow.addEventListener('click', () => {
+        //     imgIdx++;
+        //     container.style.backgroundImage = "url(./images/pic-3.jpg)";
+        // })
+
+        // 시간마다 자동으로 넘어가게
+        setInterval(right_arrow_func,3000);
+
+        //<!------------------------------------------------------------------->
+        
+        function arrow_func(e) {
+            if (e?.target.id == 'left') {
+                imgIdx--;
+                if (imgIdx <0) {
+                    imgIdx = imgArr.length - 1; 
+                }
+            } else {
+                if(imgIdx >= imgArr.length) {
+                    imgIdx = 0;
+                }
+            container.style.backgroundImage = "url(./images/pic-3.jpg)";
+            }}
+
+
+//<!------------------------------------------------------------------->
+        //더줄이는중
+            const arrows = document.querySelector('.arrow');
+        for (let arrow of arrows) {
+            arrow.addEventListener('click', arrow_func);
+        }
+        
+    </script>
+    <script src="./js/index/js"></script>
+</body>
+</html>
+

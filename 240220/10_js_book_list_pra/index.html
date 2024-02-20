@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>도서목록</title>
+    <link rel="stylesheet" href="./css/index.css">
+<body>
+    <div id="container">
+        <h1>Book List</h1>
+        <form>
+            <ul id="booklnfo">
+                <li>
+                    <label for="title">제 목</label>
+                    <input type="text" id="title">                    
+                </li>
+                <li>
+                    <label for="author">저 자</label>
+                    <input type="text" id="author">
+                </li>
+            </ul>
+
+            <button type="reset">취소하기</button>
+            <button tyve="save" id="save">저장하기</button>
+            
+        </form>
+        <ul id="booklist"></ul>
+    </div>
+
+
+    <script>
+        const title = document.querySelector('#title'); //제목정보
+        const author = document.querySelector('#author');
+        const save = document.querySelector('#save');
+        const booklist = document.querySelector('#booklist');
+
+        save.addEventListener('click', (e)=>{
+            e.preventDefault();
+                const item = document.createElement("li");
+                item.innerHTML =`
+                ${title.value} - ${author.value}
+                <span class="delButton">삭제</span>`;
+                booklist.appendChild(item);
+
+                title.value="";
+                author.value="";
+
+                const delButtons = document.querySelectorAll(".delButton");
+                for (let delButton of delButtons ){
+                    delButton.addEventListener('click',function() {
+                        this.parentNode.remove();
+                    });
+                }
+        });
+    </script>
+</body>
+</html>

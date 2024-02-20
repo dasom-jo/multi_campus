@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스를 이용한 스타일</title>
+    <style>
+        .clicked {
+            background-color: red;
+        }
+        .title {
+            font-size: 16px;
+            font-weight: 400;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">클래스를 이용한 스타일</h1>
+    <h2 class="title clicked">클래스를 이용해 스타일을 바꾸자</h2>
+    
+
+<script>
+    let title = document.querySelector('h1');
+    let title2 = document.querySelector('h2');
+
+    title.onclick = () => {
+    //방법1
+    title.className = 'clicked'; //클래스 이름변경title->clicked
+    title.classList.contains('clicked') ? title.classList.remove('clicked') : title.classList.add('clicked');
+    //방법2
+    if (title.classList.contains('clicked')) {
+        title.classList.remove('clicked');
+    }else {title.classList.add('clicked');}
+    }
+    //방법3
+    title2.onclick =function() {
+        title2.classList.toggle('clicked');
+    }
+
+    //toggle :토글은 클래스를 토글하는 매서드입니다. 즉 클래스가 요소에 이미 존제하는 경우 제거하고, 존재하지않는 경우 
+    //추가합니다. 자바스크립트에서는  'classList.toggle()'매서드를 사용하여 이작업을 수행
+</script>
+</body>
+</html>

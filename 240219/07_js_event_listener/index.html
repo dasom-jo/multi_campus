@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 기초</title>
+</head>
+<body>
+    <input id="btn" type="button" value="클릭">
+    <script>
+        //요소.addEventListener(이벤트명, 함수, 캡처링 여부);
+        //캡쳐링 더 상세한 이벤트 구현 가능/ 트루는 탭처링 펠스는 버블링을 한다는 의미 기본갑시 펠스
+        //on방식은 overwrite덮어쓰기   방식이지만
+        //addeventlistner 방식은 누적 이벤트 방식이다.
+        //addeventlistner 는 IE 6.7.8 버전은 지원하지않는다 
+        let btn = document.querySelector('#btn');
+        // btn.addEventListener("click", () => {})
+        btn.addEventListener("click", () => {alert('a')})
+
+        //누적
+        //et btn = document.querySelector('#btn');
+        //btn.addEventListener("click", () => {alert('a')})
+        //btn.addEventListener("click", () => {
+        //    alert('c')
+        //})
+        //btn.addEventListener("click", function() {alert('b')})
+
+    </script>
+</body>
+</html>

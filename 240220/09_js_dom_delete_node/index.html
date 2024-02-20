@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>장바구니 삭제</title>
+    <style>
+        #cart{
+            padding: 0 20px;
+        }
+        span {
+            font-weight: bold;
+            color: pink;
+        }
+        span:hover{
+            color:rosybrown;
+        }
+        
+
+    </style>
+</head>
+<body>
+    <div id="cart">
+        <h1>장바구니</h1>
+        <div id="products">
+            <p>
+                <span>&cross;</span>
+                셀린느
+            </p>
+            <p>
+                <span>&cross;</span>
+                디올
+            </p>
+            <p>
+                <span>&cross;</span>
+                입생
+            </p>
+        </div>
+    </div>
+
+    <script>
+        
+        const btns = document.querySelectorAll('p > span');
+        for(let btn of btns) {
+            btn.addEventListener('click', function() {
+                //console.log(this.parentNode); //화살표함수안됨//부모요소를 알게됨
+                this.parentNode.remove(); //삭제//
+                //this.parentNode.parentNode.removeChild(this.parentNode);증조할머니 노드 이런거없으니 부모 반복
+            })
+        }
+    </script>
+</body>
+</html>
