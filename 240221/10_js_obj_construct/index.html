@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>생성자 함수를 이용해 ㄱ개체를 정의</title>
+</head>
+<body>
+    <!-- //생성자 함수와 클래스
+    //Date 함수 date 클래스
+    //랫 투데이 = 뉴데이트(); 
+    생성자함수이기에 첫글자 대문자 함수내부에 디스 함수 사용 (화살표쓰지마셈)-->
+
+    <script>
+        function Book() {
+            this.title = '수학의정석';
+            this.pages = 500;
+            this.price = function() {
+                return this.pages * 10;
+            }
+        }
+
+
+        let mathBook = new Book();
+        console.log(mathBook);
+        //생성자함수 존재의 이유:속성과 함수를 미리 정해놓으면 나중에 갖다 쓰기만 해서 편함 
+        
+
+        
+
+    </script>
+</body>
+</html>

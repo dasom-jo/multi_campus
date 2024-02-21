@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>keys(),value().entries()</title>
+</head>
+<body>
+    <!-- // 객체의 키와 ?로 접근하기 
+        // for-in문 사용  -->
+
+        <script>
+            let Book = {
+                title:'수학',
+                pages:500,
+                price() {
+                return this.pages * 10 
+            }
+            }
+            //1
+            let keys = Object.keys(Book);
+            console.log(keys);
+            //키값이 주르륵 나옴
+//2
+            Object.keys(Book).forEach(e =>{
+                console.log(e);
+            })
+//3
+            let value = Object.values(Book);
+
+            //4/2차원 배열  p = prototype프로포티-배열 포이치 반복가능 
+            let entries = Object.entries() 
+
+
+        </script>
+</body>
+</html>

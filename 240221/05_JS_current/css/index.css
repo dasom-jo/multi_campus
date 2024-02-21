@@ -1,0 +1,35 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    display: flex; /* 가운데정렬*/
+    justify-content: center;
+    align-items: center;
+    height: 100vh; /*보이는것에 가운데 오게끔*/
+}
+
+#container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: left; 
+    border: 1px solid #ccc;
+    border-radius: 15px;
+    padding: 20px;
+}
+
+#today{
+    font-size: 1.2em;
+}
+
+#clock {
+    font-size: 1em;
+    margin: 10px;
+}
+
+span{
+    font-size: bold;
+    color: pink;
+}

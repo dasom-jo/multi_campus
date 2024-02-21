@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>생성자 클래스를 이용해 객체를 정의</title>
+</head>
+<body>
+    <script>
+        class Book {
+            constructor() {
+                this.title = '수학의 정석';
+                this.pages = 500;
+
+            }
+            price() {
+                return this.pages * 10 
+            }
+        }
+        let mathBook = new Book();
+        console.log(mathBook.price());
+
+        
+    </script>
+</body>
+</html>

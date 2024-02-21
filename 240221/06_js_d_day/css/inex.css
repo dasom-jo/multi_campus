@@ -1,0 +1,14 @@
+#container{
+    width: 600px;
+    margin: 0 auto;
+    border: 1px solid #ccc;
+    border-radius: 16px;
+    padding: 24px; 
+    background-color: pink;
+}
+
+#result {
+    font-size: 2em;
+    font-weight: bold;
+    color: hotpink;
+}

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>원의둘레</title>
+</head>
+<body>
+    <script>
+        let radius = 5;
+        let perimeter = 2 *Math.PI * radius;//둘레
+        let area = Math.PI * (radius**2);//너비
+
+        console.log("반지름이 5인 원의 둘레는?",2* Math.PI*radius);
+        console.log("반지름이 5인 원의 너비는?",Math.PI* (radius**2));
+
+        console.log("반지름이 5인 원의 둘레는?[내림]",Math.floor(perimeter));
+        console.log("반지름이 5인 원의 둘레는?[올림]",Math.ceil(perimeter));
+        console.log("반지름이 5인 원의 둘레는?[반올림]",Math.round(perimeter));
+
+
+        //0< Math.random() <1 사이의 무작위수
+        console.log(Math.random());
+        console.log(Math.random());
+        console.log(Math.random());
+
+        //0부터 30까지 무작위 숫자 
+        //Math.random()*30//0~3까지로 증가
+        console.log(Math.random()*30);
+        //0붙 31까지 31 .0 포함
+        console.log(Math.floor(Math.random()*32));
+        //1-31 둘다 포함
+        console.log(Math.floor(Math.random()*31)+1);
+    </script>
+</body>
+</html> 
