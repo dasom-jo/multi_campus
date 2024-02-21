@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script>
+        let date = new Date(); //Date 라는 객체에서 date라는 인스턴스 객체 축출
+        console.log(date);
+
+        console.log(date.getDate());//일
+        console.log(date.getDay()); //요일
+        console.log(date.getFullYear());//년
+        console.log(date.getHours());//시간
+        console.log(date.getMilliseconds()); //ms
+
+        let birth = new Date('1998-02-16');
+        console.log(birth.getDay()); //내생일 요일 
+
+
+        //셋은 세팅 겟은 가져오는거 투는 
+        /*자바스크립트 날짜 시간 입력방식*/
+        new Date('2022-02-04');
+    </script>
+
+</body>
+</html>

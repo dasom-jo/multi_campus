@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>윈도우 주요 메서드</title>
+</head>
+<body>
+    <a href="../00_js_window/index.html">윈도우객체1</a>
+    <a href="../01_js_window/index.html">윈도우객체2</a>
+    <a href="../03_js_popup/index/html">윈도우객체3</a>
+    <a href="../04_js_history/index.html">윈도우객체4</a>
+
+
+
+
+    <button id="back">뒤로가기</button>
+    <button id="forward">앞으로가기</button>
+    
+
+      
+
+
+
+
+
+    <button id="prompt">입력</button>
+    <button id="alert">알림</button>
+    <button id="close">창닫기</button>
+    <button id="confirm">확인.취소</button>
+    <button id="open">열기</button>
+    <button id="move">이동</button>
+    <button id="print">프린터</button>
+    <div style="background-color: aqua; width: 100px;height: 1200px; margin-top: 10px;">
+                스크롤을 위한 불필요한 박스</div>
+    <button id="scroll">스크롤</button>
+
+
+    <script>
+        /*window 객체의 주요 메서드들: 웹브라우저 창과 관련된것이 대부분이다
+        alet(),confirm(),prompt()가 윈도우 객체에잇다*/
+        //window.alert('객체의 주요함수');
+
+        //window.open('파일경로','창이름','창옵션')
+
+        const buttons = document.querySelectorAll('button');
+        let child = window.open('','','width=100px',"height=200px")
+
+        for(let button of buttons) {
+            let id = button.getAttribute('id')
+            switch (id) {
+                case 'prompt' :
+                    button.addEventListener('click',() =>{
+                        window.prompt('내용을 입력해주세요')
+                    })
+                case 'alert' :
+                    button.addEventListener('click', ()=>
+                        window.alert('객체의주요함수')); 
+                        break;
+                case 'close' :
+                    button.addEventListener('click', ()=>
+                        window.close()); 
+                        break;
+                case 'confirm' :
+                    button.addEventListener('click', ()=>{
+                        let result = window.confirm('-하시겠습니까');
+                        console.log(result);
+                    }); 
+                case 'open' : //버튼을 눌러야 열리게
+                    button.addEventListener('click',() =>{ 
+                        child = window.open('','','width=100px',"height=100px")})
+                        break;
+                case 'move': 
+                    button.addEventListener('click', () => {
+                        child.moveby(10,10); // 이만큼이동 to는 이곳으로 이동
+                    });break;
+                case 'print' :
+                    button.addEventListener('click', ()=> {
+                        window.print();
+                    });break;
+                case 'scroll' : //이거안됌 다시해야함 
+                        button.addEventListener('click',() => {
+                            window.scrollTo();
+                        });
+                        break;
+            }
+        }
+
+
+
+
+        const back = document.querySelector('#back');
+        const forward = document.querySelector('#forward');
+        
+
+        back.addEventListener('click',() => history.back());
+        forward.addEventListener('click',() => history.forward());
+
+    </script>
+</body>
+</html>

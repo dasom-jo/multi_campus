@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>history</title>
+</head>
+<body>
+    
+    <!--문서 바꿔치기 
+        <button onclick="location.replace('http://naver.com')">이동</button>*/ -->
+        <button onclick="location.href='http://naver.com'">이동</button>
+        <!--객체의 값을 바꿔주는것-->
+
+
+
+    <a href="../00_js_window/index.html">윈도우객체1</a>
+    <a href="../01_js_window/index.html">윈도우객체2</a>
+    <a href="../03_js_popup/index/html">윈도우객체3</a>
+    <a href="../04_js_history/index.html">윈도우객체4</a>
+
+
+
+
+    <button id="back">뒤로가기</button>
+    <button id="forward">앞으로가기</button>
+    
+
+    <script>
+        const back = document.querySelector('#back');
+        const forward = document.querySelector('#forward');
+        const start = document.querySelector('#start');
+
+        back.addEventListener('click',() => history.back());
+        forward.addEventListener('click',() => history.forward());
+        
+    </script>
+</body>
+</html>

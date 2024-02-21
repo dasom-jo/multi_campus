@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팝업창 열기</title>
+</head>
+<body>
+    <button>팝업창 열기</button>
+    <script>
+        function openPopup() {
+            //브라우저 창기준 한가운데 팝업
+            /*let width = 600;
+            let height = 500;
+            console.log('원본창 위치', screenX, screenY)/2;
+            console.log('원본창 크기', outerwidth,outerHeight)/2;
+            //let top = (원본창위치) + (원본창높이 - hieght) / 2;
+            //let left = (원본창위치) + (원본창너비 - width) / 2;
+            let top = (screenY) + (outerHeight - hieght) / 2;
+            let left = (screenX) + (outerWidth - width) / 2;*/
+            
+
+            //팝업위치:정중앙
+            let width = 600;
+            let height = 500;
+        
+            let top =(screen.availHeight - height)/2; //(활성화된)모니터의 높이를 찾기 
+            let left =(screen.availwidth - width)/2;
+
+            window.open('./popup.html',
+                        '이게팝업입니다',
+                        `width=${width},height=${height} top=${top}, left=${left}`
+                        );
+        }
+        const btn = document.querySelector('button');
+        btn.addEventListener('click',openPopup);
+    </script>
+</body>
+</html>
