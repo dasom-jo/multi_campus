@@ -17,9 +17,20 @@
     <button id="back">뒤로가기</button>
     <button id="forward">앞으로가기</button>
     
-   
 
-       <script>
+    <script>
+        const back = document.querySelector('#back');
+        const forward = document.querySelector('#forward');
+        const start = document.querySelector('#start');
+
+        
+        back.addEventListener('click',() => history.back());
+        forward.addEventListener('click',() => history.forward());
+        
+    </script>
+
+
+        <script>
         /* 자바스크립트의 window 객체 최상위 객체이자 기본이 되는 객체로,
         모든 객체는 window안에잇다.
         주로 창과 관련된 객체와 메서드들이 존재한다
@@ -33,13 +44,6 @@
         console.log('로컬스토리지',window.localStorage);
         console.log('세션 스토리지',window.sessionStorage); 
         
-
-        const back = document.querySelector('#back');
-        const forward = document.querySelector('#forward');
-        
-
-        back.addEventListener('click',() => history.back());
-        forward.addEventListener('click',() => history.forward());
     </script>
 </body>
 </html>
