@@ -44,7 +44,7 @@
         for(let btn of btns) {
             btn.addEventListener('click', function() {
                 //console.log(this.parentNode); //화살표함수안됨//부모요소를 알게됨
-                this.parentNode.remove(); //삭제//
+                this.parentNode.remove(); //삭제/this 가가르키는건 전역 속성이고 parentnode가 붙으므로 스팬의 부모요소피태그
                 //this.parentNode.parentNode.removeChild(this.parentNode);증조할머니 노드 이런거없으니 부모 반복
             })
         }
