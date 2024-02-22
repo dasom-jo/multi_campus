@@ -6,12 +6,30 @@
     <title>객체의 복사</title>
 </head>
 <body>
+
+    깊은 복사(Deep Copy)는 '실제 값'을 새로운 메모리 공간에 복사하는 것을 의미하며,
+
+    얕은 복사(Shallow Copy)는 '주소 값'을 복사한다는 의미입니다.
     <script>
         let numberA = 100;
         let numberB = numberA;
         numberB = 200;
-        console.log(numberA,numberB); //100,200 와이? 나중에 적용되는거랑 관계가없음
+        console.log(numberA,numberB); 
+        console.log(numberA == numberB);
+        //100,200 와이? 나중에 적용되는거랑 관계가없음
         //넘버는 메모리램에에 값을 직접 넣음 
+
+        //얇은 복사(객체를 복사할때 필요한것)
+        const objA = {title: '1'};
+        const objB = objA;
+        const objC = Object.assign({}, objA); //속성복사
+        const objD = {...objA} //속성전개
+        objB.title = '2';
+        console.log(objA.title,objB.title,objC.title,objD.title); //2,2,1
+        console.log("objA, objB, objC", objA, objB, objC, objD);
+        //얉은 복사는 그걸 주소와 객체를 복사해 새로운 파일은 만듬으로써 원본이 변경
+        //되어도 복사본이 변경되지않는다
+
 
 
         //나중에 적용되는거랑 관계가잇음

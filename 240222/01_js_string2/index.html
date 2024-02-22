@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>부분 문자열 추출</title>
+</head>
+<body>
+    <h1>Have a nice day!</h1>
+    <script>
+        let title = document.querySelector('h1').innerText;
+        let title_sub = title.innerText.substring(7); //부분 문자열축출
+        let first_letter=title_sub[0];//title_sub.charAT[0]
+        let other_letters = title_sub.substring(1);
+        title.innerText = first_letter + other_letters
+        console.log(title_sub);
+
+
+    
+        
+    </script>
+</body>
+</html>

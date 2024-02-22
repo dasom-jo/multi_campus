@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이메일 주소 감추기</title>
+</head>
+<body>
+    <div id="wserInput">
+        <label>
+            이메일
+            <input type="email" id="userEmail" placeholder="이메일주소를 입력하세요" autofocus>
+        </label>
+        <button id="btn">가리기</button>
+    </div>
+    <div id="result"></div>
+    <script>
+        //사용자가 이메일 주소를 적고, 가리기 버튼을 누르면
+        //@앞 3글자만 가려지고 resulDiv에 출력
+        //버튼 요소 가져오기
+        
+        //1.특정문자열에 접근하기-@ let str_len = str.length;
+        //부분 문자열 추출 title.innerText.substring(@str_len, -3);
+        //추출한 자리수 *로 변환
+
+        // 1버튼 요소 가져오기
+        //2버튼 눌렀을떄 동작
+            //이메일 주소 가져오기
+            //@를 이용해 쪼개기
+            //@앞글자 추출
+            //추출한글자에서 뒤세글자 변환
+        let btn = document.querySelector('#btn');
+        //let emailAdrr = document.querySelector('#userEmail').value;
+        //let emailCenter = emailAdrr.split("@");//골뱅이 기준으로 [0],[1]
+        //console.log(emailCenter);
+        
+        btn.addEventListener('click',() => {
+            if(emailAdrr.includes('@')) {
+                let emailAdrr = document.querySelector('#userEmail').value;
+                let emailCenter = emailAdrr.split("@");//클릭하면 가져오고 변수 지정
+                //나눠진 이메일을 앞부분은 뒷자리 3개를 제외하고 추출 그리고 ***@를 붙임.
+                let newEmail =emailCenter[0].substring(0, emailCenter[0].length - 3) + "***@" + emailCenter[1];
+                //결과값                       =slice(0.-3)
+                result.innerText = newEmail;
+                
+                } else{  
+                    alert("다시입력해주세요");
+                }
+            });
+        
+    //다른사람꺼
+    // index= "@"   (0, index-3)//내가하고싶엇던거
+
+    </script>
+</body>
+</html>
+

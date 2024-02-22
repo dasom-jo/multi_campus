@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자열 쪼개기</title>
+</head>
+    
+<body>
+    <h1>Have a nice day!</h1>
+    <script>
+        let title = document.querySelector('h1');
+        let arr = title.innerText.split('a');//문자쪼개는 칼.
+        //console.log(arr);
+        title.innerText = `${arr[2] +'' + arr[3]}`
+    </script>
+</body>
+</html>

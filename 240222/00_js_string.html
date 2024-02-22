@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자열</title>
+</head>
+<body>
+    문자나 문자열에서 영문자의 대소문자를 구별한다
+    문자열길이지정가능 endsWith(target,num)/어디까지만 보겟다는 숫자
+
+
+    <script>
+        //let str = "프론트엔드 7회차 취업캠프";      
+        let str = "프론트엔드 7회차 취업캠프";
+        let str_len=str.length;
+        console.log(str_len); //문자열의 길이
+
+        //특정 위치 문자에 접근하기
+        //1
+        let str_third = str.charAt(3);
+        console.log(str_third);
+        //2
+        let str_second = str[2]
+        console.log(str_second);
+
+        //특정문자의 위치찾기
+        //str 문자열에서 ch라는 문자가 몇개있는지 확인
+        function findCount(str, ch) {
+        let count = 0;
+        for(let i = 0; i < str.length; i++ ){
+            if(ch === str[i]) { 
+                count++;
+            }
+        } return count;
+    }
+    let findResult = findCount(str,'프'); //여기서 글자를 찍으면 이게 몇번쨰 글자인지 알수잇음
+    console.log(findResult);
+
+    // 부분 문자열의 위치찾기
+    let str_greeting = "Good morning, everyone. Beautiful morning.";
+    let str_indexof =  str_greeting.indexOf('morning');
+    console.log(str_indexof);
+
+    //문자열에 str에서 문자열 target이몇개 존재하는지 반환
+    //포지션 +1
+
+    //콕콕콕 
+    //포지션+타겟 랭쓰 콕콕콕 반복되서/모닝m참으면 o부터  찾지않고 모닝을 나간뒤 다음 단어부터 찾음
+    
+
+    //n번째 위치 찾기 (str, target,n) 엔번째 단어를 찾아라  모닝,2
+    
+    function findTargetIndex(str,target , n) {
+        //let targetresult = "Good morning, everyone. Beautiful morning.";
+        let count = 0;
+        let position = str.indexOf(target);
+        while (position != -1 ) {
+            { count++;
+                if(count == n) {
+                    return position;
+                }
+                position =str.indexOf(target.position + target.length);
+            }
+            return -1;
+        }
+    }
+    let result = findTargetIndex("Good morning, everyone. Beautiful morning.", "morning", 2);
+console.log(result);
+
+
+    //공백제거
+    let space_str = " 안녕 반가워 ";
+    console.log(space_str.trim(),space_str.trim().length);
+    console.log(space_str.trim(),space_str.trimStart().length);
+    console.log(space_str.trim(),space_str.trimEnd().length);
+
+    //대소문자 바꾸기
+    let msg = "Good Morning"
+    console.log(msg.toUpperCase());
+    console.log(msg.toUpperCase().includes("GOOD"));
+    console.log(msg.toLowerCase());
+    console.log(msg.toLowerCase().includes("GOOD"));
+
+    //매써드 체이닝 점으로 계속 연결해서 쓰기가능
+
+    //substring(시작위치, 끝위치)
+    </script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자열을 배열로 변환</title>
+</head>
+<body>
+    <script>
+        //string to Array
+        let str = '떠나는 길에 네가 내게 말했지';
+        let str_arr1 = str.split('');
+        let str_arr2 = [...str];
+        let str_arr3 = Array.from(str);
+
+
+        //Array to string
+        let arr = ['안', '녕하', '세요'];
+        let arr_str = arr.join("");
+        let arr_str1 = arr.join("-");
+        console.log(arr_str);
+        console.log(arr_str1);
+        
+        //
+
+
+        //글자만 바꾸고 조인으로 글자처럼 보이게할수잇다
+        //각 특징마다 대문자등을 넣는등 여러 곳으로 사용해라ㅓ
+        let word = "hello";
+        let cap_word = [word[0].toUpperCase(),...word.slice(1)].join("");
+        console.log(cap_word); // Hello
+
+    </script>
+</body>
+</html>
