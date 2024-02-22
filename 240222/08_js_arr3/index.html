@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열3</title>
+</head>
+<body>
+    <script>
+        let subjects = ['HTML', 'CSS' ,'javascript','python','react'];
+        let unstudy = subjects.splice(3);
+        console.log(unstudy);
+        //subjects.splice(3);
+        //console.log(subjects);
+        subjects.splice(3,1);
+        console.log(subjects);
+        let week = ['월',"화",'수','목','금', '토','일'];
+        let weekday = week.splice(1,5);
+        let weekend = week;
+        console.log(weekday,weekend.reverse());
+
+        let rainbow = ['빨','주','노','초','파','보']
+        //노초파 -> 검회
+        rainbow,splice(2,3,'검','회');//위치,숫자,값
+        console.log(rainbow);
+
+
+
+
+    </script>
+</body>
+</html>
