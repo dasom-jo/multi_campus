@@ -6,85 +6,100 @@
     <title>문자열</title>
 </head>
 <body>
-    문자나 문자열에서 영문자의 대소문자를 구별한다
-    문자열길이지정가능 endsWith(target,num)/어디까지만 보겟다는 숫자
-
-
     <script>
-        //let str = "프론트엔드 7회차 취업캠프";      
-        let str = "프론트엔드 7회차 취업캠프";
-        let str_len=str.length;
-        console.log(str_len); //문자열의 길이
+        let str = "프론트엔드 개발자 취업캠프";
+        //문자열의 길이
+        let str_len = str.length
+        console.log(str_len); //14
 
-        //특정 위치 문자에 접근하기
-        //1
+        //특정문자에 접근하기
+        //1]str.charAt(num)
         let str_third = str.charAt(3);
-        console.log(str_third);
-        //2
-        let str_second = str[2]
-        console.log(str_second);
+        console.log(str_third);//엔
 
-        //특정문자의 위치찾기
-        //str 문자열에서 ch라는 문자가 몇개있는지 확인
-        function findCount(str, ch) {
-        let count = 0;
-        for(let i = 0; i < str.length; i++ ){
-            if(ch === str[i]) { 
+        //2]str[num]
+        let str_second = str[2];
+        console.log(str_second);//트
+
+        //문자열str에 문자ch가 몇개있는지 확인//
+        function findCount(str, ch){//findCount
+            let count = 0;
+            //반복문 시작//i에 str문자열 위치정보index가 담김 
+            for(let i =0;i<str.length;i++){
+                //===은 주소뿐 아니라 속성값까지 같아야한다 그렇게에 위치정보i만으로도
+                //속성값이 확인가능
+                if(ch === str[i] )
                 count++;
             }
-        } return count;
-    }
-    let findResult = findCount(str,'프'); //여기서 글자를 찍으면 이게 몇번쨰 글자인지 알수잇음
-    console.log(findResult);
+            return count;
+        }
 
-    // 부분 문자열의 위치찾기
-    let str_greeting = "Good morning, everyone. Beautiful morning.";
-    let str_indexof =  str_greeting.indexOf('morning');
-    console.log(str_indexof);
+        let result = findCount(str, '프');
+        //findCount -배열에서 요소의 개수세기/ 문자열에서 특정문자열의 등장횟수세기/조건을 만족하는 요소의 개수세기
+        console.log(result);
+        //let str_input = prompt('문자열을 입력해');
+        //let ch_input = prompt('문자 입력해')
+        //clg(findCount(str_input, ch_input));
 
-    //문자열에 str에서 문자열 target이몇개 존재하는지 반환
-    //포지션 +1
+        //부분 문자열의 위치 찾기 : indexOf
+        let str_greeting = "Good morning, everyone. Beautiful morning.";
+        //컴마 제외 첫자리부터 공백포함 갯수
+        let str_indexof = str_greeting.indexOf('morning');
+        console.log(str_indexof);
+        let str_second_indexof = str_greeting.indexOf('morning',str_indexof +1);
+        console.log(str_second_indexof);
 
-    //콕콕콕 
-    //포지션+타겟 랭쓰 콕콕콕 반복되서/모닝m참으면 o부터  찾지않고 모닝을 나간뒤 다음 단어부터 찾음
-    
+        //문자열 str에서 문자열 target이 몇개 존재하는지 반환 findCountStr(str, target
+        function findCountStr(str, target) {
+            let count = 0;
+            let position = str.indexOf(target);
+            while(position != -1) {
+                count++;
+                //다음포지션부터 다시 반복
+                position = str.indexOf(target, position + target.length);
+            }
+            return count;
+        }
+        let lyrics =  '문자로 콕콕콕콕콕콕 찍어서 보낸다';
+        console.log(findCountStr(lyrics,'콕콕콕'));//2
+        //타겟을 아래에다 적어서 헷갈린다 
 
-    //n번째 위치 찾기 (str, target,n) 엔번째 단어를 찾아라  모닝,2
-    
-    function findTargetIndex(str,target , n) {
-        //let targetresult = "Good morning, everyone. Beautiful morning.";
-        let count = 0;
-        let position = str.indexOf(target);
-        while (position != -1 ) {
-            { count++;
+        //문자열 str 에서 문자열 target이 존재하는 n번째 위치를 반환 
+        //findTargetIndex(str,target,n)
+        function findTargetIndex(str,target,n) {
+            let count = 0;
+            let position = str.indexOf(target);
+            while (position != -1){
+                count++;
                 if(count == n) {
                     return position;
-                }
-                position =str.indexOf(target.position + target.length);
+                }                              //position+1
+                position = str.indexOf(target,position + target.length);
             }
             return -1;
         }
-    }
-    let result = findTargetIndex("Good morning, everyone. Beautiful morning.", "morning", 2);
-console.log(result);
+        findTargetIndex('Good morning, everyone. Beautiful morning.', 'morning', 2);
+    
+        let url_addr = 'https://naver.com';
 
+        function url_chk(str) {
+            if (!str.startsWith('http://')&& !str.startsWith('htpps://') ) {
+                console.log('url');
+            }
+        }
+        url_chk(url_addr);
 
-    //공백제거
-    let space_str = " 안녕 반가워 ";
-    console.log(space_str.trim(),space_str.trim().length);
-    console.log(space_str.trim(),space_str.trimStart().length);
-    console.log(space_str.trim(),space_str.trimEnd().length);
+        //앞뒤공백
+        let space_str = ' 안녕 반가워 ';
+        console.log(space_str.trim(), space_str.trim().length);
+        console.log(space_str.trim(), space_str.trimStart().length);
+        console.log(space_str.trim(), space_str.trimEnd().length);
 
-    //대소문자 바꾸기
-    let msg = "Good Morning"
-    console.log(msg.toUpperCase());
-    console.log(msg.toUpperCase().includes("GOOD"));
-    console.log(msg.toLowerCase());
-    console.log(msg.toLowerCase().includes("GOOD"));
-
-    //매써드 체이닝 점으로 계속 연결해서 쓰기가능
-
-    //substring(시작위치, 끝위치)
+        //대소문자 바꾸기
+        let msg = ' Good Morning ';
+        console.log(msg.toUpperCase());
+        console.log(msg.toLowerCase());
+    
     </script>
 </body>
 </html>
