@@ -1,0 +1,49 @@
+[
+    {
+        "name" : "김민수",
+        "gender": "남자",
+        "address" : "중랑구"
+    },
+    {
+        "name" : "손예림",
+        "gender": "여자",
+        "address" : "마포구"
+    },
+    {
+        "name" : "박유진",
+        "gender": "여자",
+        "address" : "성남시"
+    },
+    {
+        "name" : "하성덕",
+        "gender": "남자",
+        "address" : "부산시"
+    },
+    {
+        "name" : "노성현",
+        "gender": "남자",
+        "address" : "세종시"
+    },
+    {
+        "name" : "박소희",
+        "gender": "여자",
+        "address" : "수원시"
+    },
+    {
+        "name" : "이가영",
+        "gender": "여자",
+        "address" : "대구시"
+    },
+    {
+        "name" : "이가영",
+        "gender": "여자",
+        "address" : "대구시"
+    },
+    {
+        "name" : "노효민",
+        "gender": "여자",
+        "address" : "뉴욕"
+    }
+
+
+]
