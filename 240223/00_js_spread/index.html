@@ -7,20 +7,19 @@
 </head>
 <body>
     <script>
-        function addNum(...numbers) { //전개구문으로 작성된 매개변수는 배열로 가져온다
+            //전개구문으로 작성된 매개변수는 배열로 가져온다
+        function addNum(...number) {
+            let total = 0;
             //console.log(numbers);
             //console.log(typeof(numbers));
-            let tatal;
-            for(let  i=0; i<numbers.length; i++){
-                total += numbers[i];
+        
+            for (let i = 0; i<number.length; i++){
+                total += number[i];
             }
             return total;
         }
 
-        console.log(addNum(1,2,3,4));
-        addNum(1);
-
-        
+        console.log(addNum(1,2,3,4,5,6));//21
     </script>
 </body>
 </html>
