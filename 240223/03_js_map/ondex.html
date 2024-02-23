@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>맵</title>
+</head>
+<body>
+    <script>
+        let nums = [1,2,3,4,5];
+
+        nums.forEach(num => {
+            num*2;
+        })
+
+        console.log(newNum);
+
+        //map()
+        //각 배열 요소에 똑같은 함수를 실행한후에,
+        //그결과를 '새로운 배열로 반환'하는 메서드이다
+        let newNums = nums.map(num => num*2)
+        console.log(newNums);
+
+        //1,2,3,4,5,6 => 3,7,1,,15,19
+        //             
+        let newNums2 = nums.map((mun,index)=>{
+            num*3+ index});
+            console.log(newNums2);
+    </script>
+</body>
+</html>

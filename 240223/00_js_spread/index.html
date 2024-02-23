@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>전개(spread)</title>
+</head>
+<body>
+    <script>
+        function addNum(...numbers) { //전개구문으로 작성된 매개변수는 배열로 가져온다
+            //console.log(numbers);
+            //console.log(typeof(numbers));
+            let tatal;
+            for(let  i=0; i<numbers.length; i++){
+                total += numbers[i];
+            }
+            return total;
+        }
+
+        console.log(addNum(1,2,3,4));
+        addNum(1);
+
+        
+    </script>
+</body>
+</html>

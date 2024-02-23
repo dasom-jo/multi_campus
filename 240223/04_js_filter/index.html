@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>필터</title>
+</head>
+<body>
+    <script >
+        //특ㄷ정조건에 맞는 요소만 추출해서 새로운 배열로 반환.filter
+
+        let scores = [90,35,64,88,45,92]
+        let hight_scores = scores.filter(score => score >= 85);
+        console.log(hight_scores);
+
+
+        //85미만 인덱도같이확인
+        let low_scores = scores.filter((score, idx) => {
+            if(score < 85) {
+                console.log(`index:${idx},score:${score}`);
+                return score;
+            }
+        }
+        )
+    </script>
+</body>
+</html>
