@@ -1,0 +1,65 @@
+*{
+    padding: 0;
+    margin: 0;
+}
+
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.comment-form {
+    margin-bottom: 20px;
+}
+
+.comment-form input[type='text'] {
+    width: 70%;
+    padding: 8px;
+}
+
+.comment-form button {
+    padding:8px 16px;
+    background-color: aquamarine;
+    color: antiquewhite;
+    border: none;
+    cursor:pointer
+}
+
+.comment-form button:hover {
+    background-color: blue;
+}
+
+.coomment .actions{
+    display: inline-block;
+}
+
+.comment .actions button{
+    padding: 5px 10px;
+    background-color: azure;
+    color: bisque;
+    border: none;
+    cursor: pointer;
+    margin-right: 5px;
+}
+
+.comment-box button {
+    
+}
+
+
+.comment .actions button.edit {
+    background-color: brown;
+}
+
+.comment .actions button.delete {
+    background-color:red;
+}
+
+.comment .actions button.edit:hover {
+    background-color: rgb(165, 147, 147);
+}
+
+.comment .actions button.delete:hover {
+    background-color:rgb(184, 128, 128);
+}

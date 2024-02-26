@@ -1,3 +1,5 @@
+
+
 fetch('http://localhost:3000/contacts')
     .then(Response => Response.json())
     .then(result => {
@@ -6,21 +8,29 @@ fetch('http://localhost:3000/contacts')
                     
                     for(let contact of result) {
                         let row = document.createElement('tr');
-                        let htmlString = `
-                        <td>${contact.name}</td>
-                        <td>${contact.tel}</td>
-                        <td>${contact.address}</td>
-                        `
-                        row.innerHTML=htmlString;
-                        tbody.appendChild(row);
-                    }}); //전체조회
+                        // let htmlString = `
+                        // <td>${contact.id}</td>
+                        // <td>${contact.name}</td>
+                        // <td>${contact.tel}</td>
+                        // <td>${contact.address}</td>
+                        // <td><button>삭제</button></td>;
+                        // `
+                        // row.innerHTML=htmlString;
+                        // tbody.appendChild(row);
+                        let id_col = document.createElement('td')
 
-    document.querySelector('addBtn').addEventListener('click',()=>{
+                    
+                    }}); //전체조회
+            
+
+
+    document.querySelector('#addBtn').addEventListener('click',()=>{
+        const id = document.querySelector('#id').value;
         const name = document.querySelector('#name').value;
         const tel = document.querySelector('#tel').value;
         const addr = document.querySelector('#addr').value;
 
-        const newContact = {name, tel, address};
+        const newContact = { id,name, tel, address };
 
         fetch('http://localhost:3000/contacts',{
             method: 'POST',
