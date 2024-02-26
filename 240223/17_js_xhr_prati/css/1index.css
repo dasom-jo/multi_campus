@@ -1,0 +1,38 @@
+@font-face {
+    font-family: 'seolleimcool-SemiBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2312-1@1.1/seolleimcool-SemiBold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+    background-color: rgb(207, 191, 224);
+}
+
+
+
+#title {
+    grid-area: header;
+    font-family: 'seolleimcool-SemiBold';
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    text-align: center;
+}
+
+header {
+    text-align: center;
+}
+
+button {
+    border-style: 1px solid #ccc;
+    font-family: 'seolleimcool-SemiBold';
+    padding: 10px;
+    background-color: rgb(177, 126, 224);
+    border-color: white;
+    border-radius: 15px;
+    display: inline-block;
+    margin: 5px;
+}
+
+
+
