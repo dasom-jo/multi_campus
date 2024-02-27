@@ -7,21 +7,35 @@
 </head>
 <body>
     <script >
-        //특ㄷ정조건에 맞는 요소만 추출해서 새로운 배열로 반환.filter
-
-        let scores = [90,35,64,88,45,92]
-        let hight_scores = scores.filter(score => score >= 85);
-        console.log(hight_scores);
-
-
-        //85미만 인덱도같이확인
-        let low_scores = scores.filter((score, idx) => {
+        /*filter()*/
+        //특정 조건에 맞는 요소만 "추출하여, 새로운 배열로 반환"
+            
+        let scores = [90,35,40,45,85,95]
+            
+        /*
+        let high_scores = scores.filter(score => {
+            if (score >= 85) {
+                return score
+            }
+        });*/
+        
+        /*let high_scores = scores.filter(score => {
+            if(score >= 85) return score
+        });*/
+        
+        let high_scores = scores.filter(score => score >=85); 
+        
+        console.log(high_scores);
+        
+        //85미만점수 
+        let low_scores = scores.filter((score, idx)=>{
             if(score < 85) {
-                console.log(`index:${idx},score:${score}`);
+                console.log(`index: ${idx}, score: ${score}}`);
                 return score;
             }
-        }
-        )
-    </script>
+        })
+        
+        console.log(low_scores); 
+            </script>
 </body>
 </html>
