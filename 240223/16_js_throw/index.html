@@ -7,18 +7,15 @@
 </head>
 <body>
     <script>
-    let json = `{"name" : "홍길종" , "age" : "30"}`;
-    try{
+    let json = `{"name" : "홍길동", "age" : 20}`
+    try {
         let user = JSON.parse(json);
         if(!user.score){
-            throw new Error("사용자의 점수가없습니다");
-        //console.log(user.score);
+            throw new Error ('사용자의 점수가 없습니다');
         }
-        } catch(e) {
-            console.erroe(e.name);
-        }
-
-
+    }catch(e) {
+        console.error(e);
+    }
     </script>
 </body>
 </html>

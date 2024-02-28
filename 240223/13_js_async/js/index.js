@@ -1,6 +1,4 @@
-//동기적 (synchonous)처리
-//결과가 주어질떄까지 대기
-
+//동기적 (synchonous)처리 = 결과가 주어질때까지 대기 
 console.log('1st');
 console.log('2nd');
 console.log('3rd');
@@ -13,5 +11,5 @@ setTimeout(() => {
 },0)
 
 console.log('3rd'); 
-//순서 바귀어서 나옴
+//순서 바뀌어서 나옴
 //setTimeout 메서드가 비동기적인 메서드이기때문에 뒤에 실행된다

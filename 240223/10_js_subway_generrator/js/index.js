@@ -29,12 +29,13 @@ function* train_gen() {
 const btn = document.querySelector('button');
 const result = document.querySelector('#result');
 
-let subway = train_gen
+let subway = train_gen(); 
 
 btn.addEventListener('click',()=>{
     let station_name = subway.next();
-    if(station_name.done) {
-        btn.disabled = true;
+    
+    if(station_name.done) { // 제너레이터 함수가  true이면  완료되었음을 나타낸다
+        btn.disabled = true; //조건 충족시 비활성화 
         result.innerText ='종점'
     } else {
         result.innerText = station_name.value
