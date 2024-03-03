@@ -1,46 +1,51 @@
+const origin = document.querySelector("#origin");
+const result = document.querySelector('#result');
 
-let nums = [2,4,6,8,10];
-let origin = document.querySelector('#origin');
-let result = document.querySelector('#result');
-let table =document.ㅊㄱ('table');
-let tr =document.createElement('tr');//하나의 tr에 td를 묶기위해
+const title = document.querySelector("h1").innerText;
+const startIndex = title.indexOf('[');
+const endIndex = title.indexOf(']');
+const arrStr = title.slice(startIndex + 1, endIndex);
 
-nums.forEach(num => {//배열의 반복분 순회 
-    let td = document.createElement('td');
-    let textNode = document.createTextNode(num);
-    td.appendChild(textNode);
-    tr.appendChild(td);
-    
+const nums = arrStr.split(','); 
+showArray(origin, arr);
+
+let sum = 0
+for(let num of arr) {
+    sum += Number(num)
+}
+arr.push(sum);
+
+showArray(result, arr);
+
+function showArray(location, array) {
+    let table = '<table><tr>';
+    for (let num of array) {
+        table += `<td>${num}</td>`
     }
-);
-table.appendChild(tr);
-origin.appendChild(table);
-
-taotal = 0;
-num/Push
-for (let  i =0 ; i<num.lenght ; t++){
-    tatal += Number() nums [i])
+    table += "</tr></table>";
+    location.innerText = table;
 }
 
+/*
+showArray2(origin, arr);
 
+let sum = 0
+for (let num of arr) {
+    sum += Number(num);
+}
+arr.push(sum);
 
+showArray2(result, arr);
 
-// let tr1 =document.createElement('tr');//하나의 tr에 td를 묶기위해
-// num.forEach(num => {
-//     let td = document.createElement('td');
-//     let textNode = document.createTextNode(num);
-//     td.appendChild(textNode);
-//     tr1.appendChild(td);
-//     result.appendChild(tr1);
-    
-//     }
-// );
-
-
-
-
-//썜꺼
-// const arr = arrStr.split(", ");// 245810
-// showArray(origin, arr);
-
-// let sum = 0
+function showArray2(location, array) {
+    const table = document.createElement('table');
+    const tr = document.createElement('tr');
+    for (let i of array) {
+        const td = document.createElement('td');
+        td.innerText = i;
+        tr.appendChild(td);
+    }
+    table.appendChild(tr);
+    location.appendChild(table);
+}
+ */

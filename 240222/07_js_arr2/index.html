@@ -7,30 +7,48 @@
 </head>
 <body>
     <script>
-        let salad = ['양상추','버섯','깻잎','토마토'];
+        let salad = [ '양상추', '버섯', '깻잎', '토마토' ];
         let meat = [ '양고기', '쇠고기' , '돼지고기', '닭고기'];
 
-        //배열합치기:concat
-        //기존배열에 또 다른 배열이나 값을 합쳐서 새로운 배열을 만든다.
-        //let food = salad.concat(meat); //샐러드뒤 고기 나열
-        //food = food.concat('계란'); //계란 추가
-        //let food = salad.concat['계란', ...meat];
+        // 배열 합치기 : concat - 기존 배열에 또 다른 배열이나 값을 합쳐서 새로운 배열을 만든다.
+        // let food = salad.concat(meat);
+        // food = food.concat('계란');
+        
+        // let food = salad.concat('계란', meat);
 
-        //배열합치기 : 전개연산자
+        // 배열 합치기 : 전개연산자
         let food = [...salad, '계란', ...meat];
-        
+        console.log(food);
 
-        //동물
-        let aniRank = ['강아지', '고양이', '햄스터', '새' ,'뱀'];
-        //역순배치1.reverse
-        let worstaniRank = aniRank.reverse();
+        let animalRank = ['강아지', '고양이', '햄스터', '새' ,'뱀'];
         
-        //정렬1.sort()
-        aniRank.sort();
+        // 역순으로 배치
+        let worstAnimalRank = animalRank.reverse();
+        // console.log(worstAnimalRank);
+        // console.log(animalRank);
 
-        //정렬2.values
-        let values = [5,20,31,4,11,7];
-        console.log(values);
+        // 정렬
+        animalRank.sort();
+        // console.log(animalRank);
+
+        // animalRank.sort((a, b) => {
+        //     return a.length - b.length;
+        // })
+        console.log(animalRank);
+
+
+        // 정렬
+        let values = [5, 20, 30, 4, 11, 15];
+        //values.sort(function(a, b) {
+        //    if (a > b) return 1;
+        //    if (a < b) return -1;
+        //    if (a === b) return 0;
+        //});
+        // values.sort((a, b) => {
+        //     return a - b;
+        // });
+        
+        console.log(values); 
 
     </script>
 </body>
