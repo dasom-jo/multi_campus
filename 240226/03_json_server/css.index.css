@@ -1,6 +1,6 @@
-*{
-    padding: 0;
+* {
     margin: 0;
+    padding: 0;
 }
 
 .container {
@@ -19,47 +19,53 @@
 }
 
 .comment-form button {
-    padding:8px 16px;
-    background-color: aquamarine;
-    color: antiquewhite;
+    padding: 8px 16px;
+    background-color: #007bff;
+    color: #fff;
     border: none;
-    cursor:pointer
+    cursor: pointer;
 }
 
 .comment-form button:hover {
-    background-color: blue;
+    background-color: #0056b3;
 }
 
-.coomment .actions{
+.comment-box {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+}
+
+.comment {
+    margin-bottom: 10px;
+    list-style: none;
+}
+
+.comment .actions {
     display: inline-block;
 }
 
-.comment .actions button{
+.comment .actions button {
     padding: 5px 10px;
-    background-color: azure;
-    color: bisque;
+    color: #fff;
     border: none;
     cursor: pointer;
     margin-right: 5px;
 }
 
-.comment-box button {
-    
-}
-
-
 .comment .actions button.edit {
-    background-color: brown;
+    background-color: #ffc107;
 }
 
 .comment .actions button.delete {
-    background-color:red;
+    background-color: #dc3545;
 }
 
 .comment .actions button.edit:hover {
-    background-color: rgb(165, 147, 147);
+    background-color: #e0a800;
 }
 
 .comment .actions button.delete:hover {
-    background-color:rgb(184, 128, 128);
+    background-color: #c82333;
 }
