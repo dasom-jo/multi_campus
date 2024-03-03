@@ -26,12 +26,12 @@ ul > li {
     text-align: center;
 }
 
-ul{
+/* ul{
     border: 1px solid black;
     padding: 50px 30px;
     border-radius: 50%;
     
-}
+} */
 
 .closeText{
     display: flex;
