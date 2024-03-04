@@ -42,3 +42,50 @@
 (10) 이동
 - `mv` : MoVe
 - `mv 파일/폴더명 이동할위치` : 파일 또는 폴더를 이동
+
+# BONUS. GIT 기초 명령어 정리
+
+(1) Commit을 위한 Staging : `git add`
+- 현재 코드 상태의 스냅샷을 찍기 위한 파일 선택 (==Staging Area에 파일 추가)
+    ```bash
+    # .은 모든 변경 사항을 staging area로 올림
+    git add 파일명
+    ```
+
+(2) 버전 관리를 위한 스냅샷 저장 : `git commit`
+- 현재 상태에 대한 스냅샷을 `commit`하여, 버전 관리를 진행한다.
+    ```bash
+    git commit -m "커밋 메시지"
+    ```
+
+(3) 원격 저장소로 코드 `git push`
+- 최종적으로 Github 원격 저장소에 push한다.
+    ```bash
+    git push
+    ```
+
+(4) 그 외 명령어
+- .git이라는 비밀스러운 하위 디렉토리 생성
+    ```bash
+    git init
+    ```
+
+- 현재 `git`의 상태를 조회 `git status`
+    ```bash
+    git status
+    ```
+
+- 버전 관리 이력을 조회 [Author, Date, Message, Commit hash]
+    ```bash
+    git log
+    ```
+
+- 버전 관리 이력 한줄로 짧게 조회
+    ```bash
+    git log --oneline
+    ```
+
+- 현재 상태과 commit 버전과의 차이 확인
+    ```bash
+    git diff
+    ```
