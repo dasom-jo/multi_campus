@@ -28,8 +28,6 @@ def merge_sorted(list):
         idx += 1
     return list
 
-
-# 0 1 3 6 10 15 21 28 ... n(n+1)/2 [ O(n ** 2) ]
 num_list = [1, 2, 3, 4, 5, 6, 7]
 new_list = merge_sorted(num_list)
 print(new_list)
