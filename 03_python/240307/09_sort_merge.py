@@ -1,4 +1,4 @@
-def merge_sorted(list):
+def merge_sorted(list):    
     length = len(list)
     if length <= 1 :
         return
@@ -8,8 +8,9 @@ def merge_sorted(list):
     merge_sorted(group2)
     
     idx, idx1, idx2 = 0, 0, 0
-    
+    print(group1, group2)
     while idx1 < len(group1) and idx2 < len(group2):
+        print(group1, group2)
         if group1[idx1] < group2[idx2]:
             list[idx] = group1[idx1]
             idx1 += 1
@@ -28,6 +29,6 @@ def merge_sorted(list):
         idx += 1
     return list
 
-num_list = [1, 2, 3, 4, 5, 6, 7]
+num_list = [4, 3, 2, 1, 6, 5]
 new_list = merge_sorted(num_list)
 print(new_list)
