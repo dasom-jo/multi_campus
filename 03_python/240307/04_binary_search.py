@@ -20,8 +20,8 @@ def find_num(list, value):
             start = mid + 1
     return -1
 
-my_list = [2,4,6,8,10,12,14,16,18,20]
-my_value = 10
+my_list = [1,2,3,4,5,6,7,8,9]
+my_value = 5
 count = 0
 print(find_num(my_list, my_value))
 print(f"찾으려고 노력한 횟수 : {count}")
