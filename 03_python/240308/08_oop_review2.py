@@ -42,3 +42,8 @@ print()
 iphone = SmartPhone('아이폰', 50, '아이폰 XR', 256)
 iphone.call()
 iphone.info()
+
+print(isinstance(ep, ElecProduct)) # True
+print(isinstance(ep, SmartPhone)) # False
+print(isinstance(iphone, ElecProduct)) # True
+print(isinstance(iphone, SmartPhone)) # True 

@@ -17,3 +17,13 @@ class Human(Animal):
 choi = Human('최인규', 5)
 choi.info()
 choi.speak('안녕하세요')
+
+pig = Animal()
+
+print(isinstance(choi, Human)) # True
+print(isinstance(choi, Animal))  # True
+print(isinstance(choi, object)) # True
+
+print(isinstance(pig, Human)) # False
+print(isinstance(pig, Animal)) # True
+print(isinstance(pig, object)) # True
