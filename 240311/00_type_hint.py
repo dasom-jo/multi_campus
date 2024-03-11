@@ -6,4 +6,4 @@ def isMinus(a:int,b:int) -> bool:
 print(isMinus(1,2))#t
 print(isMinus(3,2))#f
 
-#mypy 00_type_hint.py :문제를 표기해ㅔ줌
+#mypy 00_type_hint.py :문제를 표기해줌
