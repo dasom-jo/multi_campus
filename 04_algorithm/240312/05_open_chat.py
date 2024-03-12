@@ -1,10 +1,11 @@
 def solution(record):
     answer = []
-    user_info = {}
-    for msg in record:
-        cmd, uid, *other = msg.split()
-        if cmd == "Enter" or cmd == "Change":
-            user_info[uid] = other[0]
+    # user_info = {}
+    # for msg in record:
+    #     cmd, uid, *other = msg.split()
+    #     if cmd == "Enter" or cmd == "Change":
+    #         user_info[uid] = other[0]
+    user_info = {i.split()[1]: i.split()[-1] for i in record if i.split()[0] != 'Leave'}
     
     for msg in record:
         cmd, uid, *other = msg.split()
