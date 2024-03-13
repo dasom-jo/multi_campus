@@ -1,7 +1,9 @@
-#키가 없으면 키에러나는걸 타게하기위해
+#defaultdict:
+# 존재하지 않는 키를 조회할 때 오류를 발생시키지 않고 기본값을 반환하는 딕셔너리입니다.
 
 from collections import defaultdict
 
+#my_dict의 모든값은 기본값이 0으로 설정된다
 my_dict = defaultdict(int)
 
 my_dict['first'] = 1
