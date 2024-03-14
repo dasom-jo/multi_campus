@@ -41,9 +41,11 @@ for i in range(2, N + 1):
 
 alive = N
 idx = (K - 1)
+result = "<"
 while ll.head.next is not None:
     idx %= alive
-    print(ll.pop(idx))
+    result += f"{ll.pop(idx)}, "
     alive -= 1
     idx += (K - 1)
-print(ll.pop(0))
+result += f"{ll.pop(0)}>"
+print(result)
