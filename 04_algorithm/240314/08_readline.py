@@ -2,5 +2,8 @@
 import sys
 
 n = sys.stdin.readline()
-print([n])
+print(n)
+m = sys.stdin.readlines()
+print(m)
 print('바로 다음 출력')
+
