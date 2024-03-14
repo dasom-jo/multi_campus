@@ -24,3 +24,9 @@ class Stack:
         if self.is_empty():
             return None
         return self.head.data
+
+my_stack = Stack()
+my_stack.push(1)
+my_stack.push(2)
+print(my_stack.pop())
+print(my_stack.peek())
