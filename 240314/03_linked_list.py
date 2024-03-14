@@ -38,7 +38,6 @@ class LinkedList:
         node.next = node.next.next
         return del_data
 
-
 if__name__ ==="__main__":
     ll =  LinkedList('첫')
     ll.append('2')
