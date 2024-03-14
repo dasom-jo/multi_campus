@@ -1,5 +1,5 @@
-# 공개합니다.
 import sys
+
 pipe = sys.stdin.readline().rstrip()  # ()(((()())(())()))(())   \n
 stack = []
 result = 0
@@ -17,5 +17,3 @@ for i in range(len(pipe)):
         else: # 파이프인 경우
             result += 1
 print(result)
-
-
