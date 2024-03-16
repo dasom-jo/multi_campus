@@ -15,7 +15,8 @@ class Solution:
         #1번쨰부터 사전식 정렬,같으면 0번쨰 식별자
         letter_log.sort(key=lambda x:(x.split()[1:],x.split()[0]))
         #print (letter_log)
-        number_log.sort(key=lambda x:(x.split()[1:],x.split()[0]))
+        #입력순서대로해서 굳이 바꿀필요없음
+        # number_log.sort(key=lambda x:(x.split()[1:],x.split()[0]))
         #print(number_log)
         return letter_log+number_log
 
