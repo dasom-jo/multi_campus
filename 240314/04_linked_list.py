@@ -38,8 +38,23 @@ class LinkedList:
         node.next = node.next.next
         return del_data
 
-if__name__ ==="__main__":
-    ll =  LinkedList('첫')
-    ll.append('2')
-    # print(ll.head.next)
-    # print(ll.head.next.data)
+if __name__ == "__main__":
+    ll = LinkedList('첫번째')
+    ll.append('두번째')
+    ll.append('세번째')
+    ll.append('네번째')
+    ll.append('다섯번째')
+
+    print("첫번째 노드:", ll.head)
+    print("두번째 노드:", ll.head.next)
+    print("세번째 노드:", ll.head.next.next)
+    print("네번째 노드:", ll.head.next.next.next)
+    print("다섯번째 노드:", ll.head.next.next.next.next)
+
+    ll.pop(3)
+
+    print("첫번째 노드:", ll.head)
+    print("두번째 노드:", ll.head.next)
+    print("세번째 노드:", ll.head.next.next)
+    print("네번째 노드:", ll.head.next.next.next)
+    print("다섯번째 노드:", ll.head.next.next.next.next)

@@ -31,22 +31,22 @@ class LinkedList:
         node.next = node.next.next
         return del_data
 
-
 import sys
 
-N,K = [int(i) for i in sys.stdin.readline().split()]
+N, K = [int(i) for i in sys.stdin.readline().split()]
 
 ll = LinkedList(1)
-for i in range(2,N+1):
+for i in range(2, N + 1):
     ll.append(i)
 
-alive =N
-idx = (K-1)
+alive = N
+idx = (K - 1)
+result = "<"
 while ll.head.next is not None:
-    idx %=alive
-    print(ll.pop(idx))
+    idx %= alive
+    result += f"{ll.pop(idx)}, "
     alive -= 1
-    idx += (K-1)
-    result += ll.pop(0)
-    
+    idx += (K - 1)
+result += f"{ll.pop(0)}>"
+print(result)
 
