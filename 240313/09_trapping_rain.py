@@ -6,7 +6,7 @@ class Solution:
         max_lt = height[lt]
         max_rt = height[rt]
         result = 0
-
+        #max_lt  물의 높이까지포함
         while lt < rt:
             if max_lt < max_rt:
                 result +=max_lt - height[lt]

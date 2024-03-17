@@ -8,11 +8,11 @@ class Solution:
             gap = target - v #[9,10,6]
             new_nums = nums[idx+1:] #현재원소를제외한
             if gap in new_nums:#new_nums안에 gap이 있니없니
-                #7[9,10,6]=16,
-                # 6[9,10,6]=16,
-                # 10[9,10,6]=16
+                #7,6,10
                 return [idx,#현재원소의 인덱스값
                         new_nums.index(gap) +idx + 1]
+                        #gap에 해당하는인덱스(현재인덱스제외상태)+ 현재원소를 제외한
+
 
 
 s = Solution()
