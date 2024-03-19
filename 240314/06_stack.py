@@ -1,25 +1,32 @@
-#10828
-import sys
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.next = None
 
-stack = []
-n = int(sys.stdin.readline())
-
-for i in range(n):
-    cmd, *num = sys.stdin.readline().split()
-    if cmd == 'push':
-        x =int(num[0])
-        stack.append(x)
-    elif cmd == 'pop':
-        if stack:
-            print(stack.pop())
-        else:print(-1)
-    elif cmd == 'empty':
-        if stack:
-            print(0)
-        else:print(1)
-    elif cmd == 'size':
-        print(len(stack[0]))
-    elif cmd == 'top':
-        if stack:
-            print(stack[-1])
-        else:print(-1)
+class Stack:
+    def __init__(self):
+        self.head = None
+    def is_empty(self):
+        if self.head is None:
+            return True
+        return False
+    def push(self,data):
+        new_node = Node(data)
+        new_node.next = self.head
+        self.head = new_node
+    def pop(self):
+        if self.is_empty():
+            return None
+        data = self.head.data
+        self.head = self.head.next
+        return data
+    def peek(self):
+        if self.is_empty():
+            return None
+        return self.head.data
+    
+my_stack = Stack()
+my_stack.push(1)
+my_stack.push(2)
+print(my_stack.pop())
+print(my_stack.peek())

@@ -35,14 +35,14 @@ import sys
 
 N, K = [int(i) for i in sys.stdin.readline().split()]
 
-ll = LinkedList(1)
+ll = LinkedList(1) #새로운 연결 리스트를 생성하는동시에 첫번째 노드의값을 1로설정
 for i in range(2, N + 1):
     ll.append(i)
 
 alive = N
 idx = (K - 1)
 result = "<"
-while ll.head.next is not None:
+while ll.head.next is not None: #노드가 한개이상 남아있는 동안에 계속해서 반복하라
     idx %= alive
     result += f"{ll.pop(idx)}, "
     alive -= 1

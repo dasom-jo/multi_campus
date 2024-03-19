@@ -35,7 +35,7 @@ def postorder(node):
         postorder(tree[node.right])
     print(node.item, end = " ")
 
-
+#전위 순회(중간,왼쪽,오른쪽)
 tree ={
     'A' : Node('A','B','C'),
     'B' : Node('B','D','E'),

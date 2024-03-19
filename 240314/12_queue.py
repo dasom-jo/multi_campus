@@ -1,5 +1,3 @@
-#큐que  push=enqueue pop= deque
-
 class Node:
     def __init__(self, data):
         self.data = data

@@ -16,7 +16,7 @@ class Solution:
             elif not stack or mapping[stack.pop()!=i] :
                 print('False')
         return bool(not stack)
-        #t 소거를 완젹하게 해서 비어있는 스택
-        #f 여는 괄호가 남아잇따 닫힌괄호가 빠져잇다
+        #T 소거를 완벽하게 해서 비어있는 스택
+        #F 여는 괄호가 남아잇다 OR 닫힌괄호가 빠져잇다
 sol = Solution()
 sol.isValid("(){}[]")
