@@ -11,23 +11,6 @@
 #9375
 import sys,collections
 
-# clothes_num = 3
-#             #int(sys.stdin.readline())
-# clothes = [['hat', 'headgear'], ['sunglasses','eyewear'], ['turban', 'headgear']]
-#             #[sys.stdin.readline().split() for _ in range(clothes_num)]
-
-# class Solution:
-#     def clothes_game(self, clothes: str) -> str:
-#         my_clothes = collections.defaultdict(list)
-#         for k,v in clothes:
-#             if :
-
-
-# s = Solution()
-# result = s.clothes_game(clothes)
-# print(result)
-
-#쌤풀이 기본
 TESTCASE = int(sys.stdin.readline())
 #=2
 for i in range(TESTCASE):
@@ -39,14 +22,9 @@ for i in range(TESTCASE):
         if category in wear_dict:
             wear_dict[category].append(item)
         else:
-            wear_dict[category] = [item] #지료형누적을위해 리스트변환
+            wear_dict[category] = [item] #자료형누적을위해 리스트변환
     #print(wear_dict)
     result = 1
     for v in wear_dict.values():
         result *= len(v) + 1
     print(result-1)
-
-
-    #딕셔너리
-
-    #카운터

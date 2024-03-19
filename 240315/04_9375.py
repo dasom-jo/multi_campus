@@ -8,25 +8,23 @@
 #                       대신이럴일이별로없고 최신의방식 가장 효율좋음
 # 파이썬:오픈어드레싱
 
-TESTCASE = int(sys.stdin.readline())
-#=2
+import sys
+
+TESTCASE = int(sys.stdin.readline()) #몇번입력?
+
 for i in range(TESTCASE):
-    N = int(sys.stdin.readline())#의상수
-    wear_dict={}
+    N = int(sys.stdin.readline()) #의상수
+    wear_dict = {}
     for i in range(N):
-        item,category = sys.stdin.readline().split()
-        #print(item,category)
+        item, category = sys.stdin.readline().split() #의상종류
         if category in wear_dict:
             wear_dict[category].append(item)
-        else:
-            wear_dict[category] = [item] #지료형누적을위해 리스트변환
-    #print(wear_dict)
+            print(wear_dict)
+            #{'eye': ['sun'], 'head': ['hat', 'tur']}
+        else:#카테고리에 없다면 새로 추가
+            wear_dict[category] = [item]
     result = 1
     for v in wear_dict.values():
         result *= len(v) + 1
-    print(result-1)
-
-
-    #딕셔너리
-
-    #카운터
+        #1을 더한 이유는 아무것도 선택하지않앗을경우
+        print(result - 1)

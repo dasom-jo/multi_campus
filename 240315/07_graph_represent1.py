@@ -16,3 +16,5 @@ import sys
 node = int(sys.stdin.readline())
 print(graph[node-1])
 
+#node 입력시 해당 줄 출력
+
