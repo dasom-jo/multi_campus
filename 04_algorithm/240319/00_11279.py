@@ -5,12 +5,8 @@ for _ in range(N):
     X = int(sys.stdin.readline())
     if X == 0:
         if array:
-            # heapq.heappop(array)
-            # print(array)
-            print(heapq.heappop(array))
+            print(-1 * heapq.heappop(array))
         else:
-            # pass
             print(0)
     else:
-        heapq.heappush(array, X)
-        # print(array)
+        heapq.heappush(array, -1 * X)
