@@ -1,23 +1,30 @@
-#그리드알고리즘 - 최선은 아니지만 최적의 결과
-#탐욕속성 선택을 갖고있는 최적부분 구조 문제에 적합하다.
-#탐욕 선택 속성: 앞으로 선택이후 선택에 영향을 주지않는것(독립)
-#최적 부분 구조 문제: 작은 부분 문제에대한 해결이 전체 최적해결이되는것
-#1541
-
+#1931
+#1) 입력받기위해 import
 import sys
+#2) 입력받는 횟수(n)를 입력받는다
+N = int(sys.stdin.readline())
 
-expr = sys.stdin.readline().rstrip().split('-')
-#print(expr)
+meeting = []
+# #3) n번 만큼 반복해서 시작시간과 끝나는 시간을 가져온다
+# #   (start,end) 튜플로 만들어서 meeting이라는 배열에 추가
+# # 확인 : meeting = [(),(),(),(),(),(),(),()]
+for _ in range(N):
+    start, end = [int(j) for j in sys.stdin.readline().split()]
+    meeting.append((start,end)) #이게 튜플로 바꾸는거임
+
+# #4) end가 짧은 순으로 meeting 정렬 !!!(만약 end가 같다면, start가 짧은순)
+meeting.sort(key = lambda x: (x[1],x[0]))
+print(meeting)
 result = 0
-
-#2) expr에서 0번쨰는 그냥 더하기 결과에 더해주기
-for i in expr[:1]:
-    for j in i.split('+'):
-        result += int(j)
-#3)1번째 이후로는 각각 더해서 뺴주기 결과에 빼주기
-for i in expr[1:]:
-    for j in i.split('+'):
-        result -=int(j)
-
-
+finish = 0
+# 5) 정렬된 meeting 을 반복한다. [변수 i]
+for i in meeting:
+    #6) i 는 (start, end)로 구성되어있다.
+    start, end = i
+    #7) start가 끝나는 시간보다 크거나 같으면,
+    if start >= finish: #같은 괄호안 스타트 엔드가 아니랑 전 엔드와 후 스타트 바톤터치비교
+        #8) result 증가 & finish = end
+        result += 1
+        finish = end
+#9)result출력
 print(result)
