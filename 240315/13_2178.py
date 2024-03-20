@@ -14,10 +14,10 @@ queue.append([0,0]) #시작위치
 while queue:
     x, y = queue.popleft()
     for d in direction:
-        #이동중
-        new_x, new_y = x + d[0], y + d[1] #0은 x축 1 y축
+        #각방향으로 이동하며 탐색
+        new_x, new_y = x + d[0], y + d[1] #0은 x축 방향 1 y축 방향
         if 0 <= new_x < M and 0 <= new_y < N:
-            #해당위치가 1이면 이동가능한공간
+            #새로운 위치가 미로 범위내에있고 이동가능한 공간인경우
             if maze[new_y][new_x] == 1:
                 #새로운 위치 업데이트
                 maze[new_y][new_x] = maze[y][x] + 1
