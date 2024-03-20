@@ -1,7 +1,5 @@
 #슬라이딩 윈도우 알고리즘
 #https://leetcode.com/problems/minimum-recolors-to-get-k-consecutive-black-blocks/
-import sys
-
 class Solution:
     def minimumRecolors(self, blocks: str, k: int) -> int:
         i = 0

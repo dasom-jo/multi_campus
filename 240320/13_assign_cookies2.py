@@ -7,8 +7,12 @@ class Solution:
         s.sort()
 
         kid_idx, cookie_idx = 0,0
-        while 
-
+        while kid_idx < len(g) and cookie_idx < len(s):
+            if s[cookie_idx] >= g[kid_idx]:
+                print(f"{s[cookie_idx]} 크기의 쿠키를 {g[kid_idx]}에게 준다.")
+                result +=1
+                kid_idx +=1
+            cookie_idx += 1
         return cookie
 
 s = Solution()

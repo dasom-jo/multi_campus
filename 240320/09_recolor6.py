@@ -6,13 +6,13 @@ class Solution:
         window = deque(blocks[:k])
         min_count = window.count('W')
 
-        for i in range(k,len(blocks)):
+        for i in range(k, len(blocks)):
             window.popleft()
             window.append(blocks[i])
-            new_count = window.count('w')
-            min_count = min(min_count,new_count)
+            new_count = window.count('W')
+            min_count = min(min_count, new_count)
         return min_count
+
 s = Solution()
-result = s.minimumRecolors("wbbwbbwbw",7)
-print(result)
+print(s.minimumRecolors("WBBWBBWBW", 7))
 
