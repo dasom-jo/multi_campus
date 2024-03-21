@@ -18,7 +18,7 @@ class Solution:
                 #countinue
             flowerbed[i] = 1
             #꽃을 심어준다
-            #n-=1
+            n-=1
         return n <= 0
 
 s = Solution()

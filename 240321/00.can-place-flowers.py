@@ -1,22 +1,5 @@
 #n: 심고자하는 꽃의 갯수
-#내풀이: 틀린점
-#꽃을 확인하고  심지않아서 만약 1,0,0,0,0,1일떄 원래는 하나만 심을수있는대
-#2개를 심을수있다고 판단
-# class Solution:
-#     def canPlaceFlowers(self, flowerbed: list[int], n: int) -> bool:
-#         count = 0
-#         for i in range(1, len(flowerbed) - 1):
-#             if flowerbed[i-1] == 0 and flowerbed[i] == 0 and flowerbed[i+1] == 0:
-#                 count += 1
-#                 if count >= n:
-#                     return True
-#         return False
 
-# s = Solution()
-# result = s.canPlaceFlowers([1,0,0,0,1], 2)
-# print(result)  # True
-
-# 쌤풀이
 #경우의수1 :가운데는 0이 세개는 있어야하지만 양끝은 0이 두개만잇어도 심기가능
 class Solution:
     def canPlaceFlowers(self, flowerbed: list[int], n: int) -> bool:
