@@ -15,7 +15,7 @@ def solution(n, k):
         is_prime = True
         if i < 2:
             continue
-        for j in range(2, int(i**0.5)):
+        for j in range(2, int(i**0.5)+1):
             if i % j == 0:
                 print(f'안타깝네요, {i}는 소수가 아니에요')
                 is_prime = False
