@@ -3,14 +3,14 @@
 import sys
 A, B, C = [int(i) for i in sys.stdin.readline().split()]
 
-def power_rest(a,b,c):
+def power_rest(a, b, c):
     if b == 1:
         return a % c
     else:
-        if b%2 == 0:
-            return power_rest(a,b//2,c) * power_rest(a,b//2,c) % c
+        pr = power_rest(a, b//2, c) #문제를 작게 쪼개기
+        if b % 2 == 0:
+            return pr * pr % c
         else:
-            return power_rest(a,b//2,c) * power_rest(a,b//2,c)* power_rest(a,1,c) % c
+            return pr * pr * a % c
 
-
-print(power_rest(A,B,C))
+print(power_rest(A, B, C))
