@@ -1,13 +1,17 @@
 
 import itertools
 class Solution:
-    def combinationsum(self, candidates: list[int],target:int)->list[list[int]]:
+    def combinationSum(self, candidates: list[int],target:int)->list[list[int]]:
         result = []
-        for i in range(target//2+1):
-            for j in intertools.combinations_with_replacement(candidates,i):
-                if sum(j) == target:
-                    result.append(list(j))
+        def dfs(index, target, list):
+            if target ==0:
+                result.append(list)
+                return
+            elif target < 0:
+                return
+            for i in range(index, len(candidates)):
+                dfs(i, target - candidates[i], list + [candidates[i]])
+        dfs(0,target,[])
         return result
-
 s= Solution()
 print(s.combinationSum([2,3,6,7],7))
