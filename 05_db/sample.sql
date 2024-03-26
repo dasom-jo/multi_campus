@@ -1,6 +1,6 @@
 -- study_db 생성
 DROP DATABASE IF EXISTS `study_db`;
-CREATE DATABASE study_db DEFAULT CHARACTER SET = 'utf8mb4';
+CREATE DATABASE study_db DEFAULT CHARACTER SET = 'utf8mb4' COLLATE = utf8mb4_0900_ai_ci;
 -- 생성된 DB 선택
 USE study_db;
 
@@ -12,7 +12,7 @@ CREATE TABLE tCity (
 	popu INT NULL,
 	metro CHAR(1) NOT NULL,
 	region CHAR(6) NOT NULL
-);
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 -- 데이터 입력
 INSERT INTO tCity VALUES
 ('서울', 605, 974, 'y', '서울'),
@@ -34,7 +34,7 @@ CREATE TABLE tStaff (
 	grade CHAR(10) NOT NULL,
 	salary INT NOT NULL,
 	score DECIMAL(5, 2) NULL
-);
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 -- 데이터 입력
 INSERT INTO tStaff VALUES
 ('김유신', '총무부', '남', '2000-2-3', '이사', 420, 88.8),
@@ -64,7 +64,7 @@ CREATE TABLE DEPT(
 	DNAME VARCHAR(14),
 	LOC VARCHAR(13),
 	CONSTRAINT PK_DEPT PRIMARY KEY(DEPTNO)
-);
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 -- 테이블 생성
 DROP TABLE IF EXISTS `EMP`;
 CREATE TABLE EMP(
@@ -78,7 +78,7 @@ CREATE TABLE EMP(
 	DEPTNO INT(2),
 	CONSTRAINT PK_EMP PRIMARY KEY(EMPNO),
 	CONSTRAINT FK_DEPTNO FOREIGN KEY(DEPTNO) REFERENCES DEPT(DEPTNO)
-);
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 -- 데이터 입력
 INSERT INTO DEPT
 VALUES(10, 'ACCOUNTING', 'NEW YORK'),
@@ -104,7 +104,7 @@ INSERT INTO EMP VALUES
 
 -- 테이블 생성
 DROP TABLE IF EXISTS `SALGRADE`;
-CREATE TABLE SALGRADE (GRADE INT, LOSAL INT, HISAL INT);
+CREATE TABLE SALGRADE (GRADE INT, LOSAL INT, HISAL INT) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
 -- 데이터 입력
 INSERT INTO SALGRADE VALUES
@@ -123,7 +123,7 @@ CREATE TABLE usertbl(
 	addr CHAR(100),
 	mobile CHAR(11),
 	mdate DATE
-);
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
 -- 테이블 생성
 DROP TABLE IF EXISTS `buytbl`;
@@ -135,7 +135,7 @@ CREATE TABLE buytbl(
 	price INT NOT NULL,
 	amount INT NOT NULL,
 	FOREIGN KEY (userid) REFERENCES usertbl(userid) ON DELETE CASCADE
-);
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
 -- 데이터 삽입
 INSERT INTO usertbl VALUES
@@ -173,7 +173,7 @@ CREATE TABLE `logic_operation` (
 	`b` INT NOT NULL,
 	`and` VARCHAR(6) NULL,
 	`or` VARCHAR(6) NULL
-);
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 -- 데이터 입력
 INSERT INTO `logic_operation` VALUES
 (0, 0, NULL, NULL),
@@ -187,7 +187,7 @@ CREATE TABLE promotion_tbl (
 	id INT AUTO_INCREMENT PRIMARY KEY,
 	product_name VARCHAR(50),
 	promotion_msg VARCHAR(100)
-);
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
 -- 데이터 입력
 INSERT INTO promotion_tbl (product_name, promotion_msg) VALUES
@@ -205,7 +205,7 @@ CREATE TABLE tcar (
 	capacity INT NOT NULL, -- 배기량
 	price INT NOT NULL, -- 가격
 	maker VARCHAR(30) NOT NULL -- 제조사
-);
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
 -- 데이터 입력
 INSERT INTO tcar (car, capacity, price, maker) VALUES
@@ -222,7 +222,7 @@ CREATE TABLE tmaker (
 	maker VARCHAR(30) NOT NULL, -- 회사
 	factory CHAR(10) NOT NULL, -- 공장
 	domestic CHAR(1) NOT NULL -- 국산 여부. Y/N
-);
+) ENGINE = InnoDB DEFAULT CHARSET = utf8mb4 COLLATE = utf8mb4_0900_ai_ci;
 
 -- 데이터 입력
 INSERT INTO tmaker (maker, factory, domestic) VALUES
