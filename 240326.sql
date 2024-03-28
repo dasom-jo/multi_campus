@@ -1,19 +1,28 @@
-select * from tcity; #ticty 데이터조회
-desc tcity; #ticty 테이블구조와 속성파악
+#ticty 데이터조회
+select * from tcity; 
+
+#ticty 테이블구조와 속성파악
+desc tcity; 
+
 #tcity 테이블에서 region,name,area 컬럼만 조회
 select region,area,name from tcity; 
+
 # `` 노상관:select `region`,`area`,`name` from tcity;
 select region AS `지역 명`,name 도시명,area AS 번지,
 	popu '인구(만명)',popu*10000 '인구(명)' from tcity
 	where metro = 'n'; # 지하철이없는곳,줄바꿈노상관 ;만 제외하셈 
+    
 #사칙연산가능
 select name,area,popu,popu/area '인구밀도' from tcity ;
 select 525600*60 '일년은 몇초?';
+
 #컬럼연결(concat)
-select concat(name," ",'/',grade) from tstaff;
+select concat(name," ",'(',grade,')') from tstaff;
+
 #중복제거
 select distinct region from tcity;
 select distinct grade from tstaff;
+
 #가나다 오른쪽 정렬이기본 바꾸고싶으면 orderby 컬럼명 [asc/desc]
 select * from tcity order by popu ;
 select * from tcity order by popu asc;
@@ -31,10 +40,12 @@ select name,depart,grade,joindate from tstaff
 	where joindate < '2015-01-01';
 #from-where-select -order by 
 #순서대로 인식해서 select뒤만 별명인지가능
+
 #null
 select * from tstaff where score is null; 
 select * from tstaff where score is not null; 
 desc tstaff;
+
 #
 select `a`,`b`,`and` from logic_operation
 	where a = 1 and b = 1;
@@ -50,6 +61,7 @@ select *
 	from tstaff
 		where (`depart` = '인사과' and gender = '남') 
 			or (depart = '영업부'  and `gender` = '여');
+
 # _한글자 생략 % 여러글자생략select * 
 select * 
 from tstaff

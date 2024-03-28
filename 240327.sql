@@ -1,18 +1,18 @@
-use study_db;
+-- #use study_db;
 
 select *
 		, if(score is null, 0 ,score)as `new score`
         from tstaff; # score가 null이면 0 아니면 score반환
-        
+
 select *,
-		case 
+		case
 			when score is null then 0
             else score
         end as `new score`
 from tstaff;
 
 select *,
-		case 
+		case
 			gender #프로그램이 자동 등호,null값비교불가
             when'남' then 1
             when'여' then 1
@@ -20,7 +20,7 @@ select *,
 		end`new gender`
 from tstaff;
 
-SELECT 
+SELECT
     *
 FROM
     tstaff
@@ -34,10 +34,10 @@ WHERE
         WHEN '이사' THEN 6
         ELSE NULL
     END = 1;
-    
-select *	
- from tstaff
- order by
+
+select *
+from tstaff
+order by
 	case grade
 		when '사원' then 1
         when '대리' then 2
@@ -52,14 +52,14 @@ select grade, avg(salary) `직급별평균임금`
 from tstaff
 group by grade
 order by `직급별평균임금`;
- 
+
 select grade, avg(salary) `직급별평균임금`
 from tstaff
 where grade not in ('이사')
 group by grade
 order by `직급별평균임금`;
 
-select depart,gender,count(*)`열의갯수` 
+select depart,gender,count(*)`열의갯수`
 from tstaff
 group by depart,gender
 order by depart,gender;
@@ -88,7 +88,7 @@ from tstaff
 group by depart,gender
 order by depart,gender;
 
-SELECT count(*) as 직원수 
+SELECT count(*) as 직원수
 FROM tstaff;
 
 select count(*) '직원수'
@@ -102,7 +102,7 @@ order by `직급별인원수`;
 
 select count(distinct grade) `직급수`
 from tstaff;
-	
+
 select count(*) `null스코어`
 from tstaff
 where score is null;
@@ -127,14 +127,14 @@ group by depart
 having avg(salary) >= 350
 order by avg(salary);
 
-select 	
+select
 		sum(sal)`급여합`,
 		min(sal)`최소급여`,
         max(sal)`최대급여`,
         count(sal)`총인원`
 from emp;
 
-select job , 
+select job ,
 		max(sal)`업무별최대급여`,
         min(sal)`최소급여`,
         sum(sal)`급여합`
@@ -164,7 +164,7 @@ union all
 select deptno from emp; #18개
 
 select deptno from dept
-intersect 
+intersect
 select deptno from emp; #3개
 
 select deptno from dept
@@ -190,16 +190,16 @@ where deptno in (
 
 select *
 from emp
-where sal >= 
-		(select 
-			avg(sal) 
+where sal >=
+		(select
+			avg(sal)
 			from emp);
 #v평균보다 높은 금여를 받는 자들
 select *
 from emp
-where sal >= 
-		(select 
-			avg(sal) 
+where sal >=
+		(select
+			avg(sal)
 			from emp);
  #밀러와 같은 부서 근무
 select *
@@ -246,18 +246,18 @@ where mgr =
 			(select empno
 				from emp
 				where ename = 'king');
-			
+
 select *
 from tstaff
 where (depart, gender) = (
-	select depart,gender from tstaff 
+	select depart,gender from tstaff
     where name = '안중근');
-    
+
 #in연산자
 select * from emp where sal in (
 	select max(sal) from emp group by deptno
     );
-    
+
 #all연산자
 select * from emp where sal> (
 select max(sal) from emp where deptno = 30
@@ -279,7 +279,7 @@ select * from emp where sal > some (
 	select sal from emp where deptno = 30
 );
 
-#exist 
+#exist
 select * from emp where exists(
 	select 1 from emp where sal > 2000
 ); #2000을 넘으면 모든!직원 조회, 조건이참이면
@@ -297,29 +297,29 @@ select * from emp where sal in (
 select * from emp where deptno in
 			(select distinct daptno
 				from emp
-					where sal >= 3000); 
+					where sal >= 3000);
 
 select * from emp where deptno in
 			(select deptno
 				from emp
-					where JOB = 'MANAGER'); 
-  #deptno  부서정보                  
+					where JOB = 'MANAGER');
+#deptno  부서정보
 #EMP 테이블에서 BLAKE와 동일한 부서에 있는 모든 사원 검색
-select * from emp where deptno = 
+select * from emp where deptno =
 			(select deptno
 				from emp
-					where ENAME = 'BLAKE'); 
+					where ENAME = 'BLAKE');
 
 #EMP 테이블에서 평균 급여(SAL) 이상을 받는 모든 사원 검색. 급여가 많은 순으로 출력
 select * from emp where sal >=
-	(select avg(sal) from emp) order by sal desc; 
+	(select avg(sal) from emp) order by sal desc;
 
-#EMP 테이블에서 이름에 “T”가 있는 사원이 근무하는 부서에서 있는 모든 사원 검색. 
+#EMP 테이블에서 이름에 “T”가 있는 사원이 근무하는 부서에서 있는 모든 사원 검색.
 #사원번호 순으로 출력
 select * from emp where deptno in (
 	select deptno from emp where ename like '%T%')
     order by empno ;
-    
+
 #EMP 테이블에서 근무 지역이 DALLAS인 사원 정보 검색
 select * from emp where deptno =
 	(select deptno from dept where loc = 'DALLAS');
