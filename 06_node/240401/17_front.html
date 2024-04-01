@@ -23,7 +23,7 @@
     <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
     <script>
         const form = document.querySelector('form');
-        form.addEventListener('submit', (e) => {
+        form.addEventListener('submit', async (e) => {
             e.preventDefault();
             const name = form.name.value;
             const username = form.username.value;
@@ -36,22 +36,25 @@
             const street = form.street.value;
             const zipcode = form.zipcode.value;
 
-            axios.post('https://koreanjson.com/users/', {
-                name,
-                username,
-                email,
-                phone,
-                website,
-                province,
-                city,
-                district,
-                street,
-                zipcode,
-            }).then((res)=> {
+            try {
+                const res = await axios.post('https://koreanjson.com/users/', {
+                    name,
+                    username,
+                    email,
+                    phone,
+                    website,
+                    province,
+                    city,
+                    district,
+                    street,
+                    zipcode,
+                });
                 console.log(res.data);
-            }).catch((err)=> {
+            } catch (err) {
                 console.error(err);
-            });
+            } finally {
+                e.target.reset();
+            }
         });
     </script>
 </body>
