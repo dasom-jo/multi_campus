@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+    <script src="https://unpkg.com/axios/dist/axios.min.js"></script>
+    <script>
+        // axios.get('https://koreanjson.com/users/')
+        //     .then((res) => {
+        //         console.log(res.data);
+        //     })
+        //     .catch((err) => {
+        //         console.error(err.message);
+        //     });
+
+        (async () => {
+            try {
+                const res = await axios.get('https://koreanjson.com/users/')
+                console.log(res.data);
+            } catch (err) {
+                console.error(err);
+            }
+        })();
+
+        (async () => {
+            try {
+                const res = await axios.post('https://koreanjson.com/users/', {
+                    "name": "이주희",
+                    "username": "jh1122",
+                    "email": "lee.jh@gmail.com",
+                    "phone": "010-1234-5678",
+                    "website": "https://leejuhee.com",
+                    "province": "",
+                    "city": "서울특별시",
+                    "district": "성북구",
+                    "street": "성북로 123",
+                    "zipcode": "02879",
+                })
+                console.log(res.data);
+            } catch (err) {
+                console.error(err);
+            }
+        })();
+    </script>
+</body>
+</html>
