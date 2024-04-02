@@ -12,8 +12,11 @@ btn.addEventListener('click', () => {
     let url = `https://dummyjson.com/products/${num}`;
 
     fetch(url)
-        .then(response => response.json())
+        .then(res => {
+            return res.json()
+        })
         .then(data => {
+            console.log(data);
             const resultDiv = document.querySelector('#result');
             resultDiv.innerHTML = `
                 <ul>
