@@ -1,13 +1,8 @@
+const { odd, even } = require('./var');
 
-
-
-const oddchecker = () => {
-    let number = Number(str)
-    if (number % 2) {
-        return '홀수입니다'
+exports.oddChecker = (number) =>{
+    if (number % 2){
+        return odd;
     }
-    return '짝수입니다'
+    return even
 }
-
-let result = strNumOddOrEven('301')
-console.log(result);

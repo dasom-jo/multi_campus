@@ -1,15 +1,11 @@
 //문자열의 길이가 홀수인지 짝수인지 반환하는 프로그램
-const oddcheker=require("./oddcheck")
-
-
+const { oddchecker } = require('./oddCheck');
+//{} 를하는건 여러 모듈중에 해당 모듈만 할당하기위해서
+//안쓰면 코드가 길고 복잡해진다
 function strLenOddOrEven(str) {
     let strLen = str.length;
-    if (strLen % 2) {
-        return '홀수입니다'
-    }
-    return '짝수입니다'
+    return oddchecker(strLen)
 }
 
-let result = strLenOddOrEven('모듈 만들어보기')
+let result = strLenOddOrEven('모듈만들어보기')
 console.log(result);
-

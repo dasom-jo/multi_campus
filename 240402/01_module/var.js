@@ -1,1 +1,1 @@
-exports.dat = '데이터'
+exports.data = '데이터'

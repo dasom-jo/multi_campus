@@ -1,2 +1,2 @@
-module.exports = () => globalThis.msg = '안녕하세요'
-
+module.exports = () => globalThis.msg;
+//globalThis 전역객체
