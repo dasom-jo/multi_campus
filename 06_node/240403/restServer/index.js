@@ -39,11 +39,19 @@ const getUser = async () => {
                     alert('이름을 입력하지 않아, 수정이 취소되었습니다.');
                     return
                 }
-                await axios.put(`/user/${key}`, { newName });
+                try {
+                    await axios.put(`/user/${key}`, { newName });
+                    getUser();
+                } catch (err) {
+                    console.error(err);
+                }
             })
 
             const delBtn = document.createElement('button');
             delBtn.textContent = '삭제';
+            // 삭제 버튼 클릭시, 진짜 삭제하시겠습니까?
+            // 사용자 삭제 axios
+            // 사용자 목록 리셋 (getUser);
 
             userDiv.appendChild(userSpan);
             userDiv.appendChild(editBtn);

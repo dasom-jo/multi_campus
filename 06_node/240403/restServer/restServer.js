@@ -57,7 +57,8 @@ http.createServer(async (req, res)=>{
                 return res.end(JSON.stringify(user));
             })
         }
-    }
+    } // 삭제 메서드일 때, /user/1777815615 로 들어오면 해당 아이디를 가지고 있는 유저 삭제
+
 }).listen(8000, ()=> {
     console.log('8000번 포트로 연결!');
 })
