@@ -1,0 +1,1 @@
+exports.dat = '데이터'

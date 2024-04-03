@@ -1,0 +1,3 @@
+
+name = jodasom
+print(name)
