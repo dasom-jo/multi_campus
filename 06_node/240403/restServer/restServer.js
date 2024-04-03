@@ -43,6 +43,20 @@ http.createServer(async (req, res)=>{
                 res.end('등록 성공');
             })
         }
+    } else if (req.method === 'PUT') {
+        if (req.url.startsWith('/user/')) {
+            const id = req.url.split('/')[2];
+            let body = '';
+            req.on('data', (data) => {
+                body += data;
+            });
+            req.on('end', () => {
+                const { newName } = JSON.parse(body);
+                user[id] = newName;
+                res.writeHead(200, { 'Content-Type': 'application/json; charset=utf-8' });
+                return res.end(JSON.stringify(user));
+            })
+        }
     }
 }).listen(8000, ()=> {
     console.log('8000번 포트로 연결!');
