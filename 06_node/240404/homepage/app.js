@@ -1,15 +1,22 @@
 require('dotenv').config();
 
-const express = require('express');
 const morgan = require('morgan');
-
+const express = require('express');
 const app = express();
+
 const path = require('path');
+const nunjucks = require('nunjucks');
+nunjucks.configure('views', {
+    express: app,
+    watch: true,
+    autoescape: true
+});
 
 const indexRouter = require('./routes');
 const userRouter = require('./routes/user');
 
-
+app.set('view engine', 'html');
+app.set('views', path.join(__dirname, 'views'))
 app.set('port', process.env.PORT || 8001);
 
 app.use(
@@ -35,8 +42,9 @@ app.use((req, res, next) => {
 // 에러 처리
 app.use((err, req, res, next) => {
     console.error(err);
-    res.status(err.status || 500);
-    res.sendFile(path.join(__dirname, './views/error.html'));
+    const code = err.status || 500;
+    const message = err.status == 404 ? err.message : '서비스 관리자에게 문의해주세요';
+    res.render('error', { code, message});
 });
 
 app.listen(app.get('port'), () => {
