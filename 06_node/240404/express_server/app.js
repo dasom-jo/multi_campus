@@ -1,6 +1,7 @@
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
+const multer = require('multer');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
 
@@ -27,7 +28,7 @@ app.use(
     express.urlencoded({ extended : true }),
     /* 요청(req)에 들어있는 쿠키를 해석해 req.cookies 라는 객체에 담아줌 */
     // cookieParser((process.env.COOKIE_SECRET))
-    cookieParser()(req, res, next),
+    cookieParser(),
     session({ 
         resave: false, // req가 들어올 때, 세션 변경이 없어도 다시 저장할까?
         saveUninitialized : false, // 세션에 저장할 내역이 없는데, 초기화하지말까?
@@ -38,6 +39,22 @@ app.use(
         name: 'connect.sid' // 세션 쿠키 이름
     })
 );
+
+/* multer 미들웨어 생성 (장착 X) */
+const imageUpload = multer({
+    // 파일 저장 위치 및 파일명을 설정
+    storage: multer.diskStorage({
+        destination(req, file, done) {
+            done(null, 'public/');
+        },
+        filename(req, file, done) {
+            const ext = path.extname(file.originalname);
+            const newFilename = path.basename(file.originalname, ext) + Date.now() + ext;
+            done(null, newFilename);
+        }
+    }),
+    limits: { fileSize: 5 * 1024 * 1024 } // 파일 크기 제한 byte -> KB -> MB (5MB)
+});
 
 app.get('/', (req, res) => {
     /* 쿠키 설정 */
@@ -63,6 +80,15 @@ app.get('/service', (req, res) => {
     res.send('서비스 입니다.');
 });
 
+app.get('/upload', (req, res) => {
+    res.sendFile(path.join(__dirname, 'views/upload.html'));
+});
+
+app.post('/upload', imageUpload.single('image'), (req, res) => {
+    console.log(req.body.image);
+    console.log(req.body.username);
+    res.send('ok');
+})
 
 /* 정해지지 않은 요청에 대해서 404 에러 처리 */
 app.use((req, res, next) => {
