@@ -27,7 +27,7 @@ app.use(
     express.urlencoded({ extended : true }),
     /* 요청(req)에 들어있는 쿠키를 해석해 req.cookies 라는 객체에 담아줌 */
     // cookieParser((process.env.COOKIE_SECRET))
-    cookieParser(),
+    cookieParser()(req, res, next),
     session({ 
         resave: false, // req가 들어올 때, 세션 변경이 없어도 다시 저장할까?
         saveUninitialized : false, // 세션에 저장할 내역이 없는데, 초기화하지말까?
@@ -49,9 +49,7 @@ app.get('/', (req, res) => {
 
     /* 세션 설정 */
     req.session.name = '세션의 값';
-    req.session.save(()=> {
-        res.sendFile(path.join(__dirname, 'views/index.html'));
-    })
+    res.sendFile(path.join(__dirname, 'views/index.html'));
 });
 
 app.get('/about', (req, res) => {
@@ -61,8 +59,10 @@ app.get('/about', (req, res) => {
 });
 
 app.get('/service', (req, res) => {
+    req.session.destroy();
     res.send('서비스 입니다.');
 });
+
 
 /* 정해지지 않은 요청에 대해서 404 에러 처리 */
 app.use((req, res, next) => {
