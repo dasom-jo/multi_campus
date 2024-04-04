@@ -1,10 +1,18 @@
+const path = require('path');
+const fs = require('fs');
+
+try {
+    fs.readdirSync('public/uploads');
+} catch (err) {
+    console.log('uploads 폴더가 없어서 생성합니다.');
+    fs.mkdirSync('public/uploads');
+}
+
 const express = require('express');
 const morgan = require('morgan');
-const path = require('path');
 const multer = require('multer');
 const cookieParser = require('cookie-parser');
 const session = require('express-session');
-
 const app = express();
 
 require('dotenv').config(); // .env 파일을 읽어서 process.env에 추가
@@ -45,7 +53,7 @@ const imageUpload = multer({
     // 파일 저장 위치 및 파일명을 설정
     storage: multer.diskStorage({
         destination(req, file, done) {
-            done(null, 'public/');
+            done(null, 'public/uploads');
         },
         filename(req, file, done) {
             const ext = path.extname(file.originalname);
@@ -85,7 +93,7 @@ app.get('/upload', (req, res) => {
 });
 
 app.post('/upload', imageUpload.single('image'), (req, res) => {
-    console.log(req.body.image);
+    console.log(req.file);
     console.log(req.body.username);
     res.send('ok');
 })
