@@ -42,9 +42,9 @@ app.use((req, res, next) => {
 // 에러 처리
 app.use((err, req, res, next) => {
     console.error(err);
-    const code = err.status || 500;
-    const message = err.status == 404 ? err.message : '서비스 관리자에게 문의해주세요';
-    res.render('error', { code, message});
+    res.locals.error = process.env.NODE_ENV == 'development' ? err : {};
+    res.locals.message = err.message;
+    res.status(err.status || 500).render('error');
 });
 
 app.listen(app.get('port'), () => {
