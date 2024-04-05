@@ -77,8 +77,6 @@
                                 <img src="/img/{{user.profileImg}}" alt="프로필사진" width="75" />
                             </td>
                             <td>
-                                <!-- [과제] 삭제 버튼 클릭 시 해당 user 데이터가 삭제되도록 하기 -->
-                                <!-- DELETE /users/:id -->
                                 <button class="del_btn" data-userid={{user.userId}}>삭제</button>
                             </td>
                         </tr>
@@ -96,6 +94,18 @@
                     </thead>
                     <tbody>
                         <!-- 게시글 목록 -->
+                        {% for post in posts %}
+                        <tr>
+                            <!-- <td>{{loop.index}}</td> -->
+                            <td>{{post.id}}</td>
+                            <td>{{post.content}}</td>
+                            <td>{{post.userId}}</td>
+                            <td>
+                                <button class="post_mod_btn" data-userid={{post.id}}>삭제</button>
+                                <button class="post_del_btn" data-userid={{post.id}}>삭제</button>
+                            </td>
+                        </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
             </div>

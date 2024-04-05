@@ -8,6 +8,7 @@ const path = require('path');
 const fs = require('fs');
 const { sequelize } = require('./models');
 const User = require('./models/user');
+const Post = require('./models/post');
 const Op = require('sequelize').Op;
 
 const app = express();
@@ -46,33 +47,53 @@ app.use(
 );
 
 // user 데이터 전체와 post 데이터 전체가 화면에 나올 것
-app.get('/', async (req, res) => {
+app.get('/', async (req, res, next) => {
     try {
         const users = await User.findAll({
             attributes: ['userId', 'name', 'profileImg'],
             order: [[ 'createdAt', 'ASC' ]]
         });
-        res.render('index', { users });
+        const posts = await Post.findAll({
+            order: [['createdAt', 'DESC']]
+        });
+        res.render('index', { users, posts });
     } catch (err) {
         next(err);
     }
 });
 
+app.post('/posts', async (req, res, next) => {
+    try {
+        const writer = await User.findOne({
+            where: {
+                userId: { [Op.eq]: req.body.postData.userId }
+            }
+        });
+        if (writer) {
+            await Post.create( req.body.postData );
+            return res.send('등록 완료')
+        }
+        res.send('없는 사용자')
+    } catch (err) {
+        console.error(err);
+        next(err);
+    }
+});
+
 // 유저 등록 [개발 완료]
-app.post('/users', async (req, res) => {
+app.post('/users', async (req, res, next) => {
     try {
         const exUser = await User.findOne({
             where: {
                 userId: { [Op.eq]: req.body.userData.userId }
             }
         });
-        console.log(exUser);
         if (exUser) {
-            // [과제] 존재하면 NOT OK가 아니라, 수정하고 OK로 반환되도록 수정 가능~
-            res.send('NOT OK');
+            await exUser.update(req.body.userData);
+            res.send('수정 완료');
         } else {
             await User.create(req.body.userData);
-            res.send('OK');
+            res.send('등록 완료');
         }
     } catch (err) {
         next(err);
@@ -108,7 +129,7 @@ app.delete('/users/:id', async (req, res, next) => {
         console.error(err);
         next(err);
     }
-})
+});
 
 app.use((req, res, next)=> {
     const err = new Error('없는 페이지 경로');

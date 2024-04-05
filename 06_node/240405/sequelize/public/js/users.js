@@ -30,11 +30,13 @@ userForm.addEventListener('submit', async (e)=> {
     try {
         // POST /users userData
         const response = await axios.post('/users', { userData });
-        if (response.data == "OK")  {
+        if (response.data == "등록 완료")  {
+            alert('등록이 완료되었습니다.');
             window.location.reload();
-        } else {
-            alert('이미 존재하는 아이디입니다.');
-        }
+        } else if (response.data == "수정 완료") {
+            alert('수정이 완료되었습니다.');
+            window.location.reload();
+        } 
     } catch (err) {
         console.error(err);
     }
@@ -49,5 +51,5 @@ delBtns.forEach(btn=>{
         if (response.status == 200) {
             window.location.reload();
         }
-    })
-})
+    });
+});
