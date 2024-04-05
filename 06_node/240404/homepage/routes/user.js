@@ -3,15 +3,27 @@ const express = require('express');
 const router = express.Router();
 const path = require('path');
 
+const users = [];
+
 router.route('/')
     // GET /users/ - "사용자 페이지 출력"
     .get((req, res) => {
-        console.log(a);
-        res.send('사용자 전체 조회 페이지');
+        res.render('index', { users });
     })
     // POST /users/ - "사용자 페이지 출력"
     .post((req, res) => {
-        res.send('사용자 등록');
+        users.push({
+            id : req.body.userid,
+            pw: req.body.userpw,
+            name: req.body.username,
+            birth: req.body.userbirth,
+            tel: req.body.usertel,
+            gender: req.body.gender,
+            nation: req.body.nation,
+            email: req.body.useremail,
+            profile: req.body.userprofile
+        });
+        res.redirect('/users');
     })
     .put((req, res) => {
         res.send('사용자 수정');
