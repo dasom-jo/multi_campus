@@ -68,6 +68,16 @@
                     </thead>
                     <tbody>
                         <!-- 사용자 목록 -->
+                        {% for user in users %}
+                        <tr>
+                            <td>{{user.userId}}</td>
+                            <td>{{user.name}}</td>
+                            <td>
+                                <img src="/img/{{user.profileImg}}" alt="프로필사진" width="75" />
+                                
+                            </td>
+                        </tr>
+                        {% endfor %}
                     </tbody>
                 </table>
                 <table id="post-list">

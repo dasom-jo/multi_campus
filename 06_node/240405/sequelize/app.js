@@ -8,6 +8,7 @@ const path = require('path');
 const fs = require('fs');
 const { sequelize } = require('./models');
 const User = require('./models/user');
+const Op = require('sequelize').Op;
 
 const app = express();
 
@@ -44,13 +45,17 @@ app.use(
     express.urlencoded({ extended: true })
 );
 
-app.get('/', (req, res) => {
-    // user 데이터 전체와 post 데이터 전체가 화면에 나올 것
-    res.render('index');
+// user 데이터 전체와 post 데이터 전체가 화면에 나올 것
+app.get('/', async (req, res) => {
+    const users = await User.findAll({
+        attributes: ['userId', 'name', 'profileImg']
+    });
+    res.render('index', { users });
 });
 
-app.post('/users', (req, res) => {
-    User.create(req.body.userData);
+// 유저 등록 [개발 완료]
+app.post('/users', async (req, res) => {
+    await User.create(req.body.userData);
     res.send('OK');
 });
 
@@ -67,8 +72,7 @@ const profileUpload = multer({
     limits: {fileSize : 5 * 1024 * 1024}
 });
 
-// MULTER 를 설치하고, 싱글 이미지 업로드 될 수 있도록 해보기
-// 업로드 경로 : public/img
+// 프로필 사진 등록 [개발 완료]
 app.post('/users/img', profileUpload.single("profileImage"), (req, res) => {
     res.send(req.file.filename);
 })

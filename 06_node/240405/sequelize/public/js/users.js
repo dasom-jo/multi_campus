@@ -12,6 +12,11 @@ userForm.addEventListener('submit', async (e)=> {
     }
 
     let profileImage = e.target.profileImage.files[0];
+    let userData = {
+        userId,
+        name,
+        password
+    };
 
     if (profileImage) {
         const formData = new FormData();
@@ -19,20 +24,15 @@ userForm.addEventListener('submit', async (e)=> {
         // 이미지 업로드하고, 저장된 이미지 파일명을 반환
         const response = await axios.post('/users/img', formData);
         profileImage = response.data;
-    } else {
-        profileImage = null;
-    }
-    const userData = {
-        userId,
-        name,
-        password,
-        profileImg: profileImage
+        userData.profileImg = profileImage
     };
     
     try {
         // POST /users userData
         const response = await axios.post('/users', { userData });
-        console.log(response);
+        if (response.data == "OK")  {
+            window.location.reload();
+        }
     } catch (err) {
         console.error(err);
     }
