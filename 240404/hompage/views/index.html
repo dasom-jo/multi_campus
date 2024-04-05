@@ -10,7 +10,7 @@
     <div class="join-info">
         <div class="container">
             <p>회원가입</p>
-            <form action="./users" method='post' class="form" enctype="multipart/form-data">
+            <form action="/users" method="post" class="form" enctype="multipart/form-data">
                 <div class="input-box">
                     <input name="userid" type="text" placeholder="아이디" />
                 </div>
@@ -54,7 +54,7 @@
                 </div>
 
                 <div class="filebox">
-                    <span>[선택사항] 프로필 이미지</span>
+                    <span>[필수사항] 프로필 이미지</span>
                     <label for="user-profile">파일선택</label>
                     <input id="user-profile" type="file" name="userprofile" />
                 </div>
@@ -82,10 +82,9 @@
                 <span>{{user.tel}}</span>
                 <span>{{user.email}}</span>
                 <span>{{user.nation}}</span>
-                <span>{{user.profile}}</span>
-                <!-- <span>
-                    <img src="profile/{{user.profile}}" alt="">
-                </span> -->
+                <span>
+                    <img src="/profile/{{user.profile}}" />
+                </span>
             </div>
             {% endfor %}
         </div>
