@@ -47,27 +47,35 @@ app.use(
 
 // user 데이터 전체와 post 데이터 전체가 화면에 나올 것
 app.get('/', async (req, res) => {
-    const users = await User.findAll({
-        attributes: ['userId', 'name', 'profileImg'],
-        order: [[ 'createdAt', 'ASC' ]]
-    });
-    res.render('index', { users });
+    try {
+        const users = await User.findAll({
+            attributes: ['userId', 'name', 'profileImg'],
+            order: [[ 'createdAt', 'ASC' ]]
+        });
+        res.render('index', { users });
+    } catch (err) {
+        next(err);
+    }
 });
 
 // 유저 등록 [개발 완료]
 app.post('/users', async (req, res) => {
-    const exUser = await User.findOne({
-        where: {
-            userId: { [Op.eq]: req.body.userData.userId }
+    try {
+        const exUser = await User.findOne({
+            where: {
+                userId: { [Op.eq]: req.body.userData.userId }
+            }
+        });
+        console.log(exUser);
+        if (exUser) {
+            // [과제] 존재하면 NOT OK가 아니라, 수정하고 OK로 반환되도록 수정 가능~
+            res.send('NOT OK');
+        } else {
+            await User.create(req.body.userData);
+            res.send('OK');
         }
-    });
-    console.log(exUser);
-    if (exUser) {
-        // [과제] 존재하면 NOT OK가 아니라, 수정하고 OK로 반환되도록 수정 가능~
-        res.send('NOT OK');
-    } else {
-        await User.create(req.body.userData);
-        res.send('OK');
+    } catch (err) {
+        next(err);
     }
 });
 
@@ -88,6 +96,19 @@ const profileUpload = multer({
 app.post('/users/img', profileUpload.single("profileImage"), (req, res) => {
     res.send(req.file.filename);
 });
+
+app.delete('/users/:id', async (req, res, next) => {
+    console.log(req.params.id);
+    try {
+        await User.destroy({
+            where: { userId: { [Op.eq]: req.params.id }}
+        });
+        res.send('OK')
+    } catch (err) {
+        console.error(err);
+        next(err);
+    }
+})
 
 app.use((req, res, next)=> {
     const err = new Error('없는 페이지 경로');
