@@ -3,10 +3,20 @@ require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
 const nunjucks = require('nunjucks');
+const multer = require('multer');
 const path = require('path');
+const fs = require('fs');
 const { sequelize } = require('./models');
+const User = require('./models/user');
 
 const app = express();
+
+try {
+    fs.readdirSync('public/img');
+} catch (err) {
+    console.log('img 폴더 생성');
+    fs.mkdirSync('public/img')
+}
 
 nunjucks.configure('views', {
     express: app,
@@ -40,16 +50,27 @@ app.get('/', (req, res) => {
 });
 
 app.post('/users', (req, res) => {
-    console.log(req.body);
+    User.create(req.body.userData);
     res.send('OK');
-    // 사용자 추가
+});
+
+const profileUpload = multer({
+    storage: multer.diskStorage({
+        destination(req, file, done) {
+            done(null, 'public/img/');
+        },
+        filename(req, file, done) {
+            const ext = path.extname(file.originalname);
+            done(null, path.basename(file.originalname, ext) + Date.now() + ext);
+        },
+    }),
+    limits: {fileSize : 5 * 1024 * 1024}
 });
 
 // MULTER 를 설치하고, 싱글 이미지 업로드 될 수 있도록 해보기
 // 업로드 경로 : public/img
-app.post('/users/img', (req, res) => {
-
-    res.send('OK');
+app.post('/users/img', profileUpload.single("profileImage"), (req, res) => {
+    res.send(req.file.filename);
 })
 // -----------------------
 /*

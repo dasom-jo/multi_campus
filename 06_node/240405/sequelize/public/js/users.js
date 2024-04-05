@@ -5,24 +5,28 @@ userForm.addEventListener('submit', async (e)=> {
     const userId = e.target.userId.value;
     const name = e.target.name.value;
     const password = e.target.password.value;
-    const profileImage = e.target.profileImage.files[0];
+
+    if (!userId || !name || !password) {
+        alert('필수 입력값 모두 입력해주세요')
+        return
+    }
+
+    let profileImage = e.target.profileImage.files[0];
 
     if (profileImage) {
         const formData = new FormData();
         formData.append('profileImage', e.target.profileImage.files[0]);
         // 이미지 업로드하고, 저장된 이미지 파일명을 반환
         const response = await axios.post('/users/img', formData);
-        console.log(response);
-        // profileImage = 저장된이미지파일명
+        profileImage = response.data;
     } else {
         profileImage = null;
     }
-
     const userData = {
         userId,
         name,
         password,
-        profileImage
+        profileImg: profileImage
     };
     
     try {
@@ -32,4 +36,5 @@ userForm.addEventListener('submit', async (e)=> {
     } catch (err) {
         console.error(err);
     }
+    e.target.reset();
 });
