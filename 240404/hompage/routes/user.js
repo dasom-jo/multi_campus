@@ -1,17 +1,48 @@
 const express = require('express');
-
+const multer = require('multer');
 const router = express.Router();
 const path = require('path');
+
+const users = [];
+
+const profileUpload = multer({
+    // 파일 저장 위치 및 파일명을 설정
+    storage: multer.diskStorage({
+        destination(req, file, done) {
+            done(null, 'public/profile');
+        },
+        filename(req, file, done) {
+            const ext = path.extname(file.originalname);
+            const newFilename = path.basename(file.originalname, ext) + Date.now() + ext;
+            done(null, newFilename);
+        }
+    }),
+    limits: { fileSize: 5 * 1024 * 1024 } // 파일 크기 제한 byte -> KB -> MB (5MB)
+});
 
 router.route('/')
     // GET /users/ - "사용자 페이지 출력"
     .get((req, res) => {
-        console.log(a);
-        res.send('사용자 전체 조회 페이지');
+        //console.log(users);
+        res.render('index', {users});
     })
     // POST /users/ - "사용자 페이지 출력"
-    .post((req, res) => {
-        res.send('사용자 등록');
+    .post( profileUpload.single('userprofile'),(req, res) => {
+        console.log(req.file);
+        console.log(req.body);
+        users.push({
+            id : req.body.userid,
+            pw: req.body.userpw,
+            name: req.body.username,
+            birth: req.body.userbirth,
+            tel: req.body.usertel,
+            gender: req.body.gender,
+            nation: req.body.nation,
+            email: req.body.useremail,
+            profile: req.file.filename
+        });
+        //req.locals.users = req.body;
+        res.redirect('/users');
     })
     .put((req, res) => {
         res.send('사용자 수정');

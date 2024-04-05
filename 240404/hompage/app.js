@@ -1,10 +1,21 @@
+const express = require('express');
+const multer = require('multer');
 const morgan = require('morgan');
-
 require('dotenv').config();
 
-const express = require('express');
 
 const app = express();
+
+const fs = require('fs');
+const path = require('path');
+
+try{
+fs.readdirSync('public/profile');
+} catch (err) {
+    console.error('profile 폴더가없어서 생성합니다');
+    fs.mkdirSync('public/profile')
+}
+
 
 const nunjucks = require('nunjucks');
 nunjucks.configure('views', {
@@ -12,10 +23,6 @@ nunjucks.configure('views', {
     watch: true,
     autoescape: true
 })
-
-
-
-const path = require('path');
 
 const indexRouter = require('./routes');
 const userRouter = require('./routes/user')
@@ -46,8 +53,10 @@ app.use((req, res, next)=>{
 
 app.use((err, req, res, next)=>{
     console.error(err);
-    res.status(err.status || 500);
-    res.render('error',{ error: err.status, message: err.message });
+    res.locals.error = process.env.NODE_ENV == 'development' ? err : {};
+    res.locals.message = err.message
+    res.status(err.status || 500).render('error');
+    //res.render('error',{ error: err.status, message: err.message });
     //res.sendFile(path.join(__dirname, './views/error.html'));
 });
 
