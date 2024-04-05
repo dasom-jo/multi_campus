@@ -32,6 +32,8 @@ userForm.addEventListener('submit', async (e)=> {
         const response = await axios.post('/users', { userData });
         if (response.data == "OK")  {
             window.location.reload();
+        } else {
+            alert('이미 존재하는 아이디입니다.');
         }
     } catch (err) {
         console.error(err);

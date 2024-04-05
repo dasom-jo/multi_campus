@@ -48,15 +48,27 @@ app.use(
 // user 데이터 전체와 post 데이터 전체가 화면에 나올 것
 app.get('/', async (req, res) => {
     const users = await User.findAll({
-        attributes: ['userId', 'name', 'profileImg']
+        attributes: ['userId', 'name', 'profileImg'],
+        order: [[ 'createdAt', 'ASC' ]]
     });
     res.render('index', { users });
 });
 
 // 유저 등록 [개발 완료]
 app.post('/users', async (req, res) => {
-    await User.create(req.body.userData);
-    res.send('OK');
+    const exUser = await User.findOne({
+        where: {
+            userId: { [Op.eq]: req.body.userData.userId }
+        }
+    });
+    console.log(exUser);
+    if (exUser) {
+        // [과제] 존재하면 NOT OK가 아니라, 수정하고 OK로 반환되도록 수정 가능~
+        res.send('NOT OK');
+    } else {
+        await User.create(req.body.userData);
+        res.send('OK');
+    }
 });
 
 const profileUpload = multer({

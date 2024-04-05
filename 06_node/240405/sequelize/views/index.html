@@ -64,6 +64,7 @@
                             <th>아이디</th>
                             <th>이름</th>
                             <th>프로필 이미지</th>
+                            <th>버튼</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -74,7 +75,11 @@
                             <td>{{user.name}}</td>
                             <td>
                                 <img src="/img/{{user.profileImg}}" alt="프로필사진" width="75" />
-                                
+                            </td>
+                            <td>
+                                <!-- [과제] 삭제 버튼 클릭 시 해당 user 데이터가 삭제되도록 하기 -->
+                                <!-- DELETE /users/:id -->
+                                <button class="del_btn" data-userId={{user.userId}}>삭제</button>
                             </td>
                         </tr>
                         {% endfor %}
