@@ -30,11 +30,14 @@ class User extends Sequelize.Model {
             underscored: false, // 카멜케이스  -> 스네이크케이스
             modelName: 'User', // 모델 이름
             tableName: 'Users', // 실제 DB 테이블 이름
-            paranoid: false, // deleteAt 컬럼 생성
+            paranoid: true, // deleteAt 컬럼 생성 (false가 기본값)
             charset: 'utf8mb4',
             collate: 'utf8mb4_general_ci',
         });
-    }
+    };
+    static associate(db)  {
+        db.User.hasMany(db.Post, { foreignKey: 'userId', sourceKey: 'userId' })
+    };
 }
 
 module.exports = User;

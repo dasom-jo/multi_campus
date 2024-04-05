@@ -15,7 +15,7 @@ nunjucks.configure('views', {
 });
 
 /* 시퀄라이즈 초기화 + (DB에 필요한 테이블을 생성해준다.) */
-sequelize.sync({ force : false })
+sequelize.sync({ force : true })
     .then(()=> {
         console.log('데이터베이스 연결 성공');
     })

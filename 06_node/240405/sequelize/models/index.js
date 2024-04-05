@@ -1,6 +1,7 @@
 'use strict';
 const Sequelize = require('sequelize');
 const User = require('./user'); // User 모델을 불러온다.
+const Post = require('./post');
 const process = require('process');
 const config = {
   "username": process.env.DB_USER,
@@ -19,6 +20,12 @@ db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
 db.User = User; // User 모델을 db 객체에 연결
+db.Post = Post;
+
 User.initiate(sequelize); // User 모델을 초기화
+Post.initiate(sequelize);
+
+User.associate(db);
+Post.associate(db);
 
 module.exports = db;
