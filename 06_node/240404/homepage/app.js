@@ -2,9 +2,19 @@ require('dotenv').config();
 
 const morgan = require('morgan');
 const express = require('express');
+
 const app = express();
 
+const fs = require('fs');
 const path = require('path');
+
+try {
+    fs.readdirSync('public/profile');
+} catch (err) {
+    console.error('profile 폴더가 없어서, 생성합니다');
+    fs.mkdirSync('public/profile');
+}
+
 const nunjucks = require('nunjucks');
 nunjucks.configure('views', {
     express: app,

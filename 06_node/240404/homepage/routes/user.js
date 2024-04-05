@@ -1,7 +1,22 @@
 const express = require('express');
+const multer = require('multer');
 
-const router = express.Router();
 const path = require('path');
+const router = express.Router();
+
+const profileUpload = multer({
+    storage: multer.diskStorage({
+        destination(req, file, done) {
+            done(null, 'public/profile');
+        },
+        filename(req, file, done) {
+            const ext = path.extname(file.originalname);
+            const newFilename = path.basename(file.originalname, ext) + Date.now() + ext;
+            done(null, newFilename);
+        }
+    }),
+    limits: { fileSize: 5 * 1024 * 1024 }
+});
 
 const users = [];
 
@@ -11,7 +26,9 @@ router.route('/')
         res.render('index', { users });
     })
     // POST /users/ - "사용자 페이지 출력"
-    .post((req, res) => {
+    .post(profileUpload.single("userprofile"),(req, res) => {
+        console.log(req.file);
+        console.log(req.body);
         users.push({
             id : req.body.userid,
             pw: req.body.userpw,
@@ -21,7 +38,7 @@ router.route('/')
             gender: req.body.gender,
             nation: req.body.nation,
             email: req.body.useremail,
-            profile: req.body.userprofile
+            profile: req.file.filename
         });
         res.redirect('/users');
     })
