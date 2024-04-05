@@ -87,15 +87,7 @@ const profileUpload = multer({
 // 프로필 사진 등록 [개발 완료]
 app.post('/users/img', profileUpload.single("profileImage"), (req, res) => {
     res.send(req.file.filename);
-})
-// -----------------------
-/*
-    GET / -> 메인페이지 로드 (index.html)
-    POST /users -> 사용자 추가
-    POST /users/img -> 프로필 사진 업로드
-
-*/
-// -----------------------
+});
 
 app.use((req, res, next)=> {
     const err = new Error('없는 페이지 경로');
