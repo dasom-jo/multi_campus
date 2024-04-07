@@ -3,7 +3,7 @@
 
 const Sequelize = require('sequelize');
 const User = require('./user');
-const Post = require('./Post');
+const Post = require('./post');
 const process = require('process');//env사용을위해
 
 const config = { //변수할당
@@ -14,8 +14,8 @@ const config = { //변수할당
   'dialect' : 'mysql'
 }
 
-let sequelize; //객체생성 db연결
-sequelize = new Sequelize(config.database, config.username,config.password,config);
+let sequelize;//db 객체생성
+sequelize = new Sequelize(config.database, config.username, config.password, config);
 
 const db = {};
 
@@ -27,13 +27,16 @@ const db = {};
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
 
-db.User = User;
+db.User = User; // User 모델을 db 객체에 연결
 db.Post = Post;
+
+User.initiate(sequelize); // User 모델을 초기화
+Post.initiate(sequelize);
 
 /*associate()는 sequelize의 메서드로 모델간의
 관계를 설정하는데 사용
 user 모델을 db객체에 연결*/
-User.associate(db);//user가 관계를 설정하는측
+User.associate(db);
 Post.associate(db);
 
 module.exports = db;
