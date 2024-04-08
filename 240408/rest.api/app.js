@@ -15,7 +15,7 @@ const app = express();
 try {
     fs.readdirSync('public/uploads');
 } catch(err) {
-    console.log('파일을생성합닏');
+    console.log('파일을생성합니다');
     fs.mkdirSync('public/uploads');
 }
 
