@@ -5,9 +5,14 @@ const morgan = require('morgan');
 const path = require('path');
 const { sequelize } = require('./models')
 
+const authRouter = require('./routes/auth');
+const postRouter = require('./routes/post');
+const userRouter = require('./routes/user');
+const { createReadStream } = require('fs');
+
 const app = express();
 
-sequelize.sync({ force: true })
+sequelize.sync({ force: false })
     .then(() => {
         console.log('DB 연결 성공');
     })
@@ -23,6 +28,24 @@ app.use(
     express.json(),
     express.urlencoded({ extended: true })
 );
+
+app.use('/auth', authRouter);
+app.use('/post', postRouter);
+// app.use('/user', userRouter);
+
+app.use((req, res, next) => {
+    const error = new Error(`${req.method} ${req.url}은/는 없는 경로입니다.`);
+    error.status = 404;
+    next(error);
+})
+
+app.use((err, req, res, next) => {
+    console.error(err);
+    res.json({
+        code: err.status || 500,
+        message: err.message || '서버 에러'
+    })
+})
 
 app.listen(app.get('port'), () => {
     console.log(app.get('port') + "번 포트 연결 완료");
