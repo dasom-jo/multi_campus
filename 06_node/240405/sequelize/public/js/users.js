@@ -46,7 +46,7 @@ userForm.addEventListener('submit', async (e)=> {
 const delBtns = document.querySelectorAll('.del_btn');
 delBtns.forEach(btn=>{
     btn.addEventListener('click', async (e) => {
-        const userId = e.target.dataset.userid;
+        const userId = e.target.dataset.userId;
         const response = await axios.delete(`/users/${userId}`);
         if (response.status == 200) {
             window.location.reload();
