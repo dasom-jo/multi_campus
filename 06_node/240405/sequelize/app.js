@@ -80,6 +80,34 @@ app.post('/posts', async (req, res, next) => {
     }
 });
 
+app.put('/posts/:id', async (req, res, next) => {
+    try {
+        await Post.update({
+            content: req.body.content
+        },
+        {
+            where: { id: req.params.id }
+        });
+        res.send('수정 완료');
+    } catch (err) {
+        console.error(err);
+        next(err);
+    }
+});
+
+app.delete('/posts/:id', async (req, res, next) => {
+    try {
+        const postId = req.params.id;
+        await Post.destroy({
+            where: { id : { [Op.eq] : postId }}
+        });
+        res.send('삭제 완료');
+    } catch (err) {
+        console.error(err);
+        next(err);
+    }
+});
+
 // 유저 등록 [개발 완료]
 app.post('/users', async (req, res, next) => {
     try {
