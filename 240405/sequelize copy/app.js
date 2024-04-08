@@ -27,7 +27,7 @@ nunjucks.configure('views', {
 });
 
 /* 시퀄라이즈 초기화 + (DB에 필요한 테이블을 생성해준다.) */
-sequelize.sync({ force : true })
+sequelize.sync({ force : false })
     .then(()=> {
         console.log('데이터베이스 연결 성공');
     })
@@ -143,4 +143,26 @@ app.use((err, req, res ,next)=>{
 
 app.listen(app.get('port'), () => {
     console.log(app.get('port') + "번 포트 연결 완료");
+});
+
+
+app.put('/posts/:id',async(req,res,next)=>{
+    try{
+        const postId = req.params.id;
+    }catch(err){
+        console.error(err);
+        next(err);
+    }
+})
+
+app.delete('/posts/:id',async(req,res,next)=>{
+    try{
+        const postId = req.params.id;
+        await Post.destroy({
+            where:{ id:{[Op.eq] : postId} }
+        });
+    }catch(err){
+        console.error(err);
+        next(err);
+    }
 });

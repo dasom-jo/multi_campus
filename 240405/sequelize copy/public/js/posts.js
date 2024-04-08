@@ -9,5 +9,9 @@ postForm.addEventListener('submit', async (e) => {
         content
     }
     const response = await axios.post('/posts', { postData })
-    console.log(response);
-})
+    //console.log(response);
+    if (response.status == 200) {
+        window.location.reload();
+    }
+});
+
