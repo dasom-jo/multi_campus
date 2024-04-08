@@ -51,3 +51,14 @@ exports.uploadPost = async (req, res, next) => {
         next(err);
     }
 }
+
+exports.afterUploadImg = (req, res) => {
+    res.json({
+        code: 200,
+        message: `uploads/${req.file.filename}`
+    })
+}
+
+exports.modifyPost = (req, res, next) => {
+
+}

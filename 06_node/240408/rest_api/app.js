@@ -3,14 +3,21 @@ require('dotenv').config();
 const express = require('express');
 const morgan = require('morgan');
 const path = require('path');
+const fs = require('fs');
 const { sequelize } = require('./models')
 
 const authRouter = require('./routes/auth');
 const postRouter = require('./routes/post');
 const userRouter = require('./routes/user');
-const { createReadStream } = require('fs');
 
 const app = express();
+
+try {
+    fs.readdirSync("public/uploads");
+} catch(err) {
+    console.log('폴더를 생성합니다.');
+    fs.mkdirSync('public/uploads');
+}
 
 sequelize.sync({ force: false })
     .then(() => {
