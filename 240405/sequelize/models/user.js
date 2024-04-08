@@ -1,30 +1,30 @@
 const Sequelize = require('sequelize');
 
-class User extends Sequelize.Model  {
-    static initiate(sequelize){
+class User extends Sequelize.Model {
+    static initiate(sequelize) {
         User.init({
-            //테이블컬럼정의
-            //사용자 테이블 [userId, name, password, profileImg]
-            userId: {
+            // 테이블 컬럼 정의
+            // 사용자 테이블 [userId, name, password, profileImg]
+            userId : {
                 type: Sequelize.STRING(20),
                 allowNull: false,
                 primaryKey: true,
             },
-            name: {
-                type:Sequelize.STRING(10),
-                allowNull:false
+            name : {
+                type: Sequelize.STRING(10),
+                allowNull: false
             },
             password: {
                 type: Sequelize.STRING(20),
                 allowNull: false
             },
-            profileImg:{
+            profileImg : {
                 type: Sequelize.STRING(200),
                 allowNull: true,
                 defaultValue: 'default.jpg'
             }
-        },{
-            //모델 - 테이블 간의 옵션정의
+        }, {
+            // 모델 - 테이블 간의 옵션 정의
             sequelize,
             timestamps: true, // createAt, updateAt 컬럼 자동생성
             underscored: false, // 카멜케이스  -> 스네이크케이스
@@ -35,8 +35,9 @@ class User extends Sequelize.Model  {
             collate: 'utf8mb4_general_ci',
         });
     };
-    static associate(db) {
-        db.User.hasMany(db.Post, { foreignKey:'userId', sourceKey: 'userId' })
+    static associate(db)  {
+        db.User.hasMany(db.Post, { foreignKey: 'userId', sourceKey: 'userId' })
     };
 }
+
 module.exports = User;

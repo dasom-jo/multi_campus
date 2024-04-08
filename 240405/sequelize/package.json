@@ -1,20 +1,18 @@
 {
   "name": "sequelize",
   "version": "1.0.0",
-  "description": "mysequelize study ",
-  "main": "add.js",
+  "description": "시퀄라이즈 학습",
+  "main": "app.js",
   "scripts": {
-    "start": "nodemon app.js",
+    "start": "nodemon app",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
-    "node",
-    "sequelize",
-    "study",
-    "mysql",
-    "db"
+    "시퀄라이즈",
+    "노드",
+    "데이터베이스"
   ],
-  "author": "jodasom",
+  "author": "최인규",
   "license": "ISC",
   "dependencies": {
     "dotenv": "^16.4.5",
