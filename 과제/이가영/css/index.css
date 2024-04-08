@@ -1,0 +1,32 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+#wrapper {
+    display: grid;
+}
+
+header {
+    background-color: aquamarine;
+}
+
+main {
+
+}
+
+#user_signup_box {
+    background-color: palegoldenrod;
+}
+
+#post_create_box {
+    background-color: palevioletred;
+}
+
+#post_list_box {
+    background-color: paleturquoise;
+}
+
+footer {
+    background-color: blueviolet;
+}

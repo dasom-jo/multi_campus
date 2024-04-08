@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div id="wrapper">
+        <!-- 헤더: 로고, 검색 -->
+        <header>
+            <div class="menu">
+                <a href="#">HOME</a>
+            </div>
+            <div class="menu logo">
+                <a href="#">IMAGE</a>
+            </div>
+            <div class="menu">
+                <input type="search">
+            </div>
+        </header>
+        <main>
+            <!-- 회원 가입 -->
+            <div id="user_signup_box">
+                <form name="signupForm">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th><label for="user-id">아이디</label></th>
+                                <td>
+                                    <input type="text" id="user-id" name="id">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><label for="user-pwd">비밀번호</label></th>
+                                <td>
+                                    <input type="password" id="user-pwd" name="pwd">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><label for="user-name">이름</label></th>
+                                <td>
+                                    <input type="text" id="user-name" name="name">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>성별</th>
+                                <td>
+                                    <input type="radio" id="user-gender-male" name="gender" value="male">
+                                    <label for="user-gender-male">남성</label>
+                                    <input type="radio" id="user-gender-female" name="gender" value="female">
+                                    <label for="user-gender-female">여성</label>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><label for="user-tel">전화번호</label></th>
+                                <td>
+                                    <input type="tel" id="user-tel" name="tel">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><label for="user-email"></label>이메일</th>
+                                <td>
+                                    <input type="text" id="user-email" name="emailAccount" required>
+                                    @
+                                    <input type="text" id="user-email-addr" name="emailAddr" required>
+                                    <select id="addrBox">
+                                        <option selected>직접입력</option>
+                                        <option value="naver.com">네이버</option>
+                                        <option value="gmail.com">구글</option>
+                                        <option value="daum.net">다음</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><label for="user-country">국가</label></th>
+                                <td>
+                                    <select id="user-country" name="country" >
+                                        <option value="korea">대한민국</option>
+                                        <option value="japan">일본</option>
+                                        <option value="china">중국</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><label for="user-profile-img">프로필 이미지</label></th>
+                                <td>
+                                    <input type="file" id="user-profile-img" name="profile-img">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="btn-group">
+                        <button type="reset">초기화</button>
+                        <button type="submit" id="join">회원가입</button>
+                    </div>
+                </form>
+            </div>
+            <!-- 게시글 등록 -->
+            <div id="post_create_box">
+                <form action="postCreateForm">
+                    <table>
+                        <tbody>
+                            <tr>
+                                <th><label for="writer-id">작성자 아이디</label></th>
+                                <td>
+                                    <input type="text" id="writer-id" name="id">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><label for="writer-contents">글 내용</label></th>
+                                <td>
+                                    <input type="text" id="writer-contents" name="contents">
+                                </td>
+                            </tr>
+                            <tr>
+                                <th><label for="writer-hashtag">해시태그</label></th>
+                                <td>
+                                    <input type="text" id="writer-hashtag" name="hashtag">
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="btn_group">
+                        <button type="submit" id="submit">등록</button>
+                    </div>
+                </form>
+            </div>
+            <!-- 게시글 목록 -->
+            <div id="post_list_box">
+                <section id="post_list">
+                    <article class="post">
+                        <div id="post-num"><p>글 번호</p></div>
+                        <div id="post-writer-id"><p>이름</p></div>
+                        <div id="post-contents"><p>내용</p></div>
+                        <div id="post-hashtag"><p>해시태그</p></div>
+                    </article>
+                </section>
+            </div>
+        </main>
+        <footer>
+            <p>footer</p>
+        </footer>
+    </div>
+</body>
+</html>

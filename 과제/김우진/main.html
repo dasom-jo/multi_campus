@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./main.css">
+</head>
+
+<body>
+    <diV class="div_container">
+        <div class="container wd_33">
+            <form action="">
+                <fieldset class="br-5">
+                    <legend>사용자 등록</legend>
+                    <label for="user_id">아이디</label>
+                    <input type="text" id="user_id" name="user_id"><br />
+                    <label for="user_name">이름</label>
+                    <input type="text" id="user_name" name="user_name"><br />
+                    성별
+                    <input type="radio" id="sex-m" name="user_sex" value="men">
+                    <label for="sex-m">남자</label>
+                    <input type="radio" id="sex-g" name="user_sex" value="girl">
+                    <label for="sex-g">여자</label><br />
+
+                    <label for="user_password">비밀번호</label>
+                    <input type="password" id="user_password" name="user_password"><br />
+                    <label for="user-tel">전화번호</label>
+                    <input type="tel" id="user-tel" name="user_tel"><br />
+                    <label for="user_email">이메일</label>
+                    <input type="text" id="user_email" name="user_email"><br />
+                    <label for="user_country">국가</label>
+                    <select id="user_country" name="user_country">
+                        <option value="대한민국" selected>대한민국</option>
+                        <option value="스웨덴">스웨덴</option>
+                        <option value="덴마크">덴마크</option>
+                        <option value="스위스">스위스</option>
+                        <option value="미국">미국</option>
+                    </select><br />
+                    <label for="user_image">프로필 이미지</label>
+                    <input type="file" id="user_image" name="user_img"><br />
+                    <button type="submit" class="button">등록</button>
+                </fieldset>
+        </div>
+        <div class="container wd_66">
+            <form action="">
+                <fieldset class="br-5">
+                    <legend>게시글 등록</legend>
+                    <label for="writer_id">작성자 아이디</label>
+                    <input type="text" id="writer_id"><br />
+                    <label for="content">글 내용</label>
+                    <input type="text" id="content"><br />
+                    <label for="hashtag">해시태그</label>
+                    <input type="text" id="hashtag"><br />
+                    <button type="submit" class="button">등록</button>
+                </fieldset>
+            </form>
+            </form>
+        </div>
+    </diV>
+</body>
+
+</html>

@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>사용자 등록 및 게시글 등록</title>
+        <link rel="stylesheet" href="style.css" />
+    </head>
+    <body>
+        <div class="main_wrapper">
+            <div class="back_container">
+                <div class="post_container none">
+                    <h2>게시글 정보</h2>
+                    <table>
+                        <thead>
+                            <th>글 번호</th>
+                            <th>내용</th>
+                            <th>작성자 아이디</th>
+                            <th>작성자 이름</th>
+                            <th>수정, 삭제</th>
+                            <th>해시태그</th>
+                        </thead>
+                        <tbody>
+                            <td>1</td>
+                            <td>이것은 게시글 입니다.</td>
+                            <td>a123dpfla</td>
+                            <td>손예림</td>
+                            <td>
+                                <button>수정</button>
+                                <button>삭제</button>
+                            </td>
+                            <td>#프론트 #개발자 #맞팔</td>
+                        </tbody>
+                    </table>
+                    <div class="pagination">
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                    </div>
+                </div>
+                <div class="user_container">
+                    <h2>사용자 정보</h2>
+                    <table>
+                        <thead>
+                            <th>아이디</th>
+                            <th>이름</th>
+                            <th>성별</th>
+                            <th>이메일</th>
+                            <th>국가</th>
+                            <th>프로필 이미지</th>
+                            <tbody>
+                                <td>a123dpfla</td>
+                                <td>손예림</td>
+                                <td>여자</td>
+                                <td>a123dpfla51@gmail.com</td>
+                                <td>대한민국</td>
+                                <td>yerim.jpg</td>
+                            </tbody>
+                        </thead>
+                    </table>
+                    <div class="pagination">
+                        <span>1</span>
+                        <span>2</span>
+                        <span>3</span>
+                        <span>4</span>
+                        <span>5</span>
+                    </div>
+                </div>
+                <div class="front_container">
+                    <div class="user_regist">
+                        <h2>사용자 등록</h2>
+                        <form action="#" method="get">
+                            <ul>
+                                <li>
+                                    <label for="id">아이디</label>
+                                    <input type="text" id="id" name="id"/>
+                                </li>
+                                <li>
+                                    <label for="name">이름</label>
+                                    <input type="text" id="name" name="name" />
+                                </li>
+                                <li>
+                                    <label>
+                                        성별
+                                        <span class="gender">
+                                            <label>
+                                                <input type="radio" name="gender" value="male"/>
+                                                남자
+                                            </label>
+                                            <label>
+                                                <input type="radio" name="gender" value="female"/>
+                                                여자
+                                            </label>
+                                        </span>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="pw">비밀번호</label>
+                                    <input type="password" id="pw" name="pw"/>
+                                </li>
+                                <li>
+                                    <label for="tel">전화번호</label>
+                                    <input type="tel" id="tel" name="tel"/>
+                                </li>
+                                <li>
+                                    <label for="email">이메일</label>
+                                    <input type="email" id="email" name="email" />
+                                </li>
+                                <li>
+                                    <label for="country">
+                                        국가
+                                        <select name="country" id="country">
+                                            <option value="korea">대한민국</option>
+                                            <option value="japan">일본</option>
+                                            <option value="china">중국</option>
+                                            <option value="us">미국</option>
+                                            <option value="uk">영국</option>
+                                            <option value="etc">그 외 국가</option>
+                                            
+                                        </select>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label for="profile">프로필 이미지</label>
+                                    <input type="file" id="profile" name="profile"/>
+                                </li>
+                                <button type="submit" class="submit">등록</button>
+                                <button type="button" class="moveToPost">게시글 보기</button>
+                            </ul>
+                        </form>
+                    </div>
+                    <div class="post_regist gone">
+                        <form action="#" method="get">
+                            <h2>게시글 등록</h2>
+                            <input type="text" id="post_title" name="title" placeholder="제목" />
+                            <textarea id="post_content" cols="30" rows="10" name="content" placeholder="내용을 입력하세요."></textarea>
+                            <input type="text" id="post_hashtag" name="hashtag" placeholder="해시태그" />
+                            <input type="text" id="post_user_id" name="id" placeholder="아이디를 입력하세요." />
+                            <div class="buttons">
+                                <button type="button" class="moveToUser">사용자 등록</button>
+                                <button type="submit">제출</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <script src="index.js"></script>
+    </body>
+</html>

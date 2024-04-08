@@ -1,4 +1,4 @@
-const { getPosts, uploadPost, afterUploadImg, modifyPost } = require('../controllers/post');
+const { getPosts, uploadPost, afterUploadImg, modifyPost, deletePost } = require('../controllers/post');
 const express = require('express');
 const multer = require('multer');
 const path = require('path');
@@ -22,11 +22,11 @@ const imgUpload = multer({
 router.get("/", getPosts);
 // POST /post - 게시물 작성
 router.post("/", uploadPost);
-// // POST /post/img - 이미지 업로드
+// POST /post/img - 이미지 업로드
 router.post("/img", imgUpload.single("img"), afterUploadImg);
-// // PUT /post/:id  - 게시물 수정
-router.put("/post/:id", modifyPost);
+// PUT /post/:id  - 게시물 수정
+router.put("/:id", modifyPost);
 // // DELETE /post/:id - 게시물 삭제
-// router.delete("/post/:id", ___);
+router.delete("/:id", deletePost);
 
 module.exports = router;
