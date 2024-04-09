@@ -1,42 +1,39 @@
-import logo from './logo.svg';
 import './App.css';
+import { Component } from 'react';
+/*
+  react의 component 선언 방식은 두 가지로 나뉜다.
+  1. 클래스형 컴포넌트 - 예전 방식, Component 상속, render() 사용
+  2. 함수형 컴포넌트 - 요즘 방식, 훨씬 간결, 메모리도 덜 사용, 배포 시 용량도 적다.
+*/
 
-function App() {
-  const name = '리액트';
-  const number = 9;
+/*
+  컴포넌트?
+  리액트에서 컴포넌트는 UI를 구성하는 개별적인 블록이다.
+  컴포넌트를 이용하면, 코드의 재사용성을 높이고 유지보수가 쉽다.
+  데이터의 변화에 따라 UI를 만들어주고, 컴포넌트 라이프사이클(생명주기) API를 활용해
+  컴포넌트나 나타나고, 변화가 있어나고, 사라질 때 작업을 처리할 수 있다.
+*/
 
-  let result = ''
-  if (number === 9) {
-    result = "9 야!"
-  } else {
-    result = "9 아냐!"
+/* 클래스형 컴포넌트 */
+class App extends Component {
+  render() {
+    const name = '리액트'
+    return (
+      <div className="App">
+        <h1>{name}</h1>
+      </div>
+    )
   }
-  return (
-    <div className="App">
-      {/* JSX는 자바스크립트의 확장 문법 */}
-      {/* JSX는 브라우저에서 실행되기 전에 코드가 번들링되는 과정에서
-       일반 자바스크립트 형태로 변환된다. */}
-      
-      {/* 1. 닫힌 태그 - 단일 태그에서도 태그는 닫혀야 한다. */}
-      {/* 2. 하나의 엘리먼트만을 반환한다. - <></> a.k.a. Fragment */}
-      {/* 3. HTML보다는 JavaScript에 가깝다. class 👉 className, for 👉 htmlFor */}
-      {/* 4. 스타일은 객체 형태로 작성, - 사용이 불가능하니, camelCase로 작성! */}
-      {/* 5. JSX 내부에서 중괄호를 열면, 자바스크립트 사용이 가능하다. */}
-      <span className='greeting' style={{
-        fontSize: "20px",
-        backgroundColor: "red",
-        color: 'blue',
-      }}>안녕하세요</span>
-
-      <h1>{number}일에 배우는 {name}</h1>
-
-      {number === 9 ? <h2>9 야!</h2> : <h2>9 아냐!</h2>}
-      <h2>{result}</h2>
-
-      {name === '자바스크립트' ? <h1>자바스크립트입니다.</h1> : null}
-      {name === '자바스크립트' && <h1>자바스크립트입니다.</h1>}
-    </div>
-  );
 }
+
+/* 함수형 컴포넌트 */
+// function App() {
+//   const name = '리액트';
+//   return (
+//     <div className="App">
+//       <h1>{name}</h1>
+//     </div>
+//   );
+// }
 
 export default App;
