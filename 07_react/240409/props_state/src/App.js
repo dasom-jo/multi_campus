@@ -2,6 +2,7 @@ import './App.css';
 
 import React, { Component } from 'react'
 import { PropsComp, Button } from './components/PropsComp';
+import Counter from './components/Counter';
 // 클래스형 컴포넌트 (rcc)
 // class App extends Component {
 //   render() {
@@ -26,7 +27,7 @@ const App = () => {
     <div className='App'>
       {/* props란? 부모컴포넌트가 자식컴포넌트에세 전달하는 값 */}
       <h1>props</h1>
-      <PropsComp name='이은수' age='21' gender='여자' />
+      <PropsComp name={"이은수"} age={21} gender={'여자'} />
       <PropsComp gender='남자' />
       <PropsComp />
       {/* 크기를 다르게[small. medium, big],
@@ -34,6 +35,8 @@ const App = () => {
       이벤트 다르게[다양하게] */}
       <Button event={() => alert('클릭!')} />
       <Button size='big' color='pink' event={() => alert('안녕하세요!')}>인사</Button>
+
+      <Counter />
     </div>
   );
 }
