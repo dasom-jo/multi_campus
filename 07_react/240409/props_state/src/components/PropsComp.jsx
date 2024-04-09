@@ -1,15 +1,17 @@
-export const PropsComp = (props) => {
-    console.log(props);
+export const PropsComp = ({ name, age, gender }) => {
     return ( 
         <>
             <h2>Hello!</h2>
-            <p>내 친구 이름은요 {props.name}입니다.</p>
-            <p>나이는 {props.age}이고,</p>
-            <p>{props.gender}입니다.</p>
+            <p>내 친구 이름은요 {name}입니다.</p>
+            <p>나이는 {age}이고,</p>
+            <p>{gender}입니다.</p>
         </>
     );
 }
 
+PropsComp.propTypes = {
+    name: propTypes.string,
+}
 PropsComp.defaultProps = {
     name: "미등록자",
     age: 100,
@@ -36,11 +38,12 @@ export const Button = (props) => {
         boxShadow: "5px 5px 5px rgba(0, 0, 0, 0.3)"
     }
     return ( 
-        <button style={buttonStyle} onClick={props.event}>클릭</button>
+        <button style={buttonStyle} onClick={props.event}>{props.children}</button>
     );
 }
 
 Button.defaultProps = {
     size: "medium",
-    color: "black"
+    color: "black",
+    children: '클릭'
 }
