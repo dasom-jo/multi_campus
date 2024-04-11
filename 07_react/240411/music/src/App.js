@@ -14,9 +14,12 @@ function App() {
       </div>
       <div className='music-box'>
         <div>
-          <label htmlFor=""></label>
-          <input />
-          <button>변경</button>
+          <label htmlFor="title_input"></label>
+          <input id='title_input' type='text' placeholder='음악 제목을 입력하세요' />
+          <button onClick={()=>{
+            const newTitle = document.querySelector('#title_input').value;
+            setTitle(newTitle);
+          }}>변경</button>
         </div>
         <div>
           <h2>{title}</h2>
