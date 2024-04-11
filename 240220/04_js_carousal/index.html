@@ -33,10 +33,10 @@
         right_arrow.addEventListener('click',() => {
             imgIdx++;//배열을 벗어나지않기에 조건문이없음
             container.style.backgroundImage = `url(./images/${imgArr[imgIdx]})`;
-            
+
         })*/
     //방법2 3초마다 이미지 자동 변경
-    
+
     function arrow_func(e) {
         if (e?.target.id == 'left') {
             imgIdx--;
@@ -59,9 +59,9 @@
         for (let arrow of arrows) {
             arrow.addEventListener('click', arrow_func);
         }
-        
 
-    
+
+
 
     </script>
     <script src="./js/index/js"></script>
