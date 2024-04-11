@@ -6,6 +6,7 @@ const Music = ({ music, idx, musicList, setMusicList }) => {
         copy[idx].like++;
         setMusicList(copy);
     }
+    
     const editMusic = () => {
         const newTitle = prompt('새 제목을 입력하세요');
         const copy = [...musicList]
