@@ -25,6 +25,13 @@ import React, { Component } from 'react'
     3. 언마운트 - 페이지에서 컴포넌트가 사라짐 (DOM에서 컴포넌트를 제거하는 것)
         - componentWillUnmount : 컴포넌트가 사라지기 전에 호출되는 메서드
 
+    함수형 컴포넌트에서는...
+    1. componentDidMount -> useEffect(콜백, []);
+    2. componentDidUpdate -> useEffect(콜백); useEffect(콜백, [변수]);
+    3. componentWillUnmount -> useEffect(콜백에함수리턴, []);
+    4. shouldComponentUpdate -> React.memo
+
+
 */
 
 export default class LifeCycle extends Component {
@@ -38,6 +45,21 @@ export default class LifeCycle extends Component {
         console.log("1. 컴포넌트 생성 : 컴포넌트를 만들 때 처음으로 실행됩니다.");
     }
 
+    static getDerivedStateFromProps(nextProps, prevState) {
+        console.log('props로 받아온 값을 state로 동기화합니다.');
+        if (nextProps.color !== prevState.numberColor) {
+            return { numberColor: nextProps.color }
+        }
+        return null;
+    }
+
+    shouldComponentUpdate(nextProps, nextState) {
+        if (nextState.number % 10 === 3) {
+            console.log('끝자리 숫자가 3이면, 리렌더링 안할게요');
+            return false;
+        }
+        return true;
+    }
     componentDidMount() {
         console.log("3. 마운트 : 컴포넌트가 웹 브라우저에 나타났습니다.");
     }
