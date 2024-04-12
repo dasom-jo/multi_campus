@@ -4,21 +4,33 @@ import { useState, useEffect } from "react";
 
 const Product = () => {
     const [products, setProducts] = useState([]);
+    const [loading, setLoading] = useState(true);
+    const [err, setErr] = useState(false);
     
     const getProducts = async() => {
         try {
             const response = await axios.get('http://localhost:4000/products');
             console.log(response);
+            setLoading(false);
             setProducts(response.data);
         } catch (err) {
             console.error(err);
+            setErr(true);
         }
     };
     
     useEffect(()=>{
         getProducts();
     }, []);
-    
+
+    if (err) {
+        return <div>에러 발생</div>
+    }
+
+    if (loading) {
+        return <div>로딩중...</div>
+    }
+
     return (
         <main className="Layout-main">
             <div style={{ "display": "flex", "flexWrap": "wrap" }}>
