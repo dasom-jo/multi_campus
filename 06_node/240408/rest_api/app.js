@@ -2,6 +2,11 @@ require('dotenv').config();
 
 const express = require('express');
 const morgan = require('morgan');
+const cors = require('cors');
+let corsOptions = {
+    origin: 'http://localhost:3000',
+    credentials: true
+}
 const path = require('path');
 const fs = require('fs');
 const { sequelize } = require('./models')
@@ -30,6 +35,7 @@ sequelize.sync({ force: false })
 app.set('port', process.env.PORT || 8000);
 
 app.use(
+    cors(corsOptions),
     morgan('dev'),
     express.static(path.join(__dirname, 'public')),
     express.json(),

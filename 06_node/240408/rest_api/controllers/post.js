@@ -9,7 +9,7 @@ exports.getPosts = async (req, res, next) => {
                 model: User,
                 attributes: ["id", "nickname"],
             },
-            order : [["createAt", "DESC"]]
+            order : [["createdAt", "DESC"]]
         });
         res.json({
             code: 200,
