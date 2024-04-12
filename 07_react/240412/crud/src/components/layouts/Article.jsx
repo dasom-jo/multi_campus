@@ -1,3 +1,5 @@
+import './Article.css';
+
 const Article = (props) => {
     return (
         <main className="Layout-main">
