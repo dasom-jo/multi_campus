@@ -1,4 +1,4 @@
-import { useState } from 'react';
+import { useState, useRef } from 'react';
 
 const BookList = () => {
     const [books, setBooks] = useState([
@@ -10,12 +10,11 @@ const BookList = () => {
     ]);
 
     const [inputText, setInputText] = useState("");
-    const [nextId, setNextId] = useState(6);
+    const nextId = useRef(6);
     const onChange = (e) => setInputText(e.target.value);
 
     const onClick = () => {
-        setBooks([...books, { id: nextId, title: inputText }]);
-        setNextId(nextId + 1);
+        setBooks([...books, { id: nextId.current++, title: inputText }]);
         setInputText("");
     };
 
