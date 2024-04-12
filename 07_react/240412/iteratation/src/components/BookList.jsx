@@ -23,6 +23,26 @@ const BookList = () => {
         const newBooks = books.filter(book => book.id !== id);
         setBooks(newBooks);
     }
+
+    const onModify = (id) => {
+        const newBooks = books.map(book => {
+            if (book.id === id) {
+                return { ...book, title: inputText };
+            }
+            return book;
+        });
+        setBooks(newBooks);
+        setInputText("");
+    }
+    const showBook = books.map(book => (
+        // react에서 key는 컴포넌트 배열을 렌더링 했을 때,
+        // 어떤 요소에 변동이 있었는지 식별하는 것을 돕는다.
+        <li key={book.id} onDoubleClick={() => onRemove(book.id)}>
+            {book.id} {book.title}
+            <button onClick={() => onModify(book.id)}>수정</button>
+        </li>
+    ));
+
     return (
         <>
             <input 
@@ -32,13 +52,7 @@ const BookList = () => {
             />
             <button onClick={onClick}>추가</button>
             <ul>
-                {books.map(book => (
-                    // react에서 key는 컴포넌트 배열을 렌더링 했을 때,
-                    // 어떤 요소에 변동이 있었는지 식별하는 것을 돕는다.
-                    <li key={book.id} onDoubleClick={() => onRemove(book.id)}>
-                        {book.id} {book.title}
-                    </li>
-                ))}
+                {showBook}
             </ul>
         </>
     );
