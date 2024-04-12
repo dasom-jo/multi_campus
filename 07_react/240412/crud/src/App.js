@@ -1,20 +1,22 @@
 import { useState } from 'react';
 import './App.css';
-import Article from './components/layouts/Article';
+import { Routes, Route } from 'react-router-dom';
+import Main from './components/Main';
 import Header from './components/layouts/Header';
+import About from './components/About';
+import Service from './components/Service';
+import Product from './components/Product';
 
 function App() {
-  const [mode, setMode] = useState("WELCOME");
-
-  let content = null;
-
-  if (mode === "WELCOME") {
-    content = <Article>환영합니다.</Article>;
-  }
   return (
     <div className="App">
       <Header></Header>
-      {content}
+      <Routes>
+        <Route path='/' element={<Main />}/>
+        <Route path='/about' element={<About />} />
+        <Route path='/service' element={<Service />} />
+        <Route path='/product' element={<Product />} />
+      </Routes>
     </div>
   );
 }

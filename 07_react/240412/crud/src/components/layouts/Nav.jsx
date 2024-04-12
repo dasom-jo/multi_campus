@@ -1,10 +1,10 @@
 const Nav = () => {
     return (
         <nav>
-            <li><a href="#">menu 1</a></li>
-            <li><a href="#">menu 2</a></li>
-            <li><a href="#">menu 3</a></li>
-            <li><a href="#">menu 4</a></li>
+            <li><a href="/">HOME</a></li>
+            <li><a href="/about">ABOUT</a></li>
+            <li><a href="/service">SERVICE</a></li>
+            <li><a href="/product">PRODUCT</a></li>
         </nav>
     );
 }

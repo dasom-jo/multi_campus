@@ -1,0 +1,37 @@
+import { useParams } from "react-router-dom";
+import axios from 'axios';
+import { useState, useEffect } from "react";
+
+const Product = () => {
+    const [products, setProducts] = useState([]);
+    
+    const getProducts = async() => {
+        try {
+            const response = await axios.get('http://localhost:4000/products');
+            console.log(response);
+            setProducts(response.data);
+        } catch (err) {
+            console.error(err);
+        }
+    };
+    
+    useEffect(()=>{
+        getProducts();
+    }, []);
+    
+    return (
+        <main className="Layout-main">
+            <div style={{ "display": "flex", "flexWrap": "wrap" }}>
+                {products.map(prod=> (
+                    <div style={{ "textAlign": "left" ,"display": "flex", "flexDirection":"column", "width": "30%", "padding": "10px" }}>
+                        <div style={{"width": "100%", "height": "100px", 'backgroundColor':'grey'}}></div>
+                        <div>{prod.name}</div>
+                        <div>{prod.price}</div>
+                    </div>
+                ))}
+            </div>
+        </main>
+    );
+}
+
+export default Product;
