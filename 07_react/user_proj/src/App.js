@@ -1,7 +1,10 @@
 import './App.css';
-import React, { useState, useRef } from 'react';
+import React, { useState, useRef, useMemo, useCallback } from 'react';
 import CreateUser from './components/CreateUser';
 import UserList from './components/UserList';
+
+// useCallback을 사용함으로써 바로 눈에 띄는 최적화는 없다ㅜㅜ
+// 컴포넌트 렌더링 최적화 작업(memo)을 해주면 성능이 눈에 띄게 보인다.
 
 function App() {
   const [users, setUsers] = useState([
@@ -19,18 +22,45 @@ function App() {
   const nextId = useRef(5);
   const { username, email } = inputs;
 
-  const onChange = (e) => {
-    // setinputs({...inputs, [e.target.name]: e.target.value});
+  const onChange = useCallback((e) => {
     const { name, value } = e.target;
-    setInputs({ ...inputs, [name]: value });
-  };
+    setInputs(inputs => ({
+      ...inputs,
+      [name]: value
+    }));
+  }, []);
 
-  const onInsert = () => {
+  const onInsert = useCallback(() => {
+    if (username === '' || email === '') {
+      return;
+    }
     const newUser = { id: nextId.current, username, email, active: false };
     setUsers(users => users.concat(newUser));
     setInputs({ username: '', email: '' });
     nextId.current++;
+  }, [inputs]);
+
+  const onToggle = useCallback((id) => {
+    setUsers(
+      users =>
+        users.map(user =>
+          user.id === id ? {...user, active: !user.active} : user
+        )
+    )
+  }, []);
+
+  const onDelete = useCallback((id) => {
+    setUsers(
+      users => users.filter(user => user.id !== id)
+    )
+  }, []);
+
+  const countActiveUsers = users => {
+    console.log('활성 사용자 수를 세는 중....');
+    return users.filter(user=> user.active).length;
   }
+
+  const count = useMemo(() => countActiveUsers(users), [users]);
 
   return (
     <div className="App">
@@ -42,7 +72,10 @@ function App() {
       />
       <UserList
         users={users}
+        onToggle={onToggle}
+        onDelete={onDelete}
       />
+      <div>활성 사용자 수 : {count}</div>
     </div>
   );
 }

@@ -1,15 +1,15 @@
-const UserList = ({ users }) => {
+import User from "./User";
+import React from 'react';
+
+const UserList = ({ users, onToggle, onDelete }) => {
+    console.log('userList');
     return (
         <div>
             {users.map(user => (
-                <div key={user.id}>
-                    <span>{user.username}</span>
-                    <span>{user.email}</span>
-                    <button>삭제</button>
-                </div>
+                <User key={user.id} user={user} onToggle={onToggle} onDelete={onDelete} />
             ))}
         </div>
     );
 }
 
-export default UserList;
+export default React.memo(UserList);
