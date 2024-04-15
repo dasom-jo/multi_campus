@@ -3,6 +3,8 @@ import InfoState from './components/InfoState';
 import InfoEffect from './components/InfoEffect';
 import React, { useState } from 'react';
 import PlayerEffect from './components/PlayerEffect';
+import PlayerEffect2 from './components/PlayerEffect2';
+import News from './components/News';
 
 
 // Hook : 함수형 컴포넌트에서 할 수 없었던 다양한 작업들(*상태관리)을 가능케 해주는 것
@@ -17,7 +19,12 @@ function App() {
       {/* <button onClick={() => setNumber(number => number + 1)}>+1</button> */}
       {/* { number % 10 === 5 ? null : <InfoEffect /> } */}
 
-      <PlayerEffect />
+      {/* <PlayerEffect /> */}
+
+      {/* <PlayerEffect2 /> */}
+
+      <News />
+
     </div>
   );
 }

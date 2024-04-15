@@ -3,10 +3,18 @@ import React, { useState, useEffect } from 'react';
 const Player = () => {
     const [playTime, setPlayTime] = useState(0);
 
-    const playing = setInterval(()=>{
-        console.log('동영상 재생 중');
-        setPlayTime(playTime => playTime + 1);
-    }, 1000)
+    useEffect(()=>{
+        const playing = setInterval(()=>{
+            console.log('동영상 재생 중');
+            setPlayTime(playTime => playTime + 1);
+        }, 1000)
+
+        return () => {
+            clearInterval(playing);
+        }
+    }, []);
+    
+    
 
     return (
         <div>
