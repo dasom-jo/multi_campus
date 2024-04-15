@@ -5,6 +5,8 @@ import React, { useState } from 'react';
 import PlayerEffect from './components/PlayerEffect';
 import PlayerEffect2 from './components/PlayerEffect2';
 import News from './components/News';
+import Calculator from './components/Calculator';
+import Average1 from './components/Average1';
 
 
 // Hook : 함수형 컴포넌트에서 할 수 없었던 다양한 작업들(*상태관리)을 가능케 해주는 것
@@ -23,8 +25,11 @@ function App() {
 
       {/* <PlayerEffect2 /> */}
 
-      <News />
+      {/* <News /> */}
 
+      {/* <Calculator /> */}
+
+      <Average1 />
     </div>
   );
 }
