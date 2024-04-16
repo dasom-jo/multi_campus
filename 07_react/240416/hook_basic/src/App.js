@@ -6,20 +6,23 @@ import ColorBox from './components/ColorBox';
 import Color from './components/Color';
 import { useState } from 'react';
 import { MyColorContext } from './contexts/MyColorContext';
+import GrandFather from './components/GrandFather';
 
 function App() {
-  const [myColor, setMyColor] = useState('red');
-
+  // const [myColor, setMyColor] = useState('red');
+  
   return (
-    <MyColorContext.Provider value={{ myColor, setMyColor }}>
+    // <MyColorContext.Provider value={{ myColor, setMyColor }}>
       <div className="App">
-        <ReduceCounter />
+        {/* <ReduceCounter /> */}
         {/* <Counter /> */}
 
-        <ColorBox />
-        <Color />
+        {/* <ColorBox /> */}
+        {/* <Color /> */}
+
+        <GrandFather />
       </div>
-    </MyColorContext.Provider>
+    // </MyColorContext.Provider>
   );
 }
 
