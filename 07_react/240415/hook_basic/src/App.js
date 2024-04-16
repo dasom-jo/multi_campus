@@ -25,11 +25,11 @@ function App() {
 
       {/* <PlayerEffect2 /> */}
 
-      {/* <News /> */}
+      <News />
 
       {/* <Calculator /> */}
 
-      <Average1 />
+      {/* <Average1 /> */}
     </div>
   );
 }
