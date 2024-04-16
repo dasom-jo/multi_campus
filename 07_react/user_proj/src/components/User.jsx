@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { UserContext } from '../App';
 
 const User = ({ user }) => {
-    const { onToggle, onDelete } = useContext(UserContext)
+    const dispatch = useContext(UserContext)
     const style = {
         cursor: 'pointer',
         fontWeight: 800,
@@ -11,9 +11,19 @@ const User = ({ user }) => {
     }
     return (
         <div>
-            <span style={style} onClick={() => onToggle(user.id)}>{user.username}</span>
+            <span style={style} onClick={() => {
+                dispatch({
+                    type: "TOGGLE_USER",
+                    id: user.id
+                })
+            }}>{user.username}</span>
             <span>({user.email})</span>
-            <button onClick={()=>onDelete(user.id)}>삭제</button>
+            <button onClick={()=>{
+                dispatch({
+                    type: 'REMOVE_USER',
+                    id: user.id
+                })
+            }}>삭제</button>
         </div>
     );
 }
