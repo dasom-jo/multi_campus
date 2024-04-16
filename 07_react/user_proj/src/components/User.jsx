@@ -1,6 +1,9 @@
 import React from 'react';
+import { useContext } from 'react';
+import { UserContext } from '../App';
 
-const User = ({ user, onToggle, onDelete }) => {
+const User = ({ user }) => {
+    const { onToggle, onDelete } = useContext(UserContext)
     const style = {
         cursor: 'pointer',
         fontWeight: 800,

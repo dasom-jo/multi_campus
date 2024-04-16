@@ -14,10 +14,7 @@ export const reducer = (state, action) => {
         case 'CREATE_USER':
             return {
                 ...state,
-                inputs: {
-                    username: '',
-                    email: ''
-                },
+                inputs: initialState.inputs,
                 users: state.users.concat(action.newUser)
             }
         case 'TOGGLE_USER':
