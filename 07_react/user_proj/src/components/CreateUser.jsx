@@ -1,7 +1,6 @@
 import React from 'react';
 
 const CreateUser = ({ username, email, onChange, onInsert }) => {
-    console.log('create user');
     return (
         <div>
             <div>

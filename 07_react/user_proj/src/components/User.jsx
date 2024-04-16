@@ -1,7 +1,6 @@
 import React from 'react';
 
 const User = ({ user, onToggle, onDelete }) => {
-    console.log('user');
     const style = {
         cursor: 'pointer',
         fontWeight: 800,

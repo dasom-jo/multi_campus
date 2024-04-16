@@ -2,7 +2,6 @@ import User from "./User";
 import React from 'react';
 
 const UserList = ({ users, onToggle, onDelete }) => {
-    console.log('userList');
     return (
         <div>
             {users.map(user => (
