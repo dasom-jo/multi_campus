@@ -1,8 +1,13 @@
+import { useContext } from "react";
+import { MyColorContext } from "../contexts/myColor";
+
 const ColorSelector = () => {
     const colors = [
         'red', 'orange', 'yellow', 'green',
         'blue', 'navy', 'purple'
     ];
+
+    const { setMyColor, myColor } = useContext(MyColorContext);
 
     return ( 
         <div>
@@ -15,8 +20,10 @@ const ColorSelector = () => {
                             width: "36px",
                             height: "36px",
                             cursor: "pointer",
-                            backgroundColor: c
+                            backgroundColor: c,
+                            border: myColor == c && '10px solid black'
                         }}
+                        onClick={() => setMyColor(c)}
                     ></div>
                 ))}
             </div>
