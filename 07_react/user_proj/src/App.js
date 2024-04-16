@@ -3,9 +3,6 @@ import React, { useState, useRef, useMemo, useCallback } from 'react';
 import CreateUser from './components/CreateUser';
 import UserList from './components/UserList';
 
-// useCallback을 사용함으로써 바로 눈에 띄는 최적화는 없다ㅜㅜ
-// 컴포넌트 렌더링 최적화 작업(memo)을 해주면 성능이 눈에 띄게 보인다.
-
 function App() {
   const [users, setUsers] = useState([
     { id: 1, username: '휘인', email: 'whee@gmail.com', active: true },
@@ -13,7 +10,6 @@ function App() {
     { id: 3, username: '문별', email: 'star@gmail.com', active: true },
     { id: 4, username: '솔라', email: 'sol@gmail.com', active: true }
   ]);
-
   const [inputs, setInputs] = useState({
     username: '',
     email: ''
