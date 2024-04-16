@@ -5,7 +5,7 @@ import ReduceCounter from './components/ReduceCounter';
 import ColorBox from './components/ColorBox';
 import Color from './components/Color';
 import { useState } from 'react';
-import { MyColorContext } from './contexts/myColor';
+import { MyColorContext } from './contexts/MyColorContext';
 
 function App() {
   const [myColor, setMyColor] = useState('red');
