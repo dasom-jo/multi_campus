@@ -4,13 +4,17 @@ import CreateUser from './components/CreateUser';
 import UserList from './components/UserList';
 import { reducer, initialState  } from './reducer/UserReducer';
 import { createContext } from 'react';
+import useInputs from './hooks/useInputs';
 
 export const UserContext = createContext(null);
 
 function App() {
-  const [state, dispatch] = useReducer(reducer, initialState);
-  const inputs = state.inputs;
+  const [inputs, onChange, reset] = useInputs({
+    username: '',
+    email: ''
+  });
   const { username, email } = inputs;
+  const [state, dispatch] = useReducer(reducer, initialState);
   const users = state.users;
 
   const countActiveUsers = users => {
@@ -23,7 +27,7 @@ function App() {
   return (
     <UserContext.Provider value={ dispatch }>
       <div className="App">
-        <CreateUser username={username} email={email} />
+        <CreateUser username={username} email={email} onChange={onChange} reset={reset} />
         <UserList users={users} />
         <div>활성 사용자 수 : {count}</div>
       </div>

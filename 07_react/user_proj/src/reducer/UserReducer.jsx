@@ -1,20 +1,8 @@
 export const reducer = (state, action) => {
     switch (action.type) {
-        case 'CHANGE_INPUT':
-            // const copyState = JSON.parse(JSON.stringify(state));
-            // copyState.inputs[action.name] = action.value;
-            // return copyState;
-            return {
-                ...state,
-                inputs: {
-                    ...state.inputs,
-                    [action.name]: action.value
-                }
-            };
         case 'CREATE_USER':
             return {
                 ...state,
-                inputs: initialState.inputs,
                 users: state.users.concat(action.newUser)
             }
         case 'TOGGLE_USER':
@@ -35,10 +23,6 @@ export const reducer = (state, action) => {
 };
 
 export const initialState = {
-    inputs: {
-        username: '',
-        email: ''
-    },
     users: [
         { id: 1, username: '휘인', email: 'whee@gmail.com', active: true },
         { id: 2, username: '화사', email: 'hwa@gmail.com', active: true },

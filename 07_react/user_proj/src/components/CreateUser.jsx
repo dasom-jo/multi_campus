@@ -4,19 +4,10 @@ import { useContext } from 'react';
 import { useCallback } from 'react';
 import { useRef } from 'react';
 
-const CreateUser = ({ username, email }) => {
+const CreateUser = ({ username, email, onChange, reset }) => {
     const dispatch = useContext(UserContext);
 
     const nextId = useRef(5);
-
-    const onChange = useCallback((e) => {
-        const { name, value } = e.target;
-        dispatch({
-            type: 'CHANGE_INPUT',
-            name,
-            value
-        })
-    }, []);
 
     const onInsert = useCallback(() => {
         if (username === '' || email === '') {
@@ -26,6 +17,7 @@ const CreateUser = ({ username, email }) => {
             type: 'CREATE_USER',
             newUser: { id: nextId.current, username, email, active: false }
         });
+        reset();
         nextId.current++;
     }, [username, email]);
 
