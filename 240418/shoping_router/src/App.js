@@ -7,11 +7,7 @@
 //     3. 쇼핑몰 (dummy-JSON)
 //     4. user 관리자 페이지 [json-server]
 
-
 import './App.css';
-import { useState } from 'react';
-import Home from './pages/Home';
-import Products from './pages/Products';
 import Header from './components/layouts/Header';
 import Main from './components/layouts/Main';
 
@@ -20,7 +16,7 @@ import Main from './components/layouts/Main';
 //가장많이 사용되는 라이브러리 react-router-dom사용
 //yarn add react-router-dom
 
-//browserouter로 감싼다(index.js)
+//BrowserRouter로 감싼다(index.js)
 //Routes 안에 Route로 경로 와 컴포넌트 요소를 일러준다
 
 //a 태그를통해 페이지를 이동하면 페이지를 아예 새롭게 불러온다 (상태가 초기화됨)

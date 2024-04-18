@@ -1,8 +1,11 @@
+//웹페이 화면에 간략히 제품설명
+
 import {styled} from 'styled-components';
 import {useNavigate} from 'react-router-dom';
 
 const Prod = ({p}) => {
     const navigate= useNavigate();
+    //주로 특정 이벤트 또는 조건에 따라 라우팅을 변경하거나, 사용자 입력에 따라 동적으로 페이지를 이동
     return (
         <StyledProd key={p.id} onClick={()=>navigate(`./products/${p.id}`)}>
             <img src={p.thumbnail} alt={p.title + '이미지'}></img>

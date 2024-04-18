@@ -1,6 +1,7 @@
 import { Link } from "react-router-dom";
 import { styled } from "styled-components";
 import { IoHomeSharp } from "react-icons/io5";
+//헤더의 기본구조
 const Header = () => {
     return (
         <StyledHeader>
@@ -8,14 +9,15 @@ const Header = () => {
         <nav>
             <Link to='/'>Home</Link>
             <Link to='/products'>Products</Link>
+            <Link to='/posts'>Posts</Link>
         </nav>
         </StyledHeader>
     );
 }
-
+//헤더의 scss
 const StyledHeader = styled.header`
     display: flex;
-    justify-content:space-between;
+    justify-content:space-between;//자식요소들사이간을 최대한 넓히는태그
     align-items: center;
     padding: 0.5rem lrem;
     background-color: #333;
