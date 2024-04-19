@@ -10,6 +10,8 @@ const Header = () => {
             <Link to='/'>Home</Link>
             <Link to='/products'>Products</Link>
             <Link to='/posts'>Posts</Link>
+            <Link to='/users'>사용자관리</Link>
+            <Link to='/signup'>회원가입</Link>
         </nav>
         </StyledHeader>
     );

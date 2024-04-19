@@ -13,6 +13,7 @@ const Prod = ({p}) => {
             <p className='title'>{p.title}</p>
 
             <span className='percent'>
+            {/* toFixed(0):소수점 제외 */}
                 {p.discountPercentage.toFixed(0)+'%'}
             </span>
 
@@ -27,6 +28,7 @@ const Prod = ({p}) => {
             </p>
 
             <p className='rating'>
+            {/* repeat:내부 숫자만큼 별을 반복 */}
                 {'⭐'.repeat(p.rating.toFixed(0))}
 
             </p>

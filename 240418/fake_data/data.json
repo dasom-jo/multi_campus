@@ -1,0 +1,112 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "sj@gmail.com",
+      "nickname": "신지",
+      "password": "1234"
+    },
+    {
+      "id": "2848",
+      "email": "",
+      "nickname": "",
+      "password": "dsf"
+    },
+    {
+      "id": "e1e3",
+      "email": "",
+      "nickname": "",
+      "password": ""
+    },
+    {
+      "id": "3c98",
+      "email": "",
+      "nickname": "",
+      "password": ""
+    },
+    {
+      "id": "f995",
+      "email": "sdf",
+      "nickname": "sdfs",
+      "password": "sdf"
+    },
+    {
+      "id": "0aba",
+      "email": "ㄹㄹㄹ",
+      "nickname": "ㄹㄹㄹ",
+      "password": "ㄹㄹㄹ"
+    }
+  ],
+  "posts": [
+    {
+      "id": "1",
+      "content": "신지입니다.",
+      "like": 0,
+      "img": "",
+      "userId": 1
+    },
+    {
+      "id": "2",
+      "content": "종민입니다",
+      "like": 0,
+      "img": "",
+      "userId": 2
+    },
+    {
+      "id": "3",
+      "content": "빽가입니다",
+      "like": 0,
+      "img": "",
+      "userId": 3
+    },
+    {
+      "id": "4",
+      "content": "날씨가 춥네요",
+      "like": 0,
+      "img": "",
+      "userId": 1
+    },
+    {
+      "id": "5",
+      "content": "화이팅입니다.",
+      "like": 0,
+      "img": "",
+      "userId": 1
+    },
+    {
+      "id": "6",
+      "content": "1박~ 2일!",
+      "like": 0,
+      "img": "",
+      "userId": 2
+    },
+    {
+      "id": "7",
+      "content": "조용하네요?",
+      "like": 0,
+      "img": "",
+      "userId": 3
+    },
+    {
+      "id": "8",
+      "content": "행복하세요",
+      "like": 0,
+      "img": "",
+      "userId": 3
+    }
+  ],
+  "comment": [
+    {
+      "id": "1",
+      "content": "신지야 안녕?111",
+      "postId": 1,
+      "userId": 2
+    },
+    {
+      "id": "2",
+      "content": "신지야 안녕?222",
+      "postId": 1,
+      "userId": 3
+    }
+  ]
+}
