@@ -4,13 +4,15 @@ import { useEffect, useState } from "react";
 import styled from 'styled-components';
 
 const Posts = () => {
+    //일단 주소를 체크
     const [searchParams, setSearchParams] = useSearchParams();
     const userId = searchParams.get('user');
-
+    //사용자가 어떤 버튼을 클릭하면 특정 페이지로 이동
     const navigate = useNavigate();
     const [posts, setPosts] = useState();
     const [users, setUsers] = useState();
-
+    //사용자페이지에서 해당 아이디가 유알에에적은 아이디와 일치한다면 해당아이디포스터를
+    //존재하지않으면 포스트 전부를 보야줌
     const getPosts = () => {
         const url = userId ?
             `https://dummyjson.com/posts/user/${userId}`

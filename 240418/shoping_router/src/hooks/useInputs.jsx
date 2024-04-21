@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useState } from "react";
-
+//이메일 빈칸 있을시 확인
 const useInputs = (initialForm) => {
     const [form, setForm] = useState(initialForm);
 
@@ -19,7 +19,7 @@ const useInputs = (initialForm) => {
     const reset = useCallback(() => {
         setForm(initialForm)
     }, [initialForm]);
-    
+
     return [form, onChange, reset];
 }
 

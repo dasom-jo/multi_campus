@@ -1,6 +1,6 @@
 import styled, {css} from 'styled-components';
 import { darken } from 'polished';
-
+//회원가입한 사용자 목록 /화면 구성일뿐 빈껍데기
 const User = ({ user, onDeleteUser }) => {
     return (
         <StyledUser>

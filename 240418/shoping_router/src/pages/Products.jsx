@@ -60,7 +60,7 @@ const Products = () => {
     // }, [order]);
 
     const onClickSearch =()=>{
-        searchParams.set("검색어",keyword)
+        searchParams.set("검색어",keyword) //주소창에 /검색어=keyword 뜸
         setSearchParams(searchParams);
     }
 
@@ -102,6 +102,8 @@ const handleSearch = () => {
             const copy = [...data];
             copy.sort((a, b) => {
                 if (sort === 'desc') {
+                    //반환 값이 음수인 경우: 첫 번째 요소를 두 번째 요소보다 앞에 위치시킵니다.
+                    //반환 값이 0인 경우: 두 요소의 순서를 변경하지 않습니다.
                     return a[key] > b[key] ? -1 : 0
                 } else {
                     return a[key] < b[key] ? -1 : 0
@@ -133,7 +135,7 @@ const handleSearch = () => {
             <ProdOption>
                 <div>
                     <button onClick={() => onClickOrder("price",'asc')}>가격 낮은 순</button>
-                    <button onClick={() => onClickOrder("proce",'desc')}>가격 높은 순</button>
+                    <button onClick={() => onClickOrder("price",'desc')}>가격 높은 순</button>
                     <button onClick={() => onClickOrder("rating",'asc' )}>평점 낮은 순</button>
                     <button onClick={() => onClickOrder("rating", 'desc' )}>평점 높은 순</button>
                 </div>

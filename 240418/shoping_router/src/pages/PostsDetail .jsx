@@ -4,18 +4,20 @@ import { useNavigate, useParams } from "react-router-dom";
 import styled from "styled-components";
 
 const PostDetail = () => {
+    //state 상태관리
     const [post, setPost] = useState();
     const [userInfo, setUserInfo] = useState();
-
+    //params id 붙인 주소로 이동가능
     const { id } = useParams();
+    //navigate이동조건
     const navigate = useNavigate();
-
+    //Post 내용 가져오기
     const getPostDetail = () =>{
         axios.get(`https://dummyjson.com/posts/${id}`)
         .then(res => res.data)
         .then(data => setPost(data));
     }
-
+    //유저  가져오기
     const getUserInfo = () => {
         axios.get(`https://dummyjson.com/users/${post.userId}`)
         .then(res => res.data)

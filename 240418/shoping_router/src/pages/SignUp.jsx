@@ -2,7 +2,8 @@ import styled from "styled-components";
 import useInputs from "../hooks/useInputs";
 import { Button } from "../ui/Button";
 import axios from 'axios';
-
+//회원가입 페이지
+//에러메세지까지 기본으로 가지고잇음
 const SignUp = () => {
     const [form, onChange, reset]= useInputs({
         email: '',
@@ -10,19 +11,19 @@ const SignUp = () => {
         password: '',
         pwd_chk: '',
         errMsg: '',
-        validate: false,
+        validate: false, //폼데이터가 유효하냐 안하냐
     });
 
     const {email, nickname, password, pwd_chk, errMsg, validate} = form;
 
     const onInsertUser = () => {
-        if (validate && errMsg === "") {
+        if (validate && errMsg === "") { //폼유효성 검사
             const url = `${process.env.REACT_APP_SERVER_ADDR}users`;
             const user = {
                 email,
                 nickname,
                 password
-            }
+            }//해당 정보를 db에 보냄
             axios.post(url,user)
             .then(res => {
                 if (res.status === 201) {
@@ -60,7 +61,9 @@ const SignUp = () => {
                     reset();
                 }}>초기화</Button>
                 <Button onClick={(e) => {
+                    //preventDefault:폼 제출의 기본 동작을 막음
                     e.preventDefault();
+                    //그리고 유효성검사
                     onInsertUser();
                 }}>회원가입</Button>
             </JoinForm>

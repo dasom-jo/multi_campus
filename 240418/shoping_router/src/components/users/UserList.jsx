@@ -4,7 +4,7 @@ import User from './User';
 const UserList = ({ userList, onDeleteUser }) => {
     return (
         <StyledUserList>
-            {
+            {   //User에서 받아온 구성으로 데이터를 맞춰서 뿌려줌 
                 userList &&
                 userList.map(user=> (
                     <User key={user.id} user={user} onDeleteUser={onDeleteUser}/>
