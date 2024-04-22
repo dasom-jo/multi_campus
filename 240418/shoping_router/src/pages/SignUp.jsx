@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import useInputs from "../hooks/useInputs";
-import { Button } from "../ui/Button";
+import { Button } from "../components/ui/Button";
 import axios from 'axios';
 //회원가입 페이지
 //에러메세지까지 기본으로 가지고잇음
@@ -17,7 +17,7 @@ const SignUp = () => {
     const {email, nickname, password, pwd_chk, errMsg, validate} = form;
 
     const onInsertUser = () => {
-        if (validate && errMsg === "") { //폼유효성 검사
+        if (validate) { //폼유효성 검사
             const url = `${process.env.REACT_APP_SERVER_ADDR}users`;
             const user = {
                 email,
@@ -39,21 +39,35 @@ const SignUp = () => {
         <>
             <h1>회원가입</h1>
             <JoinForm>
-                <div>
+                <div className="input_group">
                     <label htmlFor="email">이메일</label>
-                    <input id="email" name="email" value={email} onChange={onChange}/>
+                    <div>
+                        <input id="email" name="email" value={email} onChange={onChange}/>
+                        <div className="errMsg">{errMsg?.email}</div>
+                    </div>
                 </div>
-                <div>
+
+                <div className="input_group">
                     <label htmlFor="nickname">닉네임</label>
-                    <input id="nickname" name="nickname" value={nickname} onChange={onChange} />
+                    <div>
+                        <input id="nickname" name="nickname" value={nickname} onChange={onChange} />
+                        <div className="errMsg">{errMsg?.nickname}</div>
+                    </div>
                 </div>
-                <div>
+
+                <div className="input_group">
                     <label htmlFor="password">비밀번호</label>
-                    <input id="password" name="password" value={password} onChange={onChange} />
+                    <div>
+                        <input id="password" name="password" value={password} onChange={onChange} />
+                        <div className="errMsg">{errMsg?.password}</div>
+                    </div>
                 </div>
-                <div>
+                <div className="input_gtoup">
                     <label htmlFor="pwd_chk">비밀번호 확인</label>
-                    <input id="pwd_chk" name="pwd_chk" value={pwd_chk} onChange={onChange} />
+                    <div>
+                        <input id="pwd_chk" name="pwd_chk" value={pwd_chk} onChange={onChange} />
+                        <div className="errMsg">{errMsg?.pwd_chk}</div>
+                    </div>
                 </div>
                 <span>{errMsg}</span>
                 <Button onClick={(e)=>{
@@ -74,12 +88,16 @@ const SignUp = () => {
 const JoinForm = styled.form`
     display: flex;
     flex-direction: column;
-    div {
+    .btn_group {
+        padding-top: 2rem;
+        margin:0 auto;
+    }
+    .input_group{
         display: flex;
         justify-content: space-between;
-        padding: 1rem 4rem;
-        width: 70%;
+        width: 90%;
         margin: 1rem auto;
+        height: 2rem;
         label {
             margin-right: 1rem;
         }
@@ -90,10 +108,12 @@ const JoinForm = styled.form`
             background-color: #b5c9f4;
             padding: 0.5rem;
         }
-        button {
-
+        .errMsg {
+            font-size: small;
+            color : red;
         }
     }
+
 `
 
 export default SignUp;

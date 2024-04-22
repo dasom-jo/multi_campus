@@ -10,6 +10,8 @@
 import './App.css';
 import Header from './components/layouts/Header';
 import Main from './components/layouts/Main';
+import { LoginContext } from './contexts/LoginContext';
+import useProvideAuth from './hooks/useProvideAuth';
 
 //주소에다라 다른 화면 보여주는것 ->라우팅
 //react에는 라우팅 기능이 공식적으로 없다
@@ -29,14 +31,17 @@ import Main from './components/layouts/Main';
 //4.Link : 페이지 이동을 도와주는 컴포넌트
 // 5.useNavigate : 페리지 이동을 위한 Hook
 function App() {
-
+  // const userId = localStorage.
+  // const [isLogin, setIsLogin] = useState({ isLogin : userId !== null });
+  // const value = {isLogin, setIsLogin}
+  const auth = useProvideAuth(); //전역으로
   return (
-
-    <div >
+    <LoginContext.Provider value={auth}>
+    <div>
       <Header />
       <Main />
     </div>
-
+    </LoginContext.Provider>
   );
 }
 

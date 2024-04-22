@@ -16,8 +16,11 @@ const useInputs = (initialForm) => {
     //     }
     // }, [form.email, form.nickname, form.password, form.pwd_chk]);
     useEffect(()=>{
-        if(form.email && form.nickname && form.password && form.pwd_chk && (form.password === form.pwd_chk) ){
-            setForm(form => ({...form, validate: false, errMsg:'내용을 모두 입력하였습니다. 가입버튼을 눌러주세요'}));
+        if(!form.email && !form.nickname && !form.password && !form.pwd_chk && !(form.password === form.pwd_chk) ){
+            setForm(form => ({...form, validate: false, errMsg:''}));
+        }
+        else if(form.email && form.nickname && form.password && form.pwd_chk && (form.password === form.pwd_chk) ){
+            setForm(form => ({...form, validate: true, errMsg:'내용을 모두 입력하였습니다. 가입버튼을 눌러주세요'}));
         }
         else if(!form.email){
             setForm(form => ({...form, validate: false, errMsg:'이메일을 입력해주세요'}));
@@ -44,7 +47,7 @@ const useInputs = (initialForm) => {
         setForm(initialForm)
     }, [initialForm]);
 
-    return [form, onChange, reset];
+    return [form, onChange, reset, setForm];
 }
 
 export default useInputs;

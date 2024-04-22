@@ -1,44 +1,77 @@
-import styled, {css} from 'styled-components';
-import { darken } from 'polished';
-//회원가입한 사용자 목록 /화면 구성일뿐 빈껍데기
-const User = ({ user, onDeleteUser }) => {
+import styled from 'styled-components';
+import { Button } from '../ui/Button';
+import { useContext, useState } from 'react';
+import useInputs from '../../hooks/useInputs';
+import { MdCancel } from "react-icons/md";
+import useAuth from '../../hooks/useAuth';
+
+const User = ({ user, onDeleteUser, onUpdateUser }) => {
+    const { loginUser }= useAuth();
+    const [isModify, setIsModify] = useState(false);
+
+    const [form, onChange, reset, setForm] = useInputs({
+        id: '',
+        email: '',
+        nickname: '',
+        password: '',
+    });
+
+    const showModifyForm = (user) => {
+        setForm({
+            id: user.id,
+            email: user.email,
+            nickname: user.nickname,
+            password: ''
+        })
+        setIsModify(true);
+    }
     return (
         <StyledUser>
             <UserInfo>
-                <p>아이디: {user.id}</p>
-                <p>닉네임: {user.nickname}</p>
-                <p>이메일: {user.email}</p>
+                {isModify ?
+                <>
+                    <MdCancel onClick={()=>setIsModify(false)} />
+                    <input type='text' name='nickname' value={form.nickname} onChange={onChange} />
+                    <input type='text' name='email' value={form.email} onChange={onChange} />
+                    <input type='text' name='password' value={form.password} onChange={onChange} />
+                </>
+                :
+                <>
+                    <p>아이디: {user.id}</p>
+                    <p>닉네임: {user.nickname}</p>
+                    <p>이메일: {user.email}</p>
+                </>
+                }
             </UserInfo>
             <div>
-                <Button>수정</Button>
-                <Button color="danger" onClick={()=> onDeleteUser(user.id)}>삭제</Button>
+                {
+                    loginUser === user.id &&
+                    <>
+                        {isModify ?
+                            <Button onClick={() => {
+                                onUpdateUser(form);
+                                setIsModify(false);
+                            }}>적용</Button>
+                            :
+                            <Button onClick={()=>showModifyForm(user)}>수정</Button>
+                        }
+                        <Button color="danger" onClick={()=> onDeleteUser(user.id)}>삭제</Button>
+                    </>
+                }
             </div>
+
         </StyledUser>
     );
 }
-const Button = styled.button`
-    ${props => css`
-        padding: 5px 10px;
-        cursor: pointer;
-        border: none;
-        border-radius: 10px;
-        margin: 0 0.4rem;
-        background-color: ${props.color ? '#ff8282' : '#5f97f9'};
-        color: white;
-        font-weight: bold;
-        transition: background-color 0.3s ease-in;
-        box-shadow: 0 0 5px rgba(0, 0, 0, 0.3);
-        &:hover {
-            background-color: ${darken(0.2, props.color ? '#ff8282' : '#5f97f9')}
-        }
-        &:active {
-            transform: translateY(1.5px);
-        }
-    `}
-`
-
 const UserInfo = styled.div`
     & > p {
+        margin: 0.4rem;
+    }
+    & > svg {
+        float: right;
+        cursor: pointer;
+    }
+    & > input {
         margin: 0.4rem;
     }
 `

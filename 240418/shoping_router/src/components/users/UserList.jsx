@@ -1,13 +1,13 @@
 import styled from 'styled-components';
 import User from './User';
 
-const UserList = ({ userList, onDeleteUser }) => {
+const UserList = ({ userList, onDeleteUser, onUpdateUser }) => {
     return (
         <StyledUserList>
-            {   //User에서 받아온 구성으로 데이터를 맞춰서 뿌려줌 
+            {
                 userList &&
                 userList.map(user=> (
-                    <User key={user.id} user={user} onDeleteUser={onDeleteUser}/>
+                    <User key={user.id} user={user} onDeleteUser={onDeleteUser} onUpdateUser={onUpdateUser} />
                 ))
             }
         </StyledUserList>

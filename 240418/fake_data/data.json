@@ -2,39 +2,33 @@
   "users": [
     {
       "id": "1",
-      "email": "sj@gmail.com",
-      "nickname": "신지",
+      "email": "iu@gmail.com",
+      "nickname": "아이유",
       "password": "1234"
     },
     {
-      "id": "2848",
-      "email": "",
-      "nickname": "",
-      "password": "dsf"
+      "id": "2",
+      "email": "jm@kakao.com",
+      "nickname": "김종민",
+      "password": "1234"
     },
     {
-      "id": "e1e3",
-      "email": "",
-      "nickname": "",
-      "password": ""
+      "id": "3",
+      "email": "bg@naver.com",
+      "nickname": "빽가",
+      "password": "1234"
     },
     {
-      "id": "3c98",
-      "email": "",
-      "nickname": "",
-      "password": ""
+      "id": "2937",
+      "email": "sky@naver.com",
+      "nickname": "강하늘",
+      "password": "1234"
     },
     {
-      "id": "f995",
-      "email": "sdf",
-      "nickname": "sdfs",
-      "password": "sdf"
-    },
-    {
-      "id": "0aba",
-      "email": "ㄹㄹㄹ",
-      "nickname": "ㄹㄹㄹ",
-      "password": "ㄹㄹㄹ"
+      "id": "c821",
+      "email": "choi@gmail.com",
+      "nickname": "최인규",
+      "password": "1234"
     }
   ],
   "posts": [
@@ -95,18 +89,34 @@
       "userId": 3
     }
   ],
-  "comment": [
+  "comments": [
     {
       "id": "1",
       "content": "신지야 안녕?111",
       "postId": 1,
-      "userId": 2
+      "userId": 2,
+      "public": false,
+      "password": "1234",
+      "img": ""
     },
     {
       "id": "2",
       "content": "신지야 안녕?222",
       "postId": 1,
-      "userId": 3
+      "userId": 3,
+      "public": true,
+      "password": "1234",
+      "img": ""
+    },
+    {
+      "id": "3",
+      "content": "종민아 안녕?",
+      "postId": 2,
+      "userId": 1,
+      "public": true,
+      "password": "1234",
+      "img": "/img/jju.jpg"
+
     }
   ]
 }

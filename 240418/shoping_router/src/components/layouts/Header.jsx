@@ -1,17 +1,31 @@
-import { Link } from "react-router-dom";
-import { styled } from "styled-components";
-import { IoHomeSharp } from "react-icons/io5";
+import { Link, useNavigate } from "react-router-dom";
+import { styled } from 'styled-components';
+import { FaShop } from "react-icons/fa6";
+import useAuth from "../../hooks/useAuth";
 //헤더의 기본구조
 const Header = () => {
+    const navigate = useNavigate();
+    const { loginUser, logout } = useAuth();
+
     return (
         <StyledHeader>
-            <Link to='/'><IoHomeSharp /></Link>
+            <Link to='/'><FaShop /></Link>
         <nav>
             <Link to='/'>Home</Link>
+
+            {!loginUser ?
+                <Link to='/login'>로그인</Link>
+                :
+                <Link onClick={(e)=>{
+                    e.preventDefault();
+                    logout(()=> navigate('/'));
+                }}>로그아웃</Link>
+            }
             <Link to='/products'>Products</Link>
             <Link to='/posts'>Posts</Link>
             <Link to='/users'>사용자관리</Link>
             <Link to='/signup'>회원가입</Link>
+            <Link to='/boards'>게시판</Link>
         </nav>
         </StyledHeader>
     );
