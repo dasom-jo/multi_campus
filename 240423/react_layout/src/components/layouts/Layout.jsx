@@ -8,6 +8,7 @@ const Layout = ({children}) => {
             <Header />
             <Main>
                 {children}
+                {/* 메인의 자식요소 */}
             </Main>
         </BrowserRouter>
     );

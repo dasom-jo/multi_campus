@@ -77,8 +77,12 @@ function App() {
       {/* 버튼들 */}
       <div>
         <AppBar  position="static" color="jds">
+          {/* AppBar:상단바를 나타내는 컴포넌트 */}
           <Toolbar>
+            {/* AppBar 안에있는 컨텐츠를 정렬하고 감싸는 컨테이너역할을한다
+            일반적으로 AppBar 안에 포함되는 다양한 컴포넌트들을 가로로 배열할때 */}
             <Typography variant="h6">
+              {/* 텍스트를 표시하는데 사용되는 컴포넌트 */}
               text
             </Typography>
           </Toolbar>

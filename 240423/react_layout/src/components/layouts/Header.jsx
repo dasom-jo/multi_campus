@@ -17,7 +17,7 @@ const Header = () => {
 
     const handleDrawerToggle = () =>{
         setMenuOpen((prev) => !prev)
-    };
+    }; //menuOpen값을 사용하지않는이유는 이전상태값을 사용하여 새로운 상태값을 안전하게 계산하기위함
     const navigate = useNavigate();
     const [menus, setMenus] = useState( [
         { path: "/signup", label: "회원가입"},
@@ -27,7 +27,7 @@ const Header = () => {
     ]);
 
     useEffect(()=>{
-        if(loginUser) {
+        if(loginUser) { //로그인이 되어있을시 보여줄것
             setMenus( [
                 { path: "/post", label: "게시물"},
                 { path: "/search", label: "검색"},
@@ -43,7 +43,7 @@ const Header = () => {
     },[loginUser]);
 
     const goToMenu = (path) =>{
-        navigate(path);
+        navigate(path); //path 경로를 나타내는데 사용되는 변수명
     }
     return (
         <>
@@ -56,13 +56,13 @@ const Header = () => {
                 >
                 <MenuIcon />
                 </IconButton>
-
+                {/*Box :Material-UI에서 제공하는 스타일링된 컴포넌트  */}
                 <Box sx={{display:{xs:'none', sm:'block', cursor:'pointer'}}}>
                     <InstagramIcon onClick={()=>goToMenu('/')}  />
                 </Box>
-
+                {/* 반응형 웹으로 만들수있음 */}
                 <Box sx={{display:{xs:"none",sm:'block'}}}>
-                {
+                { //key ={idx} 의존재이유는 react에서 배열을 렌저링할때 각요소에 공유한 식별자가필요하기떄문이다
                     menus.map((m, idx) => (
                         <Button
                             key ={idx}
@@ -75,7 +75,7 @@ const Header = () => {
 
                 </ToolBar>
             </AppBar>
-
+            {/* MenuDrawer 코드는 사이드봐 또는 네비게이션메뉴를 표시하는 역할 */}
             <MenuDrawer menus={menus} menuOpen={menuOpen} handleDrawerToggle={handleDrawerToggle} >
             <List>
             {
