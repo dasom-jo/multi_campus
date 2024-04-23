@@ -21,8 +21,8 @@ const Home = () => {
                 // searchParams();
                 // }}
                 {()=>{navigate({
-                        pathname:'',
-                        search:`detail=${detail}`
+                        pathname:'', //경로를 나타낸다
+                        search:`detail=${detail}` //경로로 전달되는 상세 정보를 포함하는 쿼리 문자열을 설정
                     })
                         setdetail('')
                 }}
