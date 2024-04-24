@@ -1,11 +1,11 @@
 const { User } = require('../models');
-
+//수정하기
 exports.modifyUser = async (req, res, next) => {
     try {
         await User.update({
             nickname: req.body.nickname
         },{
-            where: { id : req.user.id}
+            where: { id : req.user.id }
         });
 
         res.json({

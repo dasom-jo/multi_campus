@@ -6,10 +6,10 @@ const { createToken, join } = require('../controllers/auth');
 const { verifyToken } = require("../middlewares");
 
 // POST /v1/auth/join
-router.post('/auth/join', join);
+router.post('/auth/join', join); //회원가입
 
 // POST /v1/auth/login
-router.post('/auth/login', createToken);
+router.post('/auth/login', createToken); //토큰발행
 
 // /v1/users
 router.use('/users', verifyToken, userRouter);
