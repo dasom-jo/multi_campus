@@ -9,7 +9,7 @@ import Typography from '@mui/material/Typography'
 import axios from 'axios';
 
 const SignUp = () => {
-    const navigate = useNavigate()
+    const navigate = useNavigate();
     const [showPassword, setShowPassword] = useState(false);
     const handleClickShowPassword = () => setShowPassword((show) => !show);
     const handleMouseDownPassword = (event) => {

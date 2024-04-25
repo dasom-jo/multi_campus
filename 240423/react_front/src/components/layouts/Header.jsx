@@ -32,6 +32,7 @@ const Header = () => {
                 { path: '/post', label: "게시물" },
                 { path: '/search', label: "검색" },
                 { path: '/profile', label: "프로필" },
+                { path: '/logout', label: "로그아웃" }
             ]);
         } else {
             setMenus([
@@ -50,7 +51,7 @@ const Header = () => {
         <>
             <AppBar position="static" color="mainColor" elevation={0}>
                 <ToolBar sx={{justifyContent: 'space-between'}}>
-                    <IconButton 
+                    <IconButton
                         aria-label="메뉴"
                         color="fontColor"
                         onClick={handleDrawerToggle}
@@ -58,7 +59,7 @@ const Header = () => {
                     >
                         <MenuIcon />
                     </IconButton>
-                    
+
                     <Box sx={{display: { xs:'none', sm: 'block', cursor: 'pointer'}}}>
                         <InstagramIcon onClick={() => goToMenu('/')}/>
                     </Box>
@@ -69,7 +70,10 @@ const Header = () => {
                                 <Button
                                     key={idx}
                                     color='fontColor'
-                                    onClick={() => goToMenu(m.path)}
+                                    onClick={
+                                        m.path === '/logout'?
+                                        ()=>{goToMenu('/')}:
+                                    () => goToMenu(m.path)}
                                 >{m.label}</Button>
                             ))
                         }
@@ -82,9 +86,12 @@ const Header = () => {
                     {
                         menus.map((m, idx) => (
                             <ListItem key={idx} disablePadding>
-                                <ListItemButton 
+                                <ListItemButton
                                     sx={{ textAlign: 'center' }}
-                                    onClick={() => goToMenu(m.path)}
+                                    onClick={
+                                        m.path === '/logout'?
+                                        ()=>{goToMenu('/')}:
+                                    () => goToMenu(m.path)}
                                 >
                                     <ListItemText primary={m.label} />
                                 </ListItemButton>

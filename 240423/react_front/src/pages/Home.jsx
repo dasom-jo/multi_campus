@@ -32,19 +32,15 @@ const Home = () => {
 
   const onSubmit = (data) => {
     // 로그인 시켜주기
-    login((result) => {
-      console.log(result);
-      // Toast.fire({
-      //   icon: "success",
-      //   title: "최인규님 안녕하세요."
-      // });
+    login((res) => {
+      if (res.data.code !== 200) {
+        Toast.fire({
+          icon: "error",
+          title: "틀렸습니다.",
+          text: '아이디 또는 비밀번호를 다시 확인해주세요'
+        });
+      }
     }, data)
-
-    // Toast.fire({
-    //   icon: "error",
-    //   title: "틀렸습니다.",
-    //   text: '아이디 또는 비밀번호를 다시 확인해주세요'
-    // });
     reset();
   };
 

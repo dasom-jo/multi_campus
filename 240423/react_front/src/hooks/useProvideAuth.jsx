@@ -2,19 +2,36 @@ import { useState } from "react";
 import axios from 'axios';
 
 export const useProvideAuth = () => {
-    const [loginUser, setLoginUser] = useState(localStorage.getItem("loginUser"));
+    const [loginUser, setLoginUser] = useState({
+        id:localStorage.getItem('userId'),
+        token:localStorage.getItem("token")
+    });
 
     const login = async (callback, data) => {
-        const response = await axios.post(
-            `${process.env.REACT_APP_API_URL}/auth/login`,
-            data
-        )
-        callback(response);
-    }
+        try{
+            const response = await axios.post(
+                `${process.env.REACT_APP_API_URL}/auth/login`,
+                data
+            );
+            if(response.data.code === 200){
+                const id = response.data.userId;
+                const token = response.data.accessToken;
+                localStorage.setItem('userId',id);
+                localStorage.setItem('token',token);
+                setLoginUser({
+                    id,token
+                });
+            }
+            callback(response);
+        }catch(error){
+            console.error(error);
+        }
+}
 
     const logout = (callback) => {
-        localStorage.removeItem("loginUser");
+        localStorage.removeItem("token");
         setLoginUser(null);
+        //리플레쉬 토큰 삭제
         callback();
     }
 
