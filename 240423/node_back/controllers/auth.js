@@ -3,6 +3,8 @@ const { User } = require('../models');
 const passport = require('passport');//다양한인증전략을 제공하여 사용자가 로그인하고 보호된 엔드포인트에 접근할수있는 방법제공
 const jwt = require('jsonwebtoken');
 
+
+
 // 1.Passport 및 필요한 전략을 초기화합니다.
 // 2.로그인 요청이 발생하면 Passport가 해당 요청을 처리하고 인증을 수행합니다.
 // 3.인증이 성공하면 사용자 정보를 세션에 저장하거나 JWT 토큰을 발급하여 클라이언트에게 전달합니다.
@@ -32,6 +34,17 @@ exports.createToken = async (req, res, next) => {
                     process.env.JWT_SECRET,
                     { expiresIn : '1h', issuer: "mini_project", subject: "accessToken"}
                 );
+                //7일짜리 토큰 ,db에 자동저장
+                const refreshToken = jwt.sign(
+                    { id: user.id, nickname: user.nickname},
+                    process.env.JWT_SECRET,
+                    { expiresIn : '7d', issuer: "mini_project", subject: "refreshTaken"}
+                );
+                User.update({ refreshToken }, {where: {id: user.id}});
+                if(err) {
+                    console.error(err);
+                    return next(err);
+                }
 
                 if (err) {
                     console.error(err);
@@ -41,7 +54,8 @@ exports.createToken = async (req, res, next) => {
                 res.json({
                     code: 200,
                     message: '토큰이 발급되었습니다.',
-                    accessToken
+                    accessToken,
+                    userId : user.id
                 })
             })
         })(req, res, next); //즉시실행함수
@@ -79,4 +93,44 @@ exports.join = async (req, res, next) => {
         console.error(err);
         return next(err);
     }
+}
+
+exports.refreshToken = async(req, res, next) =>{
+    try{
+        const { accessToken } = req.body;
+        const accessResult = jwt.decode(accessToken, process.env.JWT_SECRET);
+        const user = await User.findOne({where: {id: accessResult.id}});
+        const refershResult = jwt.verify(user.refreshToken, process.env.JWT_SECRET);
+        if(accessResult.id !== refershResult.id){
+            throw new Error('토큰이일치하지않습니다')
+        }
+
+        const newAccessToken = jwt.sign(
+            { id: accessResult.id, nickname:accessResult.nickname},
+            process.env.JWT_SECRET,
+            { expiresIn: '1h', issuer:'mini_project', subject: "accessToken"}
+        );
+        res.json({
+            cede:200,
+            message:"새로운 토큰이 발급되었습니다",
+            accessToken: newAccessToken
+        })
+    }catch(err){
+        console.error(err);
+        next(err)
+    }
+
+}
+
+exports.getMyinfo = async(req, res, next) =>{
+    try{
+        res.json({
+            cede:200,
+            payload:req.body
+        })
+    }catch(err){
+        console.error(err);
+        next(err)
+    }
+
 }

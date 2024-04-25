@@ -8,6 +8,16 @@ let corsOptions = {
     origin: process.env.CLIENT_URL,
     credentials: true
 }
+
+const fs = require('fs');
+//업로드 폴더 생성
+try{
+    fs.readdirSync('public/uploads');
+}catch(err){
+    console.error('업로드폴더가없어서 생성합니다');
+    fs.mkdirSync('public/uploads');
+}
+
 const passport = require('passport'); // 패스포트 모듈
 const passportConfig = require('./passport'); // 패스포트 설정 (자체)
 passportConfig();
