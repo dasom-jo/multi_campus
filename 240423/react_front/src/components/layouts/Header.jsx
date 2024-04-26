@@ -27,12 +27,12 @@ const Header = () => {
     ]);
 
     useEffect(() => {
-        if (loginUser) {
+        if (loginUser?.id) {
             setMenus([
                 { path: '/post', label: "게시물" },
                 { path: '/search', label: "검색" },
                 { path: '/profile', label: "프로필" },
-                { path: '/logout', label: "로그아웃" }
+                { path: '/logout', label: "로그아웃" },
             ]);
         } else {
             setMenus([
@@ -71,9 +71,11 @@ const Header = () => {
                                     key={idx}
                                     color='fontColor'
                                     onClick={
-                                        m.path === '/logout'?
-                                        ()=>{goToMenu('/')}:
-                                    () => goToMenu(m.path)}
+                                        m.path === '/logout' ?
+                                            () => logout(() => { goToMenu('/') })
+                                            :
+                                            () => goToMenu(m.path)
+                                    }
                                 >{m.label}</Button>
                             ))
                         }
@@ -89,9 +91,11 @@ const Header = () => {
                                 <ListItemButton
                                     sx={{ textAlign: 'center' }}
                                     onClick={
-                                        m.path === '/logout'?
-                                        ()=>{goToMenu('/')}:
-                                    () => goToMenu(m.path)}
+                                        m.path === '/logout' ?
+                                            () => logout(() => { goToMenu('/') })
+                                        :
+                                            () => goToMenu(m.path)
+                                    }
                                 >
                                     <ListItemText primary={m.label} />
                                 </ListItemButton>

@@ -1,11 +1,26 @@
 import { useState } from "react";
 import axios from 'axios';
+import { Cookies } from "react-cookie";
 
 export const useProvideAuth = () => {
     const [loginUser, setLoginUser] = useState({
         id:localStorage.getItem('userId'),
         token:localStorage.getItem("token")
     });
+
+    const kakaoLogin = () => {
+        const cookies = new Cookies();
+        if (cookies.get('accessToken') && cookies.get('userId')) {
+            localStorage.setItem('userId', cookies.get('userId'));
+            localStorage.setItem('token', cookies.get('accessToken'));
+            setLoginUser({
+                id: cookies.get('userId'),
+                token: cookies.get('accessToken')
+            });
+        }
+        cookies.remove("userId");
+        cookies.remove("accessToken");
+    }
 
     const login = async (callback, data) => {
         try{
@@ -29,6 +44,7 @@ export const useProvideAuth = () => {
 }
 
     const logout = (callback) => {
+        localStorage.removeItem("userId");
         localStorage.removeItem("token");
         setLoginUser(null);
         //리플레쉬 토큰 삭제
@@ -38,6 +54,7 @@ export const useProvideAuth = () => {
     return {
         loginUser,
         login,
-        logout
+        logout,
+        kakaoLogin
     }
 }

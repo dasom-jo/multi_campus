@@ -6,9 +6,11 @@ import OutlinedInput from '@mui/material/OutlinedInput';
 import FormControl from '@mui/material/FormControl';
 import { Link } from 'react-router-dom';
 import kakaoLoginImg from '../assets/kakao_login_medium_wide.png'
-
+import { Cookies } from "react-cookie";
 const Home = () => {
-  const { loginUser, login, logout } = useAuth();
+
+  const { loginUser, login, logout, kakaoLogin } = useAuth();
+  kakaoLogin();
 
   const {
     register,
@@ -58,7 +60,7 @@ const Home = () => {
     <>
       <h1>홈</h1>
       {
-        loginUser ?
+        loginUser?.id ?
           <Button variant="outlined" color="mainColor" onClick={handleLogout}>
             로그아웃
           </Button> :
@@ -76,7 +78,7 @@ const Home = () => {
               type='submit' sx={{ color: 'bgColor1.main', display: 'block', width: '100%' }}>
               로그인
             </Button>
-            <Link to='/#'>
+            <Link to={`${process.env.REACT_APP_API_URL}/auth/kakao`}>
               <img src={kakaoLoginImg} alt='카카오 로그인' style={{width: '25ch'}}/>
             </Link>
           </form>

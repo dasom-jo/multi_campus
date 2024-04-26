@@ -1,11 +1,11 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { useAuth } from "../hooks/useAuth";
+import { ProfileInfo } from "../components/Profile";
 
 const MyProfile = () => {
     const [userProfile, setUserProfile] = useState();
     const { loginUser }= useAuth();
-
     useEffect(()=>{
         getInfo();
     }, []);
@@ -21,12 +21,9 @@ const MyProfile = () => {
     }
     return (
         <>
-            <h1>마이 프로필입니다</h1>
+        <h1>내꺼다</h1>
             {userProfile &&
-                <>
-                    <h1>{userProfile.email}</h1>
-                    <h1>{userProfile.nickname}</h1>
-                </>
+                <ProfileInfo user={userProfile} />
             }
         </>
     );
