@@ -134,3 +134,50 @@ exports.getMyinfo = async(req, res, next) =>{
     }
 
 }
+
+exports.kakaoLogin = async(req,res,next) =>{
+    try{
+        passport.authenticate('kakao',{session : false},(err, user, info)=>{
+            if(err){
+                return next(err);
+            }
+            if(!user){
+                throw new Error(info.message);
+            }
+            return req.login(user,(err)=>{
+                const accessToken = jwt.sign(
+                    { id: user.id, nickname: user.nickname},
+                    //토큰의 옵션 유효시간1시간,토큰발급자,목적
+                    process.env.JWT_SECRET,
+                    { expiresIn : '1h', issuer: "mini_project", subject: "accessToken"}
+                );
+                //7일짜리 토큰 ,db에 자동저장
+                const refreshToken = jwt.sign(
+                    { id: user.id, nickname: user.nickname},
+                    process.env.JWT_SECRET,
+                    { expiresIn : '7d', issuer: "mini_project", subject: "refreshTaken"}
+                );
+                User.update({ refreshToken }, {where: {id: user.id}});
+                if(err) {
+                    console.error(err);
+                    return next(err);
+                }
+                if (err) {
+                    console.error(err);
+                    return next(err);
+                };
+                res.cookie('userId',user.id,{
+                    httpOnly:false,
+                    secure:false
+                })
+                res.cookie('accessToken', accessToken,{
+                    httpOnly:false,
+                    secure:false
+                })
+                res.status(302).redirect(process.env.CLIENT_URL);
+            });
+        })(req,res,next)
+    }catch(err){
+        return next(err);
+    }
+}
