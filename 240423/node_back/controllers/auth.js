@@ -72,7 +72,8 @@ exports.join = async (req, res, next) => {
     const { email, nickname, password } = req.body;
     //req.body 클라이언트로부터 받은 요청을 통해 이메일닉네임비번을 추출
     try {
-        const exUser = await User.findOne({ where: { email }});
+        const exUser = await User.findOne({where: { email: req.params.email },
+            attributes: ['id', 'email', 'nickname']});
         //findOne첫번째로발견된 레코드만반환
         //where조건지정
         if (exUser) {
@@ -181,3 +182,28 @@ exports.kakaoLogin = async(req,res,next) =>{
         return next(err);
     }
 }
+
+exports.IdSearch = async (req, res, next) => {
+    console.log(req.body);
+    const {nickname } = req.body;
+
+    try {
+        //닉네임조건이 일치하는 가입자의 정보를 가져온다
+        const myNickname = await User.findOne({ where: { nickname }});
+    //     console.log('조회된 사용자 정보:', myEmail.toJSON()); // 사용자 정보를 JSON 형태로 출력
+    // console.log('사용자 ID:', myEmail.id);
+    // console.log('사용자 이메일:', myEmail.email);
+    // console.log('사용자 비밀번호:', myEmail.password);
+        //유저가 있으면~
+        if (User) {
+            console.log(myNickname.id, myNickname.nickname);
+            res.json({ code: 200, message: '사용자 정보를 찾았습니다.', user: myNickname});
+        }
+        else {
+            throw new Error('회원가입 기록이 없습니다');
+        }
+    } catch (err) {
+        console.error(err);
+        next(err);
+    }
+};
