@@ -43,7 +43,7 @@ exports.getPosts =async (req, res, next) =>{
             next(err);
         }
 }
-//수정하기
+
 exports.uploadPost = async (req, res, next) => {
     try {
         const post = await Post.create({
