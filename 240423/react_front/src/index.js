@@ -10,18 +10,18 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 const theme = createTheme({
   palette: {
-    fontColor: { main: '#012E40' },
-    mainColor: { main: '#1F5AA6' },
-    subColor: { main: '#1F67A6' },
-    bgColor1: { main: '#F2F2F2' },
-    bgColor2: { main: '#9FB0BF' },
+    fontColor: { main: '#F2F2F2' },
+    mainColor: { main: '#D94389' },
+    subColor: { main: '#F25EB0' },
+    bgColor1: { main: ' #333C40' },
+    bgColor2: { main: '#A62963' }, 
   }
 })
 
 
 root.render(
   // <React.StrictMode>
-  
+
   <ThemeProvider theme={theme}>
     <CssBaseline />
     <App />

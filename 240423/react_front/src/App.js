@@ -8,6 +8,7 @@ import MyProfile from './pages/MyProfile'
 import Profile from './pages/Profile';
 import TimeLine from './pages/TimeLine';
 import Search from './pages/Search';
+import IdSearch from './pages/IdSearch';
 
 function App() {
   const auth = useProvideAuth();
@@ -23,6 +24,7 @@ function App() {
           <Route path='/signup' element={<SignUp />} />
           <Route path='/error' element={<h1>에러</h1>} />
           <Route path='*' element={<h1>Not Found</h1>} />
+          <Route path='/idsearch' element={<h1><IdSearch/></h1>} />
         </Routes>
       </Layout>
     </LoginContext.Provider>
