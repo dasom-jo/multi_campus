@@ -3,12 +3,18 @@ import { useAuth } from './../hooks/useAuth';
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import DeleteIcon from '@mui/icons-material/Delete';
+import Swal from "sweetalert2";
+import axios from "axios";
 //타임라인페이지에 나올 내용코드 - 디자인
 //페이징(Pagination) 기능을 제공하여 게시물 목록을 페이지별로 나누어
 export const PostList = ({ posts, showCount }) => { //posts, showCount  =>TimeLine.jsx
     const [lastPage, setLastPage] = useState();
     const { loginUser } = useAuth();
     const [currentPage, setCurrentPage] = useState(1);
+
+
+    //포스팅내용 업데이트할state
+    const [contents, setContents] = useState("");
     //게시물 목록페이지 이벤트
     const onPageChange = (e, num) => {
         setCurrentPage(num);
@@ -22,7 +28,35 @@ export const PostList = ({ posts, showCount }) => { //posts, showCount  =>TimeLi
         setLastPage(temp);
     }, [posts]);
 
-
+    const uploadtTimeLine = (id)=>{
+        Swal.fire({
+            title:'게시글수정',
+            html:`<input id="swal-input1" class="swal2-input">`,
+            showCancelButton: true,
+            preConfirm:()=>{
+                const content = document.getElementById('swal-input1').value;
+                axios.put(`${process.env.REACT_APP_API_URL}/posts/${id}`,{
+                    content,
+                },{
+                    headers:{
+                        "Authorization": localStorage.getItem("token"),
+                    },
+                }).then(res => {
+                    if(res.data.code === 200){
+                        setContents(posts.map(p=>{
+                            if(p.id === id){
+                                return {
+                                    ...p,
+                                    content,
+                                }
+                            }
+                            return p;
+                        }));
+                    }
+                });
+            }
+        })
+    }
     return (
         <>
             <List
@@ -52,7 +86,7 @@ export const PostList = ({ posts, showCount }) => { //posts, showCount  =>TimeLi
                                         size="small"
                                         variant="outlined"
                                         style={{ margin: '6px' }}
-                                        onClick={() => { navigate(`/profile/${p.UserId}`) }}
+                                        onClick={()=>uploadtTimeLine(p.id)}
                                     >수정</Button>
                                     :
                                     <Button

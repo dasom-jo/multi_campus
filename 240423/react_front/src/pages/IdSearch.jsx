@@ -66,9 +66,7 @@ const StyledEmail = styled.div`
     gap: 20px;
     align-items: center;
     justify-content: center;
-    h2{
-        color:${props => props.theme.mainColor};
-    }
+
 `
 
 

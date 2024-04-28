@@ -8,7 +8,7 @@ import { Link, Navigate, useNavigate } from 'react-router-dom';
 import kakaoLoginImg from '../assets/kakao_login_medium_wide.png'
 import { Cookies } from "react-cookie";
 
-import './styles.scss';
+
 
 const Home = () => {
   const navigate = useNavigate();

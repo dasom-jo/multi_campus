@@ -2,6 +2,8 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { PostList } from "../components/Posts";
 
+//타임라인 페이지 중심-정보만뿌려주기
+//타임라인에 필요한데이터 뿌려주기
 const TimeLine = () => {
     const [posts, setPosts] = useState();
 
@@ -11,7 +13,7 @@ const TimeLine = () => {
             setPosts(res.data.payload);
         }
     }
-
+    //보여줄 게시글의 갯수는 5개로 지정- posts.jsx
     const showCount = 5;
     useEffect(() => {
         getPosts();
