@@ -7,6 +7,9 @@ import { Button, InputBase } from "@mui/material";
 const MyProfile = () => {
     const [userProfile, setUserProfile] = useState();
     const { loginUser }= useAuth();
+    const [inputcontent, setInputcontent] = useState("");
+    const [inputimg , setInputimg ] = useState();
+    const content = (e) =>setInputcontent(e.target.value);
     useEffect(()=>{
         getInfo();
     }, []);
@@ -24,17 +27,38 @@ const MyProfile = () => {
         }
     }
 
+//개인프로필에서 타임라인을 올리는 코드
+    const PostTimeLine = async(req,res) =>{
+        try{
+            const response = await axios.post(`${process.env.REACT_APP_API_URL}/posts`,
+            {
+                    content:inputcontent,
+                    img:inputimg,
+                    UserId: req.user.id
+            },
+            {
+                headers: {
+                    "Authorization": localStorage.getItem("token"),
+                },
+            }
+        );
+            console.log('요청 성공:', response.data);
+        } catch (error) {
+            console.error('요청 실패:', error);
+    }
+};
+
     return (
         <>
-        <h1>내꺼다</h1>
+        <h1>my profile</h1>
             {userProfile &&
                 <ProfileInfo user={userProfile} />
             }
         {/* 타임라인에 업데이트할 내용 쓰기 */}
-        <h2>타임라인 업로드</h2>
-        <InputBase id="input" type="text" sx={{border:"1px solid black", width:"500px",height:"50px", margin:"50px" }} />
-        <InputBase type="file" />
-        <Button >업로드</Button>
+        <h2>TimeLine</h2>
+        <InputBase onChange={content} value={inputcontent} id="input" type="text" sx={{border:"1px solid black", width:"500px",height:"50px", margin:"50px" }} />
+        <InputBase value={inputimg} type="file" />
+        <Button onClick={PostTimeLine}>업로드</Button>
 
         </>
     );

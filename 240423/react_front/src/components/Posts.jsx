@@ -11,10 +11,9 @@ export const PostList = ({ posts, showCount }) => { //posts, showCount  =>TimeLi
     const [lastPage, setLastPage] = useState();
     const { loginUser } = useAuth();
     const [currentPage, setCurrentPage] = useState(1);
-
-
     //포스팅내용 업데이트할state
     const [contents, setContents] = useState("");
+    
     //게시물 목록페이지 이벤트
     const onPageChange = (e, num) => {
         setCurrentPage(num);
