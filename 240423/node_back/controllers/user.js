@@ -18,6 +18,15 @@ exports.getUser = async (req, res, next) => {
 }
 
 
+//프로필이미지업로드
+exports.ProfileUpload = (req,res) =>{
+    //이미지 받아오기
+    res.json({
+        img: `/profileuploads/${req.file.filename}`
+    })
+}
+
+
 exports.modifyUser = async (req, res, next) => {
     try {
         await User.update({

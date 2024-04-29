@@ -18,6 +18,13 @@ try{
     fs.mkdirSync('public/uploads');
 }
 
+try{
+    fs.readdirSync('public/profileuploads');
+}catch(err){
+    console.error('업로드폴더가없어서 생성합니다');
+    fs.mkdirSync('public/profileuploads');
+}
+
 const passport = require('passport'); // 패스포트 모듈
 const passportConfig = require('./passport'); // 패스포트 설정 (자체)
 passportConfig();
