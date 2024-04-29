@@ -19,7 +19,7 @@ exports.createToken = async (req, res, next) => {
         //local strategy로컬전략:passport.authenticate('local', { session : false }, ...)
         //로그인을 인증한다{ session : false }은 옵션세션을 사용하지않고 jwt를 사용하여 인증을처리
         passport.authenticate('local', { session : false }, (err, user, info)=>{
-            if (err) {
+            if (err) { 
                 console.error(err);
                 return next(err);//콘솔에 오류를 출력하고 다음미들웨어에 에러전달
             } else if (!user) {

@@ -2,7 +2,6 @@ import { Pagination, Button, List, ListItem, ListItemText } from "@mui/material"
 import { useAuth } from './../hooks/useAuth';
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
-import DeleteIcon from '@mui/icons-material/Delete';
 import Swal from "sweetalert2";
 import axios from "axios";
 //타임라인페이지에 나올 내용코드 - 디자인
@@ -13,7 +12,7 @@ export const PostList = ({ posts, showCount }) => { //posts, showCount  =>TimeLi
     const [currentPage, setCurrentPage] = useState(1);
     //포스팅내용 업데이트할state
     const [contents, setContents] = useState("");
-    
+
     //게시물 목록페이지 이벤트
     const onPageChange = (e, num) => {
         setCurrentPage(num);
@@ -27,6 +26,7 @@ export const PostList = ({ posts, showCount }) => { //posts, showCount  =>TimeLi
         setLastPage(temp);
     }, [posts]);
 
+    
     const uploadtTimeLine = (id)=>{
         Swal.fire({
             title:'게시글수정',
@@ -97,7 +97,7 @@ export const PostList = ({ posts, showCount }) => { //posts, showCount  =>TimeLi
                                     </span>
                                     <span>
                                         {(loginUser && loginUser.id == p.UserId) ?
-                                            <Button variant="contained" size="small" color="error" ><DeleteIcon fontSize="small" /></Button>
+                                            <Button variant="contained" size="small" color="error" >삭제</Button>
                                             :
                                             <Button variant="contained" size="small" color="success">팔로우</Button>
                                         }

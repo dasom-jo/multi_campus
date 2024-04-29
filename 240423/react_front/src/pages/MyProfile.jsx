@@ -34,7 +34,6 @@ const MyProfile = () => {
             {
                     content:inputcontent,
                     img:inputimg,
-                    UserId: req.user.id
             },
             {
                 headers: {
