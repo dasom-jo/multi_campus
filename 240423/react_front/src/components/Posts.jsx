@@ -1,4 +1,4 @@
-import { Pagination, Button, List, ListItem, ListItemText } from "@mui/material";
+import { Pagination, Button, List, ListItem, ListItemText, AccordionSummary } from "@mui/material";
 import { useAuth } from './../hooks/useAuth';
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
@@ -6,13 +6,12 @@ import Swal from "sweetalert2";
 import axios from "axios";
 //타임라인페이지에 나올 내용코드 - 디자인
 //페이징(Pagination) 기능을 제공하여 게시물 목록을 페이지별로 나누어
-export const PostList = ({ posts, showCount }) => { //posts, showCount  =>TimeLine.jsx
+export const PostList = ({ posts, showCount,setPosts }) => { //posts, showCount  =>TimeLine.jsx
     const [lastPage, setLastPage] = useState();
     const { loginUser } = useAuth();
     const [currentPage, setCurrentPage] = useState(1);
     //포스팅내용 업데이트할state
     const [contents, setContents] = useState("");
-
     //게시물 목록페이지 이벤트
     const onPageChange = (e, num) => {
         setCurrentPage(num);
@@ -26,7 +25,7 @@ export const PostList = ({ posts, showCount }) => { //posts, showCount  =>TimeLi
         setLastPage(temp);
     }, [posts]);
 
-    
+
     const uploadtTimeLine = (id)=>{
         Swal.fire({
             title:'게시글수정',
@@ -56,6 +55,32 @@ export const PostList = ({ posts, showCount }) => { //posts, showCount  =>TimeLi
             }
         })
     }
+
+    const deletePost = async (id) => {
+        try {
+            const res = await axios.delete(`${process.env.REACT_APP_API_URL}/posts/${id}`, {
+                headers: {
+                    "Authorization": localStorage.getItem("token"),
+                },
+            });
+
+            if (res.data.code === 200) {
+                console.log('API 호출 성공!');
+                console.log('응답 데이터:', res.data);
+                // 포스트 삭제 후 상태 업데이트
+                setPosts(posts.filter(p => p.id !== id));
+            } else {
+                // HTTP 응답 상태 코드가 200이 아닌 경우 (요청 실패)
+                console.log('API 호출 실패: 상태 코드', res.data.code);
+                console.log('API 호출 실패');
+            }
+        } catch (error) {
+            // API 호출 중에 발생한 오류를 처리
+            console.error('API 호출 중 에러:', error);
+            console.log('API 호출 중 오류 발생');
+        }
+    };
+
     return (
         <>
             <List
@@ -97,9 +122,15 @@ export const PostList = ({ posts, showCount }) => { //posts, showCount  =>TimeLi
                                     </span>
                                     <span>
                                         {(loginUser && loginUser.id == p.UserId) ?
-                                            <Button variant="contained" size="small" color="error" >삭제</Button>
+                                            <Button
+                                                variant="contained" size="small" color="error"
+                                                onClick={() => { deletePost(p.id) }}
+                                                >삭제</Button>
                                             :
-                                            <Button variant="contained" size="small" color="success">팔로우</Button>
+                                            <Button variant="contained" size="small" color="success"
+                                            
+
+                                            >팔로우</Button>
                                         }
                                     </span>
                                 </ListItemText>

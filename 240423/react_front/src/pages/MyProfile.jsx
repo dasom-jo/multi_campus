@@ -8,7 +8,7 @@ const MyProfile = () => {
     const [userProfile, setUserProfile] = useState();
     const { loginUser }= useAuth();
     const [inputcontent, setInputcontent] = useState("");
-    const [inputimg , setInputimg ] = useState();
+    const [inputimg , setInputimg ] = useState("");
     const content = (e) =>setInputcontent(e.target.value);
     useEffect(()=>{
         getInfo();
@@ -46,7 +46,23 @@ const MyProfile = () => {
             console.error('요청 실패:', error);
     }
 };
-
+//이미지 업로드하는 코드
+const uploadFile = async (e) => {
+    // e.target.files[0] 업로드할 파일
+    const formData = new FormData();
+    formData.append('img', e.target.files[0])
+    const response = await axios.post(`${process.env.REACT_APP_API_URL}/posts/image`,
+    formData,
+    {
+        headers: {
+            "Content-Type": "multipart/form-data",
+            "Authorization": localStorage.getItem("token"),
+        }
+    }
+    )
+    console.log(response);
+    setInputimg(response.data.img); //콘솔에 찍히는 주소 data.img:/upload/ ~~~.jpg
+}
     return (
         <>
         <h1>my profile</h1>
@@ -56,7 +72,7 @@ const MyProfile = () => {
         {/* 타임라인에 업데이트할 내용 쓰기 */}
         <h2>TimeLine</h2>
         <InputBase onChange={content} value={inputcontent} id="input" type="text" sx={{border:"1px solid black", width:"500px",height:"50px", margin:"50px" }} />
-        <InputBase value={inputimg} type="file" />
+        <InputBase type="file" onChange={uploadFile}/>
         <Button onClick={PostTimeLine}>업로드</Button>
 
         </>
