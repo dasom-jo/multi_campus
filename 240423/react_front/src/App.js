@@ -9,6 +9,7 @@ import Profile from './pages/Profile';
 import TimeLine from './pages/TimeLine';
 import Search from './pages/Search';
 import IdSearch from './pages/IdSearch';
+import SubProfile from './pages/SubProfile';
 
 function App() {
   const auth = useProvideAuth();
@@ -21,6 +22,7 @@ function App() {
           <Route path='/search' element={<Search />} />
           <Route path='/profile' element={<MyProfile />} />
           <Route path='/profile/:id' element={<Profile />} />
+          <Route path='/subprofile/:id' element={<SubProfile />} />
           <Route path='/signup' element={<SignUp />} />
           <Route path='/error' element={<h1>에러</h1>} />
           <Route path='*' element={<h1>Not Found</h1>} />

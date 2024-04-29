@@ -26,8 +26,11 @@ const TimeLine = () => {
                     posts={posts}
                     showCount= {showCount}
                     />
+
         </>
     );
 }
+
+
 
 export default TimeLine;

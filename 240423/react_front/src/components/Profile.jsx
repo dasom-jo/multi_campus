@@ -4,6 +4,7 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { SiKakaotalk } from "react-icons/si";
 import { useNavigate } from "react-router-dom";
+import SubProfile from "../pages/SubProfile";
 
 
 export const ProfileInfo = ({ user }) => {
@@ -73,6 +74,7 @@ export const ProfileInfo = ({ user }) => {
 export const FollowList = ({data}) => {
     const navigate = useNavigate();
     return (
+
         <Grid item xs={12} px={6}>
             <Stack spacing={1}>
                 {data && data.map(u => (
@@ -82,8 +84,13 @@ export const FollowList = ({data}) => {
                         padding: '1rem 3rem',
                         cursor: "pointer"
                     }}
-                        onClick={() => navigate(`/profile/${u.id}`)}>
-                        <Typography title={u.email}>{u.nickname}</Typography>
+                        >
+                        <Typography title={u.email} sx={{marginRight:"20px"}}>{u.nickname}</Typography>
+                        <Typography
+                                    onClick={() => navigate(`/subprofile/${u.id}`)}
+                                    sx={{color:'grey'}}
+                                    data={u.id}
+                                    >[프로필보기]</Typography>
                         <Typography>{u.provider !== "local" && <SiKakaotalk />}</Typography>
                     </Paper>
                 ))}

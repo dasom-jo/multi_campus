@@ -4,6 +4,7 @@ import { useAuth } from "../hooks/useAuth";
 import { useNavigate, useParams } from "react-router-dom";
 import { Grid } from "@mui/material";
 import { ProfileInfo } from "../components/Profile";
+import SubProfile from "./SubProfile";
 
 const Profile = () => {
     const [userProfile, setUserProfile] = useState();

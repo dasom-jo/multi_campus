@@ -2,13 +2,14 @@ import axios from "axios";
 import { useEffect, useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 import { ProfileInfo } from "../components/Profile";
-import { Button, InputBase } from "@mui/material";
+import { Box, Button, InputBase, colors } from "@mui/material";
 
-const MyProfile = () => {
+const MyProfile = ({ user }) => {
     const [userProfile, setUserProfile] = useState();
     const { loginUser }= useAuth();
     const [inputcontent, setInputcontent] = useState("");
     const [inputimg , setInputimg ] = useState("");
+    const [profileImg, setProfileImg] = useState("");
     const content = (e) =>setInputcontent(e.target.value);
     useEffect(()=>{
         getInfo();
@@ -46,7 +47,7 @@ const MyProfile = () => {
             console.error('요청 실패:', error);
     }
 };
-//이미지 업로드하는 코드
+//게시글에 이미지 업로드하는 코드
 const uploadFile = async (e) => {
     // e.target.files[0] 업로드할 파일
     const formData = new FormData();
@@ -63,12 +64,45 @@ const uploadFile = async (e) => {
     console.log(response);
     setInputimg(response.data.img); //콘솔에 찍히는 주소 data.img:/upload/ ~~~.jpg
 }
+
+//프로필 이미지 업로드하는 코드
+const uploadProfileImg = async (e) => {
+    // e.target.files[0] 업로드할 파일
+    const formData = new FormData();
+    formData.append('img', e.target.files[0])
+    const response = await axios.post(`${process.env.REACT_APP_API_URL}/users/profilimg`,
+    formData,
+    {
+        headers: {
+            "Content-Type": "multipart/form-data", //내가 보낼 데이터는 이미지이다
+            "Authorization": localStorage.getItem("token"),
+        }
+    }
+    );
+
+    console.log(response);
+    setProfileImg(response.data.img); //콘솔에 찍히는 주소 data.img:/upload/ ~~~.jpg
+    localStorage.setItem(`profileImg_${loginUser.id}`, response.data.img);
+}
+//로컬에 저장한 프로필 이미지를 불러오는 코드
+useEffect(() => {
+    const key =`profileImg_${ loginUser.id}`;
+    // 로컬 스토리지에서 이미지 URL 가져오기
+    const savedProfileImg = localStorage.getItem(key);
+    if (savedProfileImg) {
+        setProfileImg(savedProfileImg);
+    }
+}, [loginUser.id]);
+
     return (
         <>
         <h1>my profile</h1>
-            {userProfile &&
+        {profileImg && <img src={"http://localhost:8000/" + profileImg} width='200' />}
+        <input type="file"  onChange={uploadProfileImg } />
+                {userProfile &&
                 <ProfileInfo user={userProfile} />
             }
+
         {/* 타임라인에 업데이트할 내용 쓰기 */}
         <h2>TimeLine</h2>
         <InputBase onChange={content} value={inputcontent} id="input" type="text" sx={{border:"1px solid black", width:"500px",height:"50px", margin:"50px" }} />

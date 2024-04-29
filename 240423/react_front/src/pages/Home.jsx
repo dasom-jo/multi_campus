@@ -10,7 +10,7 @@ import { Cookies } from "react-cookie";
 
 
 
-const Home = () => {
+const Home = () => { 
   const navigate = useNavigate();
   const { loginUser, login, logout, kakaoLogin } = useAuth();
   kakaoLogin();
