@@ -26,7 +26,7 @@ export const PostList = ({ posts, showCount,setPosts }) => { //posts, showCount 
     }, [posts]);
 
 
-    const uploadtTimeLine = (id)=>{
+    const uploadtTimeLine = (id)=>{ //매개변수 아이디가 잇는건 주소창에 받아 적으려고  /동작버튼에 매개변수도 적어줘서 내가 뭘 포인트로 하고있는지 알려줌
         Swal.fire({
             title:'게시글수정',
             html:`<input id="swal-input1" class="swal2-input">`,
