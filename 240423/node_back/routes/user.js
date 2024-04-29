@@ -25,7 +25,7 @@ router.delete('/follow', verifyToken, unfollow);
 
 
 // 5.   localhost:8000/v1/users/followers/:id [GET - 특정 회원을 팔로우하는 사람들 조회] 로그인 X
-router.get('/follwers/:id', getFollowers);
+router.get('/followers/:id', getFollowers);
 
 // 6.   localhost:8000/v1/users/followings/:id [GET - 특정 회원이 팔로우하는 사람들 조회] 로그인 X
 router.get('/followings/:id',getFollowings);

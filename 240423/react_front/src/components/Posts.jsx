@@ -81,6 +81,28 @@ export const PostList = ({ posts, showCount,setPosts }) => { //posts, showCount 
         }
     };
 
+    const followerTimeLine= async(id)=>{
+        try{
+        const res = await axios.post(`${process.env.REACT_APP_API_URL}/users/follow/`,{
+            id:id
+        },{
+            headers: {
+                "Authorization": localStorage.getItem("token"),
+            },
+        });   if(res.data.code === 200){
+            console.log('apt호출성공');
+            console.log(res.data);
+        }else{
+            console.log('api호출실패');
+            console.log('API 호출 실패: 상태 코드', res.data);
+        }
+        }catch(error){
+        console.error('API 호출 중 에러:', error);
+        console.log('API 호출 중 오류 발생');
+    }
+}
+
+
     return (
         <>
             <List
@@ -128,8 +150,7 @@ export const PostList = ({ posts, showCount,setPosts }) => { //posts, showCount 
                                                 >삭제</Button>
                                             :
                                             <Button variant="contained" size="small" color="success"
-                                            
-
+                                            onClick={() => followerTimeLine(p.UserId)}
                                             >팔로우</Button>
                                         }
                                     </span>
