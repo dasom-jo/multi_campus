@@ -49,7 +49,7 @@ router.get('/followers/:id', getFollowers);
 // 6.   localhost:8000/v1/users/followings/:id [GET - 특정 회원이 팔로우하는 사람들 조회] 로그인 X
 router.get('/followings/:id',getFollowings);
 
-//POST/v1/posts/profilimg - 게시물이미지업로드
+//POST/v1/posts/profilimg - 프로필이미지업로드
 router.post('/profilimg',verifyToken, impUpload.single('img'), ProfileUpload);
 
 //
