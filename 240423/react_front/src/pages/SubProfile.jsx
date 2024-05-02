@@ -49,7 +49,7 @@ const SubProfile = () => {
     return (
         <div>
             {/* 이미지/닉네임/이메일 */}
-            <div>{<img src={profileImg} alt="Profile" />} </div>
+            <div>{<img src={`http://localhost:8000/${profileImg}`} alt="Profile" />} </div>
             <div>{followingId.email}</div>
             <div>{followingId.nickname}</div>
 
