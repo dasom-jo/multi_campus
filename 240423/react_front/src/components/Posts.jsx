@@ -29,26 +29,31 @@ export const PostList = ({ posts, showCount,setPosts }) => { //posts, showCount 
     const uploadtTimeLine = (id)=>{ //매개변수 아이디가 잇는건 주소창에 받아 적으려고  /동작버튼에 매개변수도 적어줘서 내가 뭘 포인트로 하고있는지 알려줌
         Swal.fire({
             title:'게시글수정',
+            //사용자가 데이터를 입력할 수 있는 입력 컨트롤을 정의
             html:`<input id="swal-input1" class="swal2-input">`,
             showCancelButton: true,
             preConfirm:()=>{
                 const content = document.getElementById('swal-input1').value;
+                //axios= promise 기반의 http클라이언트 라이브러리로,웹브라우저나
+                //node.js환경에서 http요청을 손쉽게 만들고 처리가능
+                //http 요청생성및 전송(GET,POST,PUT,DELETE)/요청과응답데이터의 변환과 직렬화
+                //HTTP 요청의 취소화 중단/ 요청에대한 인터셉터설정
                 axios.put(`${process.env.REACT_APP_API_URL}/posts/${id}`,{
                     content,
                 },{
                     headers:{
                         "Authorization": localStorage.getItem("token"),
                     },
-                }).then(res => {
+                }).then(res => { //axios 요청이 성공시
                     if(res.data.code === 200){
                         setContents(posts.map(p=>{
                             if(p.id === id){
                                 return {
-                                    ...p,
-                                    content,
+                                    ...p, //객체분해문법. 기존요소p의 속성을 모두가져와 새로운객체로 생성
+                                    content,//그리고 contnet를 추가하여 새로운객체리턴
                                 }
                             }
-                            return p;
+                            return p; //최종적으로 새로운배열반환
                         }));
                     }
                 });
