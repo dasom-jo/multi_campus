@@ -26,7 +26,6 @@ exports.ProfileUpload = (req,res) =>{
     })
 }
 
-
 exports.modifyUser = async (req, res, next) => {
     try {
         await User.update({

@@ -4,6 +4,7 @@ import { useState, useEffect } from "react";
 import { useNavigate } from "react-router-dom";
 import Swal from "sweetalert2";
 import axios from "axios";
+import styled from "styled-components";
 //타임라인페이지에 나올 내용코드 - 디자인
 //페이징(Pagination) 기능을 제공하여 게시물 목록을 페이지별로 나누어
 export const PostList = ({ posts, showCount,setPosts }) => { //posts, showCount  =>TimeLine.jsx
@@ -24,6 +25,9 @@ export const PostList = ({ posts, showCount,setPosts }) => { //posts, showCount 
         const temp = Math.ceil(postLen / showCount)
         setLastPage(temp);
     }, [posts]);
+
+
+
 
 
     const uploadtTimeLine = (id)=>{ //매개변수 아이디가 잇는건 주소창에 받아 적으려고  /동작버튼에 매개변수도 적어줘서 내가 뭘 포인트로 하고있는지 알려줌
@@ -107,14 +111,32 @@ export const PostList = ({ posts, showCount,setPosts }) => { //posts, showCount 
     }
 }
 
+// const unfollowerTimeLine= async(id)=>{
+    // try{
+    // const res = await axios.delete(`${process.env.REACT_APP_API_URL}/users/unfollow`,{
+        // id:id
+    // }
+    // ,{
+        // headers: {
+            // "Authorization": localStorage.getItem("token"),
+        // },
+    // });   if(res.data.code === 200){
+        // console.log('apt호출성공');
+        // console.log(res.data);
+    // }else{
+        // console.log('api호출실패');
+        // console.log('API 호출 실패: 상태 코드', res.data);
+    // }
+    // }catch(error){
+    // console.error('API 호출 중 에러:', error);
+    // console.log('API 호출 중 오류 발생');
+// }
+// }
+
 
     return (
-        <>
-            <List
-                sx={{
-                    minWidth: "300px"
-                }}
-            >
+        <StyledPost>
+            <List>
                 {
                     posts && posts
                     //목적:posts 배열에서 현재페이지로 해당하는 일부게시물 추출
@@ -144,7 +166,7 @@ export const PostList = ({ posts, showCount,setPosts }) => { //posts, showCount 
                                         size="small"
                                         variant="outlined"
                                         style={{ margin: '6px' }}
-                                        onClick={() => { navigate(`/profile/${p.UserId}`) }}
+                                        onClick={() => { navigate(`/subprofile/${p.UserId}`) }}
                                     >프로필 보기</Button>}
                                     </span>
                                     <span>
@@ -157,12 +179,33 @@ export const PostList = ({ posts, showCount,setPosts }) => { //posts, showCount 
                                             <Button variant="contained" size="small" color="success"
                                             onClick={() => followerTimeLine(p.UserId)}
                                             >팔로우</Button>
+
                                         }
                                     </span>
+
                                 </ListItemText>
-                                <ListItemText>
-                                    <span>{p.content}</span>
-                                    {p.img && <img src={"http://localhost:8000/" + p.img} width='20' />}
+                                <ListItemText sx={{fontSize:"100px"}}>
+                                    <span>{p.content.replace(/#/g, '')}</span><br/>
+                                    {
+                                    p.content.replace(/(\S)#(\S)/g, "$1 #$2").split(/\s/).map((c, idx) => {
+                                        if (c.startsWith("#")) {
+                                            return (
+                                                <Button
+                                                    key={idx}
+                                                    onClick={() => {
+                                                        navigate(`/search?hashtag=${c.slice(1)}`);
+                                                    }}
+                                                >
+                                                    {c}
+                                                </Button>
+                                            );
+                                        }
+                                    }
+                                )}
+                                    {p.img && <img src={"http://localhost:8000/" + p.img}
+                                        width="200rem"
+                                        margin="50px"
+                                        />}
                                 </ListItemText>
                             </ListItem>
                         ))
@@ -174,6 +217,13 @@ export const PostList = ({ posts, showCount,setPosts }) => { //posts, showCount 
                 page={currentPage}
                 onChange={onPageChange}
             />
-        </>
+        </StyledPost>
     );
 }
+
+const StyledPost = styled.div`
+    width: 1000px;
+    display: inline-block;
+    justify-content: center;
+
+`

@@ -1,6 +1,7 @@
 import axios from "axios";
 import { useEffect, useState } from "react";
 import { PostList } from "../components/Posts";
+import styled from "styled-components";
 
 //타임라인 페이지 중심-정보만뿌려주기
 //타임라인에 필요한데이터 뿌려주기
@@ -20,17 +21,26 @@ const TimeLine = () => {
     }, []);
 
     return (
-        <>
-            <h1>타임라인</h1>
+        <StyledTimeLine>
+            <h1>TimeLine</h1>
             <PostList
                     posts={posts}
                     showCount= {showCount}
-                    />
+            />
 
-        </>
+
+        </StyledTimeLine>
     );
 }
-
+const StyledTimeLine = styled.div`
+    h1{
+        background-color: #D94389;
+        font-size: 50px;
+        color: white;
+        display: flex;
+        justify-content: center;
+    }
+`
 
 
 export default TimeLine;

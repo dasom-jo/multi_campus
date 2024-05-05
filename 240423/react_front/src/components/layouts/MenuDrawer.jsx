@@ -12,7 +12,6 @@ const MenuDrawer = ({ children, menuOpen, handleDrawerToggle }) => {
         open={menuOpen}
         onClose={handleDrawerToggle}
         sx={{
-          display: { xs: 'block', sm: 'none' },
           '& .MuiDrawer-paper': {
             boxSizing: 'border-box',
             width: 240
@@ -21,7 +20,7 @@ const MenuDrawer = ({ children, menuOpen, handleDrawerToggle }) => {
       >
         <Box onClick={handleDrawerToggle} sx={{ textAlign: 'center' }}>
           <Typography variant="h6" sx={{ my: 2 }}>
-            레이아웃 샘플
+            메뉴
             {/* 텍스트 스타일 조정 메소드 */}
           </Typography>
           <Divider />

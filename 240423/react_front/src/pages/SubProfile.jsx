@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { useAuth } from './../hooks/useAuth';
 import axios from 'axios';
 import {useParams } from "react-router-dom";
+import styled from 'styled-components';
 
 
 const SubProfile = () => {
@@ -47,14 +48,33 @@ const SubProfile = () => {
     },[])
 
     return (
-        <div>
+        <StyledSubProfile>
             {/* 이미지/닉네임/이메일 */}
             <div>{<img src={`http://localhost:8000/${profileImg}`} alt="Profile" />} </div>
-            <div>{followingId.email}</div>
-            <div>{followingId.nickname}</div>
+            <div className='pName'>{followingId.email}</div>
+            <div className='pName'>[{followingId.nickname}]</div>
 
-        </div>
+        </StyledSubProfile>
     );
 };
+
+const StyledSubProfile = styled.div`
+    img{
+        width: 300px;
+        height: 300px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin:20px;
+        border: 15px double #247ef5
+    }
+    .pName {
+        font-size: 30px; /* 예시로 24px로 지정 */
+        font-weight: bold; /* 필요에 따라 추가적인 스타일 지정 */
+        display: flex;
+        justify-content: center;
+        margin: 10px;
+    }
+`
+
 
 export default SubProfile;

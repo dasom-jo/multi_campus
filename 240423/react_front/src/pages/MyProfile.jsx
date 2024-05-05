@@ -3,6 +3,10 @@ import { useEffect, useState } from "react";
 import { useAuth } from "../hooks/useAuth";
 import { ProfileInfo } from "../components/Profile";
 import { Box, Button, InputBase, colors } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
+import styled from "styled-components";
+import InstagramIcon from '@mui/icons-material/Instagram';
+
 
 const MyProfile = ({ user }) => {
     const [userProfile, setUserProfile] = useState();
@@ -95,22 +99,64 @@ useEffect(() => {
 }, [loginUser.id]);
 
     return (
-        <>
-        <h1>my profile</h1>
-        {profileImg && <img src={"http://localhost:8000/" + profileImg} width='200' />}
-        <input type="file"  onChange={uploadProfileImg } />
+        <StyledMyProfile>
+        <CustomHeading>my profile</CustomHeading>
+        {profileImg && <img src={"http://localhost:8000/" + profileImg} width='200'
+        style={{width: '300px',
+                height: '300px',
+                borderRadius: '50%',
+                overflow: 'hidden',
+                margin:'20px',
+                border: `15px double #D94389`}}/>}
+        <label htmlFor="inputField" >
+            프로필이미지변경
+        </label>
+        <input type="file" onChange={uploadProfileImg } id="inputField" />
+
                 {userProfile &&
                 <ProfileInfo user={userProfile} />
             }
 
         {/* 타임라인에 업데이트할 내용 쓰기 */}
-        <h2>TimeLine</h2>
-        <InputBase onChange={content} value={inputcontent} id="input" type="text" sx={{border:"1px solid black", width:"500px",height:"50px", margin:"50px" }} />
-        <InputBase type="file" onChange={uploadFile}/>
-        <Button onClick={PostTimeLine}>업로드</Button>
+        <h2>--------------------------------Today TimeLine--------------------------------</h2>
+        <InputBase id='TextInput' onChange={content} value={inputcontent}  type="text" sx={{border:"1px solid black", width:"500px",height:"50px", margin:"50px" }} />
+        <Button onClick={PostTimeLine}>♥️upload♥️</Button>
+        <label htmlFor="uploadTextImg">이미지 업로드< InstagramIcon/></label>
+        <input type="file" onChange={uploadFile} id="uploadTextImg"/>
+        </StyledMyProfile>
 
-        </>
     );
 }
 
+const StyledMyProfile = styled.div`
+    input[type="file"]{
+        display:none
+    }
+    label{
+        color:grey;
+        display: flex;
+        justify-content:left;
+        cursor: pointer;
+    }
+    h2{
+        display: flex;
+        justify-content: center;
+        margin-top: 100px;
+        color: #D94389;
+    }
+    Button{
+        color: #D94389;
+        font-size: 30px;
+
+
+    }
+`
+const CustomHeading = styled.h1`
+        display: inline;
+        justify-content: right;
+        font-size: 60px;
+        color: #D94389;
+        margin-top: 10px;
+
+`
 export default MyProfile;

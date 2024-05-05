@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import { useForm } from "react-hook-form";
 import { createSearchParams, useNavigate, useSearchParams } from "react-router-dom";
 import { PostList } from './../components/Posts';
+import styled from "styled-components";
 
 
 const Search = () => {
@@ -49,18 +50,47 @@ useEffect(()=>{
         }
     }
     return (
-        <>
+        <StyledSearch>
             <form onSubmit={handleSubmit(onSearch)}>
                 <input type="text" {...register("hashtag")} />
-                <button type='submit'>검색</button>
+                <button type='submit'>#</button>
             </form>
-            {
-                hashtag ?
-                    <PostList posts={posts} showCount={3} /> :
-                '검색하세요'
-            }
-        </>
+            {hashtag && hashtag.trim() !== '' ? (
+                <PostList posts={posts} setPosts={setPosts} showCount={3} />
+            ) : (
+                <h1>검색어를 입력하세요(❁´◡`❁)</h1>
+            )}
+        </StyledSearch>
     );
 }
+const StyledSearch= styled.div`
+    h1{
+        font-size:50px;
+        color: #D94389;
+
+    }
+    form{
+        display: flex;
+        justify-content: center;
+        margin-top:200px ;
+    }
+    input[type="text"] {
+        width: 300px;
+        padding: 10px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 5px;
+        margin: 10px;
+    }
+    button[type="submit"]{
+        color: white;
+        font-size: 35px;
+        border: none;
+        background-color: #D94389;
+        width: 50px;
+        height: 50px;
+        border-radius: 10px;
+    }
+`
 
 export default Search;

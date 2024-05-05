@@ -11,6 +11,7 @@ import { List, ListItem, ListItemButton, ListItemText } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../hooks/useAuth';
 import { useEffect } from 'react';
+import styled from 'styled-components';
 const Header = () => {
     const {loginUser, login, logout} = useAuth();
     const [menuOpen, setMenuOpen] = useState(false);
@@ -49,24 +50,24 @@ const Header = () => {
     };
 
     return (
-        <>
+        <StyledHeader>
             {/* AppBar 상단바 */}
-            <AppBar position="static" color="mainColor" elevation={0}>
-                <ToolBar sx={{justifyContent: 'space-between'}}>
+            <AppBar  position="static" color="mainColor" elevation={0} >
+                <ToolBar sx={{justifyContent: 'space-between', height:"100px"}}>
                     <IconButton //햄버거 아이콘
                         aria-label="메뉴"
                         color="fontColor"
                         onClick={handleDrawerToggle}
-                        sx={{display: {sm: 'none'}}}
+                        sx={{ display: { md: 'none' }, width: "50px"}}
                     >
                         <MenuIcon />
                     </IconButton>
-                    {/* 홈버튼에 쓰이는 인스타아이콘 */}
-                    <Box sx={{display: { xs:'none', sm: 'block', cursor: 'pointer'}}}>
+                    {/* //홈버튼에 쓰이는 인스타아이콘 */}
+                    <Box sx={{display: { xs:'none',md:'block', cursor: 'pointer'}}}>
                         <InstagramIcon onClick={() => goToMenu('/')}/>
                     </Box>
 
-                    <Box sx={{display: {xs: 'none', sm: 'block'}}}>
+                    <Box sx={{display: {xs:'none',md:'block'}}}>
                         { //메뉴를 상단바에 화면에 띄어줌
                             menus.map((m, idx) => (
                                 <Button
@@ -85,8 +86,8 @@ const Header = () => {
                 </ToolBar>
             </AppBar>
             {/* 네비게이션바의 메뉴 */}
-            <MenuDrawer menuOpen={menuOpen} handleDrawerToggle={handleDrawerToggle}>
-                <List>
+            <MenuDrawer  menuOpen={menuOpen} handleDrawerToggle={handleDrawerToggle}>
+                <List >
                     {
                         menus.map((m, idx) => (
                             <ListItem key={idx} disablePadding>
@@ -107,8 +108,12 @@ const Header = () => {
                     }
                 </List>
             </MenuDrawer>
-        </>
+        </StyledHeader>
     );
 }
+
+const StyledHeader = styled.div`
+
+`
 
 export default Header;

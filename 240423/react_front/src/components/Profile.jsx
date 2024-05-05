@@ -55,8 +55,8 @@ export const ProfileInfo = ({ user }) => {
     return (
         <>
             <Grid item sx={{ p: "1.5rem 0rem" }}>
-                <Typography variant="h6">{user.nickname}</Typography>
-                <Typography color="subColor.main">{user.email}</Typography>
+                <Typography variant="h6" marginBottom="10px">[{user.nickname}]</Typography>
+                <Typography color="subColor.main" fontSize="20px">{user.email}</Typography>
             </Grid>
             <Grid container px={6}>
                 <FollowBox title={"팔로잉"} handleToggle={followingToggle} />
