@@ -5,7 +5,7 @@ import {useParams } from "react-router-dom";
 import styled from 'styled-components';
 
 
-const SubProfile = () => {
+const SubProfile = ({}) => {
     const { id } = useParams();
     const { userId }= useAuth();
     const [followingId, setFollowingId] = useState("");
@@ -53,7 +53,6 @@ const SubProfile = () => {
             <div>{<img src={`http://localhost:8000/${profileImg}`} alt="Profile" />} </div>
             <div className='pName'>{followingId.email}</div>
             <div className='pName'>[{followingId.nickname}]</div>
-
         </StyledSubProfile>
     );
 };
@@ -65,7 +64,7 @@ const StyledSubProfile = styled.div`
         border-radius: 50%;
         overflow: hidden;
         margin:20px;
-        border: 15px double #247ef5
+        border: 15px double #D94389
     }
     .pName {
         font-size: 30px; /* 예시로 24px로 지정 */

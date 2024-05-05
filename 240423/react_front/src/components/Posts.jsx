@@ -7,7 +7,7 @@ import axios from "axios";
 import styled from "styled-components";
 //타임라인페이지에 나올 내용코드 - 디자인
 //페이징(Pagination) 기능을 제공하여 게시물 목록을 페이지별로 나누어
-export const PostList = ({ posts, showCount,setPosts }) => { //posts, showCount  =>TimeLine.jsx
+export const PostList = ({ posts, showCount,setPosts ,}) => { //posts, showCount  =>TimeLine.jsx
     const [lastPage, setLastPage] = useState();
     const { loginUser } = useAuth();
     const [currentPage, setCurrentPage] = useState(1);
@@ -110,29 +110,6 @@ export const PostList = ({ posts, showCount,setPosts }) => { //posts, showCount 
         console.log('API 호출 중 오류 발생');
     }
 }
-
-// const unfollowerTimeLine= async(id)=>{
-    // try{
-    // const res = await axios.delete(`${process.env.REACT_APP_API_URL}/users/unfollow`,{
-        // id:id
-    // }
-    // ,{
-        // headers: {
-            // "Authorization": localStorage.getItem("token"),
-        // },
-    // });   if(res.data.code === 200){
-        // console.log('apt호출성공');
-        // console.log(res.data);
-    // }else{
-        // console.log('api호출실패');
-        // console.log('API 호출 실패: 상태 코드', res.data);
-    // }
-    // }catch(error){
-    // console.error('API 호출 중 에러:', error);
-    // console.log('API 호출 중 오류 발생');
-// }
-// }
-
 
     return (
         <StyledPost>

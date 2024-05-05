@@ -142,7 +142,7 @@ const SignUp = () => {
                 </FormControl>
                 {/* button */}
                 <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                    <Button type='suibmit' variant="contained" color="mainColor" sx={{ display: 'block', width: '49%', color: 'bgColor1.main' }}>회원가입</Button>
+                    <Button type='submit' variant="contained" color="mainColor" sx={{ display: 'block', width: '49%', color: 'bgColor1.main' }}>회원가입</Button>
                     <Button variant="contained" color="subColor" sx={{ display: 'block', width: '49%', color: 'bgColor1.main' }} onClick={(e) => {
                         e.preventDefault()
                         reset();
