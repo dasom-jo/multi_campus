@@ -1,4 +1,4 @@
-<<<<<<< HEAD
+
 /*배열 foreach()
 배열의 각요소에 대해 함수를 실행한다 */
 
@@ -9,11 +9,3 @@ arr.forEach((x, i) => console.log(x.repeat(i + 1)));
 // 최
 // 이이
 // 박박박
-=======
-/*배열 foreach()
-배열의 각요소에 대해 함수를 실행한다 */
-
-const arr = ['최','이','박'];
-arr.forEach((x, i) => console.log(x.repeat(i + 1)));
-
->>>>>>> 774db5d737327d284b218d744e04dd18ef85365d

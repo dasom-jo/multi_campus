@@ -71,6 +71,9 @@ export const ProfileInfo = ({ user }) => {
         </>
     )
 }
+
+
+
 export const FollowList = ({data}) => {
     const navigate = useNavigate();
     return (
@@ -98,6 +101,9 @@ export const FollowList = ({data}) => {
         </Grid>
     )
 }
+
+
+
 export const FollowBox = ({ title, handleToggle }) => {
     const styles = {
         f_title: { padding: "1rem", borderTop: "1px solid #e1e1e1" },
