@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이미지 태그</title>
+</head>
+<body>
+    <h1>이미지 태그</h1>
+    <p style="width: 500px; font-size: 100px;">
+        <img src="https://images.unsplash.com/photo-1610986603166-f78428624e76" 
+            width="10%" alt="css 이미지"> <!--%는 부모요소의 크기 기준-->
+            <!--width 속성을 이용하면 이미지 크기를 조절할수있다(%,px,em,rem,vh,vw)-->
+        <img src="https://images.unsplash.com/photo-1610986603166-f78428624e76" 
+            width="100px" alt="css 이미지"> 
+            <!--픽셀은 고정크기를 의미-->
+        <img src="https://images.unsplash.com/photo-1610986603166-f78428624e76" 
+            width="100em" alt="css 이미지">
+            <!--em은 부모요소의 폰트 크기기준-->
+        <img src="./my_image.jpg" 
+            width="50vw" alt="css 이미지">
+            <!--뷰포트(한화면)너비를 기준으로함 화면확대하면 크기도 변동-->
+        <img src="./my_image.jpg" 
+            width="100vh" alt="css 이미지">
+            <!--px 은 생략가능 -->
+    </p>
+        <img srcset="https://placehold.co/400x400 400w,
+                    https://placehold.co/800x800 800w,
+                    https://placehold.co/1000x1000 1000w " 
+                    sizes="(min-width: 1000px)" 
+                    src="https://placehold.co/100x100" 
+                    alt="이미지(300*300)">
+    
+    <p>
+
+    </p>
+</body>
+</html>

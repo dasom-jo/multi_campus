@@ -1,0 +1,27 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+fieldset{
+    font-size: 16px;
+    margin:  10px 15px;
+}
+
+legend {
+    margin: 0 10 px;
+}
+
+
+/* 필수입력은 핑크색 */
+.required-fs {
+    background-color: pink;
+}
+/* 선택입력은 좋아하는색배경 */
+.option-fs {
+    background-color: aquamarine;
+}
+
+#id{
+    color: aqua;
+}

@@ -1,0 +1,22 @@
+.container {
+    width: 100px;
+    height: 100px;
+    background-color: brown;
+}
+
+.margin {
+    margin: 20px;
+    display: inline-block;
+}
+
+.center {
+    margin: 0 auto;
+}
+/* dlv 태그는 블록이므로 자동으로 주니깐 자동으로 가운데로 맞춰줌
+0은 상하 오토는 좌우 */
+
+/* 마진 중첩현상은 세로로 할때 중첩한다 길이가 다르면 길이가 큰쪽으로  */
+
+.padding {
+    padding: 20px;
+} 

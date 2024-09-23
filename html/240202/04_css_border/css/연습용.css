@@ -1,0 +1,24 @@
+.container {
+    border: 1px solid black;
+    margin: 30px;
+}
+
+
+.box1 {
+    width: 100px;
+    position: absolute; /* 부모요소를 기준점으로 이동*/
+    
+    padding: 20px;
+    margin-right: 10px;
+    /* float: left; */
+    background-color: blue;
+}
+
+.box2 {
+    width: 300px;
+    padding: 20px;
+    /* float: left; */
+    
+    background-color: blueviolet;
+    
+}

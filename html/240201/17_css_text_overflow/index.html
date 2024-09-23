@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>tect-overflow</title>
+    <style>
+        div {
+            width: 460px;
+            border: 1px solid black;
+        }
+        p {
+            text-indent: 5%;
+            overflow: hidden;
+            text-overflow: ellipsis;
+
+        }
+        #oneline {
+            
+            white-space: nowrap;
+            }/* indent 그부분만큼 들여쓰고 시작//넘쳐나는 부분을 숨겨라.테스트 오버플루는 ...표시..  
+        wedkit는 크로스 브라우징 안되서*/ 
+
+        #threeline {
+          
+            line-height: 2;
+            display: -webkit-box;
+            -webkit-line-clamp:3;
+            -webkit-box-orient: vertical;
+        }
+
+    </style>
+</head>
+<body>
+    <div >
+        <p id="oneline">Lorem ipsum dolor sit amet consectetur, adipisicing elit. Enim ducimus perspiciatis m
+            elit. Enim ducimus perspiciatis maxime voluptatibus similique harum, neque dicta dignissimos dolore corporis natus tempora blanditiis nulla fugit quia ex quo nemo tempore.</p>
+    </div>
+<hr>
+    <div >
+    <p id="threeline">Lorem ipsum dolor sit amet consectetur, adipisicin
+        g elit. Enim ducimus perspiciatis m
+        elit. Enim ducimus perspiciatis maxime voluptatibus similique harum, neque dicta dignissimos dolore corporis natus tempora blanditiis nulla fugit quia ex quo nemo tempore.
+    </p>
+    </div>
+
+</body>
+</html>

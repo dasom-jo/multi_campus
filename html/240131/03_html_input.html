@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>input 태그</title>
+</head>
+<body>
+    <h1>입력 태그</h1><!--input 태그-->
+    <h2>입력 태그의 속성들</h2>
+
+<form action="" method="post">
+<!--value 이미 세팅되잇는 글씨가잇어서 이어서쓰기 가능/disable 드 트루안써도 영향가능
+        readonly 일기전용-->
+    <h3>text, password, search</h3>
+    <p>
+        <label for="text">텍스트</label>
+        <input type="text" name="text" id="text" value="기본값" readonly ><br>
+        
+        <label for="password">비밀번호</label>
+        <input type="password" name="password" id="password" required autofocus><br><!--입장하자마자 포커스맞춤-->
+
+        <label for="keyword">검색어</label>
+        <input type="search" name="keyword" id="keyword" placeholder="검색어를 입력하세요"><br>
+    </p>
+    <h3>url, email, tel</h3>
+        <label for="url">URL</label>
+        <input type="url" name="url" id="url" placeholder="url주소를 입력하세요"><br>
+
+        <label for="email">이메일</label>
+        <input type="email" name="email" id="email" disabled="true"><br>
+
+        <label for="phone">전화번호</label>
+        <input type="tel" name="phone" id="phone" placeholder="전화번호를 입력하세요"><br>
+
+   
+    <h3>checkbox, radio</h3>
+        <div>
+            
+            <label for="checkbox-a">
+                <input type="checkbox" name="checkbox" id="checkbox-a" value="a" checked>
+                <span>체크박스</span>
+            </label><!--여러개 선택가능//on/off로잔달해서-->
+            <input type="checkbox" name="checkbox" id="checkbox-b" value="b">
+            <label for="checkbox-b">체크박스</label>
+            
+        </div>
+        <div>
+            <input type="radio" name="radio" id="radio1" value="1" checked>
+            <label for="radio1">1라디오박스</label>
+            <input type="radio" name="radio" id="radio2" value="2">
+            <label for="radio2">2라디오박스</label><!-- 밸류필요 네임이라는 이름으로 나가서,
+                네임이 중요 ,중복선택 불가 같은 주제의name은 항상같게-->
+        </div>
+        <div>
+            <input type="radio" name="radio1" id="radio1" value="1"checked>1
+            <label for="radio1">라디오박스</label>
+            <input type="radio" name="radio1" id="radio2" value="2">2
+            <label for="radio2">라디오박스</label><!-- 밸류필요-->
+            
+        </div>
+
+
+    <h3>number, range, color</h3>
+    <div>
+        <label for="num">숫자</label>
+        <input type="number" name="num" id="num" step="10" value="10" min="10" max="70">
+
+    </div>
+    <div>
+        <label for="range">범위</label>
+        <input type="range" name="range" id="range" step="10" value="10" min="10" max="70">
+    </div>
+    <div>
+        <label for="color">색깔</label>
+        <input type="color" name="color" id="color" value="#00ff00"><!--밸류는hex 코드만 가능-->
+    </div>
+    
+    <h3>date, month, week, time,datetime-local</h3>
+    <div>
+        <label for="date">날짜</label>
+        <input type="date" name="date" id="date" value="2024-01-30" min="2024-01-01" max="2024-12-31" >
+    </div>
+    <div>
+        <label for="month">달</label>
+        <input type="month" name="month" id="month" value="2024-02" ><!--안되는 브라우저 잇음 -->
+    </div>
+    <div>
+        <label for="week">주</label>
+        <input type="week" name="week" id="week" value="2024-W52">
+    </div>
+    <div>
+        <label for="time">시간</label>
+        <input type="time-local" name="time" id="time"  >
+    </div>
+    <div>
+        <label for="datetime">날짜-시간</label>
+        <input type="datetime-local" name="datetime" id="datetime" ><!--제출버튼으로 사용되는 이미지-->
+    </div>
+    
+    <h3> file</h3>
+    <div>
+        <label for="file">파일</label>
+        <input type="file" name="file" id="file" accept="image/*, .pdf" multiple><!--accept파일양식별 조건이잇음
+        *모양은 전체 멀티플은 여러개 지정가능-->
+    </div>
+    
+    <h3>hidden</h3>
+    <div>
+        
+        <input type="hidden" name="hidden" value="숨은값" ><!--라벨 노필요 아이디도숨길수잇는 값/사용자가변경해서는 안되는데        일단 보내긴해야함 예시:일반사용자라는 식별기호-->
+    </div>
+
+    <h3>textarea </h3>
+    <div>
+        <label for="textarea">이미지</label>
+        <textarea name="textarea" id="textarea" cols="10" rows="5">긴글 작성하기</textarea>
+    </div> 
+    
+    <h3>select</h3>
+    <div>
+        <label for="select">선택상자</label>
+        <select id="select" name="season" size="2" multiple><!--컨트룰누르고 두개선택이 가능하므로 이건 셀렉에서 좋은
+        선택은 아님-->
+        <option selected disabled>--계절을 선택하세요--</option>
+            <option value="spring">봄</option>
+            <option value="summer">여름</option>
+            <option value="fall">가을</option>
+            <option value="winter">겨울</option>
+        </select>
+    </div>
+    <div>
+        <label for="datalist">선택상자</label>
+        <input type="text" list="datalist">
+        <datalist id="datalist" name="season" >
+            <option selected disabled>--계절을 선택하세요--</option>
+            <option value="spring">봄</option>
+            <option value="summer">여름</option>
+            <option value="fall">가을</option>
+            <option value="winter">겨울</option>
+        </datalist>
+    </div>
+    
+    <h>image,submit,reset</h>
+    <div>
+            <input type="image" name="image" id="image" src="./submit.png" width="60" height="20">
+            <input type="submit" value="보내기"><input type="reset" value="리셋">
+            <input type="button" value="장식용 버튼" onclick="alert('경고')"><!--아무런 동작도없음 대신 직접 정의 가능(oncclick)-->
+    </div> 
+    <div>
+        
+        <button type="submit" >보내기</button>
+        <button type="reset" >리셋</button>
+        <button type="button"onclick="alert('경고')">장식용버튼</button><!--인풋보다 꾸미기 쉬운 버튼-->
+</div> 
+    
+</form>
+
+    
+</body>
+</html>

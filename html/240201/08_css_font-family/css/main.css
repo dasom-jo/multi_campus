@@ -1,0 +1,50 @@
+
+@font-face {
+    font-family: 'WagleWagle';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2301-wagle@1.0/WagleWagle.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;}
+/* 폰트 패밀리 이름을 wa라고 바꾸면 아래에다가도 wa라고 써도됨< */
+
+
+.a {
+    font-family: georgia;
+}
+
+.b {
+    font-family: serif;
+}
+
+.c {
+    font-family: sans-serif;
+}
+
+.d {
+    font-family: monospace;
+}
+
+.e {
+    font-family: cursive;
+}
+
+.f {
+    font-family: fantasy;
+}
+
+.g {
+    font-family: georgia, "맑은고딕";
+}
+
+.google{
+    font-family: 'Nanum Pen Script', cursive;
+
+}/* font-family: 'Single Day', cursive;  주석처리된 링크 */
+/* <style>
+        @import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&family=Single+Day&display=swap');
+
+       </style> 여기다 써도됨
+ */
+
+.noonnu{
+    font-family: 'WagleWagle', cursive;
+}

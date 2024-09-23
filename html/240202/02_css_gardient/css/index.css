@@ -1,0 +1,30 @@
+div {
+    width: 300px;
+    height: 300px;
+}
+
+/* #linear {
+    background-image: linear-gradient(to bottom,
+                    blue 50% ,white, yellow);
+} */
+/* 240deg 각도 조절 가능 */
+
+/* #radial {
+    background-image: radial-gradient(circle at 10%, 
+                    red,blue, yellow);
+} */
+
+/* 최종모양크기at 가로위치 세로위치, 중단 색상+중단위치 *@ */
+
+#radial {
+    background-image: radial-gradient(closest-side circle at 10% 10%, 
+                    red,blue, yellow);
+}
+/* 컴마와 띄어쓰기 유의 
+closest-side 그라데이션 가장가지가 모서리로 옮겨짐 
+farthest-side 모서리에서 번저짐
+사이드대신 코나 쓰면 더 크게 번저짐*/
+
+#linear { 
+        background-image: linear-gradient(to top , blue 20%,yellow 40%);
+}

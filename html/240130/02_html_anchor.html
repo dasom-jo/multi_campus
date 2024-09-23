@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>anchor 태그</title>
+</head>
+<body>
+    <h1>앵커태그</h1>
+    <h2 id="definition">정의</h2>
+    <p>
+        앵커(a) 태그는 링크를 만들어주는 태그입니다.
+    </p>
+
+    <h2>속성</h2>
+    <ul>
+        <li>href: 링크할 주소를 지정</li>
+        <li>target: 링크를 열 위치를 지정</li>
+
+    </ul>
+    <h3>href 속성</h3>
+    <ul>
+        <li>링크할 주소를 지정한다</li>
+        <li>상대경로와 절대 경로 모두 사용가능</li>
+        <li>다른 페이지로 이동할수있게한다</li>
+        <li>페이지 내부에서 특정위치로 이동가능</li>
+        <li>이메일과 전화번호도 연결 가능한다</li>
+    </ul>
+    <h3>타겟 속성</h3>
+    <ul>
+        <li>링크를 열 위치를 지정한다</li>
+        <li>기본값은_self이다.</li>
+        <li>_self는 현재 창에서 링크를 연다</li>
+        <li>_blank는 새창에서 링크를 연다</li>
+    </ul>
+
+    <h3>target="_blank"보안 문제</h3>
+    <ul>
+        <li>target="_blank" 보안 취약점(정보노출)이 존재할수도잇다</li>
+        <li>브라우저의 팝업 차단기에 의해 차단 될 우려가 있다</li>
+        <li>
+            target="_blank"에 rel="noopener noreferrer"을 추가하면,
+            외부페이지에서 현재페이지에 대한 악의적인 조작을 방지하고,
+            사용자의 개인정보를 보호할수있어서 
+            보다 안전하게 처리된다
+        </li>
+    </ul>
+
+    <dl>
+        <dt>noopener</dt>
+        <dd>
+            새창,새탭을 열때,부모창에대한 참조를 막는다<br>
+            새로운 창이 부모창에대한 제어권을 가질수없게한다.(보안문제제거)<br>
+            다른페이지의 스크립트가 새로열린 창의 내용을 조작할수없게한다.
+        </dd>
+        <dt>noreferrer</dt>
+        <dd>
+            http 리퍼러 헤더를 제거한다<br>
+            리퍼러 헤더는 현재 페이지에서 새로 열린 페이지로 전달되는 정보이다
+            noreferrer를 쓰면, 외부 사이트가 어디에서 링크를 클릭했는지 알수없게한다
+        </dd>
+    </dl>
+    <HR>
+
+    <h2>사용 예시</h2>
+    <h3>절대 경로</h3>
+    <ul>
+        <li><a href="https://www.naver.com/">네이버</a></li>
+        <li><a href="C:\Users\jody0\multi_it\html\240130\01_html_style.html">html 스타일</a></li>
+    </ul>
+    
+    <h3>상대 경로</h3>
+    <ul>
+    <!--./은 현재폴더를 의미-->
+    <li><a href="./01_html_style.html">html스타일</a></li>
+    <!--../은 상위폴더 의미-->
+    <li><a href="../240129/자기소개서.html">자기소개서</a></li></li>
+    </ul>
+    <h3>특별한경로</h3>
+    <ul>
+    <li><a href="#definition">앵커태그의 정의</a></li>
+        <li><a href="mailto:jody0216@naver.com">메일</a></li>
+        <li><a href="tel:+82040446452">전화번호연결</a></li>
+    </ul>   
+
+    <h3>타겟예시</h3>
+    <ul>
+        <li><a href="https://www.naver.com/">no target</a></li>
+        <li><a href="https://www.naver.com/" target="_self">_self target</a></li>
+        <li><a href="https://www.naver.com/" target="_blank" rel="noopener noreferrer">_blank target</a></li>
+    </ul>
+    
+
+</body>
+</html>
+

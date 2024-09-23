@@ -1,0 +1,70 @@
+
+.container{
+    border: 1px solid black;
+    margin: 20px 0;
+    
+    
+}
+
+#user_text {
+    margin: 50px;
+    border: 10px solid blue;
+    padding: 20px;
+    
+}
+
+#mother {
+    background-color: lightskyblue;
+}
+#child {
+    background-color: palevioletred;
+    width: 100px;
+    height: 100px;
+    
+}
+/* 지정안하면 블록테그로 
+부모가 0인데 자식요소가 퍼센트면 안됨  부모요소를 기준으로한 퍼센트이기때문 */
+
+img {
+    display: block;
+}
+
+
+ul {
+    list-style: none;
+}
+
+a{
+    text-decoration: none;
+
+}
+
+#inline li {
+    display: inline; 
+    width: 100px; /*인라인요소로 바꾸면 의미없음*/
+    background-color: lightcoral;
+    
+}
+#inline-block  li{
+    display: inline-block; 
+    width: 100px; /*인라인요소로 바꾸면 의미없음*/
+    background-color: lightcoral;
+    text-align: center;
+    line-height:2.5;
+}
+
+
+.blue-box {
+    width: 150px;
+    height: 150px;
+    background-color: lightblue;
+    margin: 20px
+}
+/* 
+.none {
+    display: none;
+} 이거하면 상자 하나 사라짐 높이도 줄어듬*/
+
+/* .hidden {
+    visibility: hidden;
+} 이건  잇던 자리는 남아잇음 */

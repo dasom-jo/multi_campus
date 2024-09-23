@@ -1,0 +1,28 @@
+#container{
+    font-size: 30px;
+}
+.percent{
+    font-size: 50%;
+}/* 부모요소 비교 하여 퍼센트 여기서 부모는 30px써잇는 피테그   */
+
+.em{
+    font-size: 2em;
+} 
+ /* 부모요소크기 기준 따블 */
+
+ .rem {
+    font-size: 1rem;
+ }
+ /* root(최상단 예시 바디 혹은 html) 크기를 기준  두배 */
+
+.vh{
+    font-size: 10vh;
+}
+/* 뷰포트 세로너비에 따라 */
+
+.vw {
+    font-size: 10vw;
+}
+/* 뷰포트 가로너비에따라  */
+
+/* lager 부모요소 1.2배  */

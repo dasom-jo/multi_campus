@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블 태그</title>
+    <style>
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th,td {
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <!--caption은 표의 제목을 의미 생략가능-->
+        <caption>표캡션</caption>
+        <colgroup><!--표의 열을 의미한다 생략가능-->
+            <col style="width: 30%;" /><!--열의 너비 설정-->
+            <col style="width: 70%;" />
+        </colgroup><!--css적용하고 앞으로 지원하지않음-->
+
+        <!--thead 는 표의 헤더 부분 생략가능-->
+        <thead>
+            <tr> <!--tr은 행을 의미-->
+                <th>제목셀1</th><!--th는 제목셀을 의미-->
+                <th>제목셀2</th>
+            </tr>
+
+        </thead>
+        <!--tbody 는 표의 본문 부분을 의미한다 생략가능하지만 자동생성(중요)
+        td는 내용셀을 의미-->
+        <tbody>
+            <tr>
+                <td>본문셀1</td>
+                <td>본문셀2</td>
+            </tr>
+            <tr><!--colspan 넣고 본문셀 4를 지움/ 가로를 합치면 -->
+                <td colspan="2">본문셀3</td>
+                <!--<td>본문셀4</td>-->
+            </tr>
+            <tr><!--5,7합쳐작성-->
+                <td>본문셀4</td>
+                <td rowspan="2">본문셀5</td>
+            </tr>
+            <tr>
+                <td>본문셀6</td>
+                <!--<td>본문셀7</td>/ row는 행 의영어-->
+            </tr>
+        </tbody>
+        <!--tfoot은 표의 요략부분을 의미한다 생략가능-->
+        <tfoot>
+            <tr>
+                <td>요약셀1</td>
+                <td>요약셀2</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

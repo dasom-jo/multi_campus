@@ -1,0 +1,62 @@
+.container {
+    border: 1px solid black;
+    margin: 30px;
+    /* position: relative; */
+}
+
+
+.box1 {
+    width: 100px;
+    position: absolute; /* 부모요소를 기준점으로 이동*/
+    
+    padding: 20px;
+    margin-right: 10px;
+    /* float: left; */
+    background-color: blue;
+}
+
+.box2 {
+    width: 300px;
+    padding: 20px;
+    /* float: left; */
+    
+    background-color: blueviolet;
+    
+}
+
+.relative .box1 {
+    position: relative; /* 부모요소를 기준점으로 이동*/
+    left: 100px;
+    
+    top: 30PX;
+    }
+
+
+
+
+.relative .box2 {
+    /* float: left; 박스안에 소속*/
+}
+
+.absolute .box1 {
+    position: absolute; /* 부모요소를 기준점으로 이동 박스에서 자유로윰 */
+    left: 100px;
+    
+    top: 30PX;
+
+}
+
+
+
+/* 오른쪽 두개면 먼저잇는데 오른쪽에 먼저 도착하는 느낌으로 가장 오른쪽에 잇음 
+none은 속성 무효화 대신 한쪽으로 몰린다면 그윗 배치를 따라감
+플릇트는 따라가기때문에 클리어 보쓰로 영향력을 지움
+*/    
+
+/* 텍스트 내부의 글자를 어떻게 표현할것인가에서 나온데 플룻
+    플룻을 끝내려면 클린을 해야함
+    인라인속성은 아님 그냥 디스플레이 속성이 무시가되서 인라인처럼 보이는거
+      */
+
+
+    

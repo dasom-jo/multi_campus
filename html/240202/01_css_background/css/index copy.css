@@ -1,0 +1,30 @@
+body {
+    background-image: url(../image/DD.png);
+    background-size: 500px;
+    background-attachment: fixed;
+    background-repeat: no-repeat;
+    background-position: center;
+}
+/* 배경 그림을 넣는중 */
+
+div {
+    width: 300px;
+    height: 300px;
+    padding: 30px;
+    margin: 24px;
+    border: 8px solid black;
+}
+
+#img {
+    background-color: lightcoral;
+    
+    
+}
+
+#bg {
+    background-image: url(../image/Image20240202100015.png);
+    background-color: lightblue;
+    background-size: contain;
+    background-repeat: cover;
+    background-origin: content-box;
+}

@@ -1,0 +1,12 @@
+#search {
+    width: 561px;
+    height: 44px;
+    border: 1px solid #20212447;
+    border-radius: 22px;
+    box-shadow: 10px 10px 6px 0px #20212447 inset;
+}
+/* inset은  안쪽으로 
+-값으로 하면 그림자 위로 올라감
+
+padding:20px 20px 하면 여백주기 성공
+div 대신 인풋 쓰고 여백 주면 입력 가능 */
