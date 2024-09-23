@@ -1,0 +1,26 @@
+$main_color:pink;
+@font-face {
+    font-family: 'KCC-Hanbit';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/2403-2@1.0/KCC-Hanbit.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+*{
+    font-family: 'KCC-Hanbit';
+}
+
+
+.App {
+    width: 300px;
+    border:20px double black;
+    padding: 2rem;
+    margin: 7rem auto;
+    border-radius: 5%;
+    border-color: $main_color;
+
+}
+
+#header{
+    //background-color: $main_color;
+    width: 100%;
+}

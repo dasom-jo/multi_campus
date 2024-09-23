@@ -1,0 +1,122 @@
+{
+  "users": [
+    {
+      "id": "1",
+      "email": "iu@gmail.com",
+      "nickname": "아이유",
+      "password": "1234"
+    },
+    {
+      "id": "2",
+      "email": "jm@kakao.com",
+      "nickname": "김종민",
+      "password": "1234"
+    },
+    {
+      "id": "3",
+      "email": "bg@naver.com",
+      "nickname": "빽가",
+      "password": "1234"
+    },
+    {
+      "id": "2937",
+      "email": "sky@naver.com",
+      "nickname": "강하늘",
+      "password": "1234"
+    },
+    {
+      "id": "c821",
+      "email": "choi@gmail.com",
+      "nickname": "최인규",
+      "password": "1234"
+    }
+  ],
+  "posts": [
+    {
+      "id": "1",
+      "content": "신지입니다.",
+      "like": 0,
+      "img": "",
+      "userId": 1
+    },
+    {
+      "id": "2",
+      "content": "종민입니다",
+      "like": 0,
+      "img": "",
+      "userId": 2
+    },
+    {
+      "id": "3",
+      "content": "빽가입니다",
+      "like": 0,
+      "img": "",
+      "userId": 3
+    },
+    {
+      "id": "4",
+      "content": "날씨가 춥네요",
+      "like": 0,
+      "img": "",
+      "userId": 1
+    },
+    {
+      "id": "5",
+      "content": "화이팅입니다.",
+      "like": 0,
+      "img": "",
+      "userId": 1
+    },
+    {
+      "id": "6",
+      "content": "1박~ 2일!",
+      "like": 0,
+      "img": "",
+      "userId": 2
+    },
+    {
+      "id": "7",
+      "content": "조용하네요?",
+      "like": 0,
+      "img": "",
+      "userId": 3
+    },
+    {
+      "id": "8",
+      "content": "행복하세요",
+      "like": 0,
+      "img": "",
+      "userId": 3
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "content": "신지야 안녕?111",
+      "postId": 1,
+      "userId": 2,
+      "public": false,
+      "password": "1234",
+      "img": ""
+    },
+    {
+      "id": "2",
+      "content": "신지야 안녕?222",
+      "postId": 1,
+      "userId": 3,
+      "public": true,
+      "password": "1234",
+      "img": ""
+    },
+    {
+      "id": "3",
+      "content": "종민아 안녕?",
+      "postId": 2,
+      "userId": 1,
+      "public": true,
+      "password": "1234",
+      "img": "/img/jju.jpg"
+
+    }
+  ]
+}

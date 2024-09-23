@@ -1,0 +1,14 @@
+.btn {
+    border: none;
+    background-color: transparent;
+    padding: 10px 6px;
+    text-align: right;
+    &.large{
+        height: 3rem;
+        font-size: 1.25rem;
+    }
+}
+
+#musictitle {
+    text-align: left;
+}
