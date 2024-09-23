@@ -1,0 +1,24 @@
+{
+  "name": "mynpm_jds",
+  "version": "1.0.1",
+  "description": "my first npm project",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "study",
+    "node",
+    "javascript"
+  ],
+  "author": "jodasom",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2",
+    "mynpm_cik1": "^1.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.0"
+  }
+}

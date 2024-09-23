@@ -1,0 +1,120 @@
+<!-- #3월 31일까지 하나의 화면에 게시글 목록 화면과 글쓰기 화면을 디자인하고,
+    글쓰기 등록을 했을 때, 목록에 하나씩 추가되도록 만들어보세요~!
+번호 제목 이름 아이디 작성일 //제목 input 작성자input 내용input 취소등록버튼-->
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>게시판</title>
+    <link rel="stylesheet" href="./index.css">
+
+</head>
+<body>
+    <form action=""method="get" name="signupForm">
+    <fieldset id="one_table">
+            <legend>사용자 등록</legend>
+            <label for="id">아이디:</label>
+            <input type="text" name="id" id="id"><br>
+
+            <label for="user_name">이름:</label>
+            <input type="text" name="user_name" id="user_name"><br>
+
+            <label>성별:</label>
+            <label for="man">
+                <input type="checkbox" name ='man' id="man" value="n">
+                <span>남자</span>
+            </label>
+            <label for="women">
+                <input type="checkbox" name ='women' id="women" value="w">
+                <span>여자</span>
+            </label><br>
+
+            <label for="password">비밀번호:</label>
+            <input type="text" name="pwd" id="pwd"><br>
+
+            <label for="phone">tel:</label>
+            <input type="tel" name="user_phone" id="user_phone"><br>
+
+            <label class="required" for="user-email-account">email:</label>
+                <input type="text" id="user-email-account" name="emailAccount">
+                @
+                <input type="text" id="user-email-addr" name="emailAddr">
+                <select id="addrBox">
+                    <option selected>직접입력</option>
+                    <option value="naver.com">네이버</option>
+                    <option value="gmail.com">구글</option>
+                    <option value="daum.net">다음</option>
+                </select><br>
+
+            <label for="conutry">국가:</label>
+                <select name="user_conutry" id="user_conutry" >
+                    <option selected disabled>선택해주세요</option>
+                    <option value="korea">한국</option>
+                    <option value="japan">일본</option>
+                    <option value="use">미국</option>
+                    <option value="china">중국</option>
+                </select><br>
+
+                <label for="file">프로필 이미지 등록:</label>
+                <input type="file" name="user_profile" id="file" accept="image/*"><br>
+
+                <button type="user_submit">회원등록</button>
+        </fieldset>
+
+        <fieldset id="two_table">
+            <legend>게시글 등록</legend>
+            <label for="id">작성자 아이디:</label>
+            <input type="text" name="user_id" id="user_id"><br>
+
+            <label for="textarea">글내용:</label>
+            <textarea name="textarea" id="textarea" cols="60vm" rows="9"></textarea><br>
+
+            <label for="textarea" >해시태그:</label>
+            <textarea name="hashtag" id="hashtag"  cols="60vm" rows="3"></textarea><br>
+
+            <button type="submit">회원등록</button>
+        </fieldset>
+
+        <table>
+            <tbody>
+                <tr>
+                    <td colspan="1" rowspan="3">이미지 파일</td>
+                    <td colspan="4">작성자 아이디</td>
+                </tr>
+                <tr>
+                    <td colspan="4" rowspan="2">글내용</td>
+                </tr>
+                <tr>
+                </tr>
+                <tr id="first">
+                    <td>#아이디[*]</td>
+                    <td>#이름[*]</td>
+                    <td>#성별[*]</td>
+                    <td>#tel[*]</td>
+                    <td>#email[*]</td>
+                </tr>
+                <tr>
+                    <td>#국가[*]</td>
+                    <td>#글번호[*]</td>
+                    <td>#작성자 이름[*]</td>
+                    <td>#수정삭제[*]</td>
+                    <td>#해시태그[*]</td>
+                </tr>
+            </tbody>
+        </table>
+    </form>
+
+    <script src="./index.js"></script>
+    <!-- 벚꽃 -->
+    <link rel="stylesheet" href="https://jhammann.github.io/sakura/dist/sakura.css">
+    <div id="sakura-petals"></div>
+    <script src="https://jhammann.github.io/sakura/dist/sakura.js"></script>
+    <script>
+        var sakura = new Sakura('#sakura-petals');
+    </script>
+
+
+</body>
+
+</html>

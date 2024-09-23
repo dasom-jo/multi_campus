@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <ul>
+        <li data-id="1" data-level="easy">HTML</li>
+        <li data-id="2" data-level="easy">CSS</li>
+        <li data-id="3" data-level="hard">JavaScript</li>
+        <li data-id="4" data-level="hard">Python</li>
+        <li data-id="5" data-level="normal">SQL</li>
+    </ul>
+    <script>
+        const li_list = document.querySelectorAll('li');
+            li_list.forEach((li)=>{
+                //console.log(li.dataset);
+                if(li.dataset.level == 'easy'){
+                    li.style.color = 'green';
+                }else if (li.dataset.level == 'normal') {
+                    li.style.color = 'yellow';
+                }else {
+                    li.style.color = 'red';
+                }
+            })
+    </script>
+</body>
+</html>
