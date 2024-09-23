@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>연습문제 2</title>
+  <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+  <button id="btn" class="active">&#9776;</button>
+
+  <nav id="nav" class="active">
+    <ul>
+      <li><a href="#">HTML</a></li>
+      <li><a href="#">CSS</a></li>
+      <li><a href="#">JavaScript</a></li>
+    </ul>
+  </nav>
+
+  <script>
+    let btn = document.querySelector('#btn');
+    let nav = document.querySelector('#nav');
+    btn.onclick = function () { //토글은 함수의 존재여부를 질문:삭제해?실행해?
+      //버튼이 클리되면 아래와같은 동작 실행
+      btn.classList.toggle('active');
+      nav.classList.toggle('active');
+
+      // if(btn.classList.contains('active'),
+      //   nav.classList.contains('active')) {
+
+      //   btn.classList.remove('active');
+      //   nav.classList.remove('active');
+
+      // } else {btn.classList.contains('active');
+      //         nav.classList.contains('active');
+      //   }
+    } 
+
+  </script>
+  <script src="./js/index.js"></script>
+</body>
+</html>

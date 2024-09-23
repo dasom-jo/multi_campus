@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=<device-width>, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <script>
+        //inch를 cm 로 바꾸는법
+        //const rawInput = prompt('inch 단위의 숫자를 입력')
+        //const inch = Number(rawInput)
+        //const cm = inch * 2.54
+        //alert(`${inch}inch는 ${cm}cm입니다`)
+        //const dollorInput = prompt('dollor를 입력해주세요')
+        //const dollor = Number(dollorInput)
+        //const krw = dollor * 1207
+        //alert(`${krw}원입니다`)
+
+        //if조건문
+        //const krw = Number(prompt('입력바랍니다'))
+        //if(krw<100){
+        //    alert(true)
+        //}else{
+        //    alert(false)
+        //}
+
+        // 현재 시간을 가져오는 Date 객체 생성
+        //const date = new Date();
+//
+        //// 각 시간 구성 요소를 추출
+        //const year = date.getFullYear();
+        //const month = date.getMonth() + 1; // 월은 0부터 시작하므로 +1
+        //const day = date.getDate();
+        //const hour = date.getHours();
+        //const minute = date.getMinutes();
+        //const second = date.getSeconds();
+//
+        //// 시간에 따라 오전/오후를 알림
+        //if (hour >= 12) {
+        //    alert('오후');
+        //} else {
+        //    alert('오전');
+        //}
+
+
+        //const input = Number(prompt('숫자를 입력하세요'))
+//
+        //switch (input % 2 ){
+        //    case 0:
+        //        alert('짝수')
+        //        break
+        //    case 1:
+        //        alert('홀수')
+        //        break
+        //    default:
+        //        alert('숫자가 아님')
+        //        break
+        //}
+
+        //const 입력 = prompt('정수를 입력해주세여')
+        //const  끝자리 = 입력[입력.length-1]
+//
+        //if (끝자리 === "0" ||
+        //    끝자리 === "2" ||
+        //    끝자리 === "4" ||
+        //    끝자리 === "6" ||
+        //    끝자리 === "8" ){
+        //    alert(`${입력} 짝수입니다`)
+        //}else{
+        //    alert(`${입력}은 홀수입니다`)
+        //}
+
+        //const rawInput = prompt('태어난 해를')
+        //const year = Number(rawInput)
+        //const tti = '원숭이,닭,개,돼지,쥐,소,호랑이,토끼,용,뱀,말,양'.split(',')
+        //alert(tti[3])
+        //alert(`${year} 생은 ${tti[year%12]} 띠입니다.`)
+
+        //const 인덱스 = 배열.indexOf(요소)
+        //배열.splice(인덱스,1)
+
+        //for in 반복문 인덱스 이용
+        //for(const 반복변수 in 배열또는객체){
+        //    문장
+        //}
+        const todos = ['우유먹기','업무메일확인','필라테스']
+        //for (const i in todos){
+        //    console.log(`${i}번째 할일 : ${todos[i]}`);
+        //}
+        //for of
+        for (const todo of todos){
+            console.log(`${todo}`);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 기초</title>
+</head>
+<body>
+    <button id="btn" onclick="alert('클릭되었다')">클릭</button>
+    <!-- <button id="btn" onclick="alert()">클릭</button> 이게되나?-->
+    <!--html 태그에 스트립트를 함께 쓰면,스크립트 수정시 html도 함께 수정해야한다-->
+    <!--onclick 지우면 아랫부분이 실행됩니다-->
+    <script>
+        let btn = document.querySelector('#btn');
+        function click() {
+            alert('클릭되었다!');
+        }
+        //btn.onclick = click; 웹요소에 직접 함수 연결
+        //요소.on이벤트이름 = 함수aud;
+        //요소.on이벤트이름 = function() {};
+        //요소.on이벤트이름 = () => {};
+
+    </script>
+</body>
+</html>

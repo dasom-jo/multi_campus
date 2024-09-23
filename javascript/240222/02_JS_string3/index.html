@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>문자열 쪼개기</title>
+</head>
+<body>
+    <h1>Have a nice day!</h1>
+
+    <script>
+        let title = document.querySelector('h1');
+        let titleArr = title.innerText.split(" ");
+        //끊는기준:공백마다 끊어라
+        //0:Have 1:a 2:nice 3:day!
+        title.innerText = `${titleArr[2][0].toUpperCase() +  titleArr[2].slice(1) +' '+ titleArr[3]}`;
+        //titleArr[2][0]2번째 요소의 0번째 글자:N titleArr[2].slice(1):2번쨰요소에서 1번쨰글자 제거:ice " " 3번쨰 요소:day
+    </script>  
+</body>
+</html>

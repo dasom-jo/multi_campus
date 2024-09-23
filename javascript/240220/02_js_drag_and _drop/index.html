@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>드로그앤드롭</title>
+    <style>
+        #box {
+            width: 300px;
+            height: 300px;
+            background-color: olivedrab;
+            position: relative;
+        }
+    </style>
+</head>
+<body>
+    <div id="box"></div>
+    <script >
+        const box = document.querySelector('#box');
+        let isDrag = false; //드래그상수변수
+        let locX, locY = 0;
+        //mousedown 마우스를 누르고있을때
+        box.addEventListener('mousedown',(e) => {
+            isDrag = true;
+            locX = e.offsetX;
+            locY = e.offsetY;
+        })
+        // mouseup	눌렀던 마우스 버튼을 땔 때
+        //마우스를 때면 아무것도 하고싶지않음
+        window.addEventListener('mouseup', (e) => {
+            isDrag = false;
+        })
+
+          //이동길이체크
+                //시작점에서 끝값을 빼서 왼쪽으로 이동 마치 마우스 따라 이동하는것
+                //처럼보임 사실 마우스로 드래그래소 숫자를 나타내니간마우스 
+                //따라 움직이는것일수도
+                //위도우가 최상위 부모 도큐먼트 가능
+        // mousemove	마우스를 움직였을 때
+        window.addEventListener('mousemove', (e) => {
+            if (isDrag) {
+                box.innerText = `
+                (${locX},${locY})에서 드래그 시작 \n
+                (${e.clientX},${e.clientY}에서 드래그 끝.
+                (${e.clientX - locX},${e.clientY - locY})로 이동`;
+
+                box.style.left = (e.clientX - locX) + 'px';
+                box.style.top = (e.clientY - locY) + 'px';
+            }
+        })
+    </script>
+
+
+
+</body>
+</html>

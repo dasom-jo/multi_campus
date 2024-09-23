@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>텍스트 필드에 입력한 글자수 체크</title>
+    <link rel="stylesheet" href="./css/index.css">
+    
+</head>
+<body>
+    <div id="contents">
+        <input type="text" id="word">
+        <button id="btn">글자수 확인</button>
+    </div>
+    <div id="result"></div>
+    <script>
+        //변수지정
+        let btn = document.querySelector('#btn');
+        let word = document.querySelector('#word');
+        let wordLength = 0;
+        //버튼 클릭시 글자수 체크
+        /*btn.addEventListener('click',() => {
+            wordLength = word.value.lenght;
+            document.querySelector('#result').innerText = wordLength;
+        })*/ 
+        //왜안되지..?
+
+        word.addEventListener('keyup', () => {
+            wordLength = word.value.lenght;
+            document.querySelector('#result').innerText = wordLength;
+        })
+
+        //버튼클릭에대한 동작 확인
+        btn.addEventListener('click', (e) => {
+            if(e.ctrlKey) {
+                console.log('컨트롤키를 누르고 클릭했네요?');
+            } else {
+                console.log('그냥 했네요?');
+            }
+        })  
+
+        word.addEventListener('keyup', (e) => {
+            wordLength = e.target.value.length;
+            document.querySelector('#result').innerText = wordLength;
+        })
+
+    </script>
+</body>
+</html>

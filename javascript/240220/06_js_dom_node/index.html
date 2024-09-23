@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>createElement</title>
+</head>
+<body>
+    <h1>노드 만들기</h1>
+    <p>HTML</p>
+    <p>CSS</p>
+    <p>javascript</p>
+    <!-- newP를 여기다 넣고싶어요  -->
+    <script>
+        let newP = document.createElement('p');//새롭게 족보에없는 태그 만듬
+        //console.log(newP);//콘솔창에 텅빈 피테그 하나생김
+        let textNode = document.createTextNode('python');//새로운 태그의 자식등장
+        newP.appendChild(textNode);
+        //=newp.innertext='python'  같은 결과
+        //console.log(newP);//콘솔창에 파이썬이 들어감
+        //document.body.appendChild(newP);//바디의 자식이여서  저기로 올라가서 화면에 보여줌
+        //새 태그를 족보에 끼어넣음
+
+
+        // insertBefore(추가노드,기준노드);
+        //let h1 = document.querySelector('h1');//기준노드 선언
+        //document.body.insertBefore(newP,h1);//h1태그앞에 들어감
+        let javascript = document.querySelector('p:nth-child(4)');
+        document.body.insertBefore(newP,javascript);//자바앞으로
+        
+        //특정노드 삭제
+        let h1 = document.querySelector('h1');
+        //h1.remove(); //삭제함 ie에서 안됌ㅋ
+        //document.body.removeChild(h1); 
+
+        //console.log(h1,parentNode); //콘솔창에 너 부모가 누구야
+
+        
+        
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열3</title>
+</head>
+<body>
+    <script>
+        //특정배열 제거splice(num)
+        let subjects = ['HTML', 'CSS', 'Javascript', 'Python', 'React'];
+        let unstudy = subjects.splice(3);
+        console.log(unstudy);
+        //0:"Python"1: "React" 
+
+        let python = subjects.splice(3, 1);//3-변경을 시작할 인덱스/1=제거할요소수
+        console.log(python);
+        console.log(subjects);
+        //'HTML', 'CSS', 'Javascript'
+
+        //삭제 함수.splice(sn, en)
+        let week = ['일', '월', '화', '수', '목', '금', '토'];
+        let weekday = week.splice(1, 5);//1요소부터 총5개의요소 삭제 남은것:일,토
+        let weekend = week;
+        console.log(weekday, weekend.reverse());//근데 reverse()여서 토,일추출
+
+        //삭제 함수.splice(sn, en,변환값)
+        let rainbow = ['빨', '주', '노', '초', '남', '보']
+        // 노초파-검회
+        rainbow.splice(2, 3, '검', '회'); //첫번쩨매개변수 다음인덱스부터/사라질 인덱스갯수./변환값
+        console.log(rainbow);
+
+        let ani = ['고구마', '나비', '라면', '바보'];
+        // 다람쥐 추가, 몽키 추가
+        ani.splice(2,0,'다람쥐');
+        ani.splice(4,0,'옹키');
+        console.log(ani);//['고구마', '나비', '다람쥐', '라면', '옹키', '바보']
+
+    </script>
+</body>
+</html>

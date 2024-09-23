@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>replace</title>
+</head>
+<body>
+    <script>
+        let str = '아버지가 방에 들어가신다.';
+        console.log(str.replace("아버지","어머니"));
+        console.log(str.replace(" ",""));
+        console.log(str.replaceAll(" ",""));
+
+        let str1 = '달디단,달디달고,달디단,밤양갱,밤양갱';
+        console.log(str1.replace(',',', '));//달디단, 달디달고, 달디단, 밤양갱, 밤양갱
+        console.log(str1.replace('달디단', '달디달고'));//달디달고,달디달고,달디단,밤양갱,밤양갱
+        //첫번째 요소만 바뀜
+    </script>
+</body>
+</html>

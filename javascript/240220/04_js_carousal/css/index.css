@@ -1,0 +1,21 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+#container {
+    width: 400px;
+    height: 300px;
+    border: 2px solid #bbb;
+    display: flex;
+    justify-content: space-between;
+    align-items:center ;
+}
+
+.arrow{
+    font-size: 2em;
+    padding: 0 10px;
+    background-color: pink;
+    cursor: pointer;
+}
+

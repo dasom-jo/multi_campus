@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체의 복사</title>
+</head>
+<body>
+
+    깊은 복사(Deep Copy)는 '실제 값'을 새로운 메모리 공간에 복사하는 것을 의미하며,
+
+    얕은 복사(Shallow Copy)는 '주소 값'을 복사한다는 의미입니다.
+    <script>
+        let numberA = 100;
+        let numberB = numberA;
+        numberB = 200;
+        console.log(numberA,numberB); 
+        console.log(numberA == numberB);
+        //100,200 와이? 나중에 적용되는거랑 관계가없음
+        //넘버는 메모리램에에 값을 직접 넣음 
+
+        //얇은 복사(객체를 복사할때 필요한것)
+        const objA = {title: '1'};
+        const objB = objA;
+        const objC = Object.assign({}, objA); //속성복사
+        const objD = {...objA} //속성전개
+        objB.title = '2';
+        console.log(objA.title,objB.title,objC.title,objD.title); //2,2,1
+        console.log("objA, objB, objC", objA, objB, objC, objD);
+        //얉은 복사는 그걸 주소와 객체를 복사해 새로운 파일은 만듬으로써 원본이 변경
+        //되어도 복사본이 변경되지않는다
+
+
+
+        //나중에 적용되는거랑 관계가잇음
+        //오브젝트 형태는 주소를 알려주고 오브젝 에이도 주소로 저정..?자료형과 객체형의차이
+        let obja = {
+            title : '1'
+        }
+        let objb = obja;
+        objb.title='2';
+        console.log(obja.title,objb.title); //2,2
+        //오브젝만 같냐고 물어보면 같지만 타이틀까지 물어보면 틀리다
+        //얉은 복사와 깊은 복사 :객체를 복사할때 필요함
+        
+        //배열
+        //얇은 복사 값은 다르나 내용은 같음  주소를 끊은거 깊은 복사는 내용 주소까지 끊음 복사해서 연결이끊김
+        //얉은복사 객체를 복사할떄 같은 참조를 가히킴
+        //얉은 복사는 주소 이름은 다르나 결국 같은 값을 가르킴 예시 일본과한국의 스코어결과/한국과 일 본 스코오결과
+        //깊은 복사 아예 처음의 내용 미국와 하와이;의 스코어결과
+
+     
+
+    </script>
+</body>
+</html>

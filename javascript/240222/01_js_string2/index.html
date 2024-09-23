@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>부문 문자열 추출</title>
+</head>
+<body>
+    <h1>Have a nice day!</h1>
+
+    <script>
+        let title = document.querySelector('h1');
+        //부분 문자열 추출[1] substring
+        //let title_sub = title.innerText.substring(7,7+4); //nice
+        //let first_letter = title_sub[0].toUpperCase(); //N
+        //let other_letters = title_sub.substring(1);//1= 시작인덱스 /시작인덱스제외 ice추출
+        //title.innerText = first_letter + other_letters;//Nice
+
+        //부분 문자열 추출[2] slice
+        //let title_sub = title.innerText.slice(7,-5); //nice//7은시작인덱스8부터카운트,-5는 끝에부터 추출
+        let title_sub = title.innerText.slice(-9, -5);//nice
+        let first_letters = title_sub[0].toUpperCase();//N
+        let other_letters = title_sub.substring(1);//ice
+        title.innerText = first_letters + other_letters + "~";
+    </script>
+</body>
+</html>

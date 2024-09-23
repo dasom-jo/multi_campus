@@ -1,0 +1,48 @@
+@font-face {
+    font-family: 'seolleimcool-SemiBold';
+    src: url('https://cdn.jsdelivr.net/gh/projectnoonnu/noonfonts_2312-1@1.1/seolleimcool-SemiBold.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+* {
+    background-color: rgb(207, 191, 224);
+}
+
+main{
+    display: none;
+    margin: 0 17%;
+    
+}
+
+main.active{
+    display: inline-block;
+}
+
+#result {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px; /* 각 그리드 아이템 사이의 간격 설정 */
+}
+
+.box {
+    font-family: 'seolleimcool-SemiBold';
+    border: 2px solid #ddd;
+    box-sizing: border-box;
+    padding: 20px 20px;
+    border-radius: 20px;
+    margin: 5px;
+    text-align: center;
+    border-color:rgb(171, 114, 224,0.5);
+
+}
+
+ul > li {
+    display:block;
+    text-align: left;
+    
+}
+
+.name {
+    list-style: none;
+}

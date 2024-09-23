@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>캐리셀</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div id="container">
+        <div class="arrow" id="left">&lang;</div>
+        <div class="arrow" id="right">&rang;</div>
+    </div>
+
+    <script>
+        const container = document.querySelector('#container');
+        const imgArr = ['pic-1.jpg','pic-2.jpg','pic-3.jpg','pic-4.jpg','pic-5.jpg','pic-6.jpg']
+        let imgIdx = 0;
+        container.style.backgroundImage = `url(./images/${imgArr[imgIdx]})`;
+        const left_arrow = document.querySelector('#left');
+        const right_arrow= document.querySelector('#right');
+
+
+//방법1 좌우 버튼을 통해 이미지 변경하는법
+        /*left_arrow.addEventListener('click',() => {//왼쪽 스위치를 누르면
+            imgIdx--;
+            if(imgIdx<0) {
+                imgIdx = imgArr.length - 1;//배열의 끝부터 배열의 범위를 벗어나기에 조건문
+            }
+            container.style.backgroundImage = `url(./images/${imgArr[imgIdx]})`;
+        })
+
+        right_arrow.addEventListener('click',() => {
+            imgIdx++;//배열을 벗어나지않기에 조건문이없음
+            container.style.backgroundImage = `url(./images/${imgArr[imgIdx]})`;
+
+        })*/
+    //방법2 3초마다 이미지 자동 변경
+
+    function arrow_func(e) {
+        if (e?.target.id == 'left') {
+            imgIdx--;
+            if (imgIdx < 0) {
+                imgIdx = imgArr.length - 1;
+            }
+        } else {
+            imgIdx++;
+            if (imgIdx >= imgArr.length) {
+                imgIdx = 0;
+            }
+        }
+        container.style.backgroundImage = `url(./images/${imgArr[imgIdx]})`;
+    }
+
+            //setInterval(arrow_func,1000);
+
+    //방법3 더줄이기
+    const arrows = document.querySelectorAll('.arrow');
+        for (let arrow of arrows) {
+            arrow.addEventListener('click', arrow_func);
+        }
+
+
+
+
+    </script>
+    <script src="./js/index/js"></script>
+</body>
+</html>
+

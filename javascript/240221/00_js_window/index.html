@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>window객체</title>
+</head>
+<body>
+    <a href="../00_js_window/index.html">윈도우객체1</a>
+    <a href="../01_js_window/index.html">윈도우객체2</a>
+    <a href="../03_js_popup/index/html">윈도우객체3</a>
+    <a href="../04_js_history/index.html">윈도우객체4</a>
+
+
+
+
+    <button id="back">뒤로가기</button>
+    <button id="forward">앞으로가기</button>
+    
+
+    <script>
+        const back = document.querySelector('#back');
+        const forward = document.querySelector('#forward');
+        const start = document.querySelector('#start');
+
+        
+        back.addEventListener('click',() => history.back());
+        forward.addEventListener('click',() => history.forward());
+        
+    </script>
+
+
+        <script>
+        /* 자바스크립트의 window 객체 최상위 객체이자 기본이 되는 객체로,
+        모든 객체는 window안에잇다.
+        주로 창과 관련된 객체와 메서드들이 존재한다
+        window. 은 생략가능 */
+
+        console.log('웹문서에접근',window.document);
+        console.log('내용영역창의 높이와너비', window.innerHeight,window.innerWidth);
+        console.log('바깥 창의 높이와 너비', window.outerHeight,window.outerWidth);
+        console.log('창의 가로위치와 세로위치', windowscreenX,windowscreenY);
+        console.log('브라우저 현재 url', window.location);
+        console.log('로컬스토리지',window.localStorage);
+        console.log('세션 스토리지',window.sessionStorage); 
+        
+    </script>
+</body>
+</html>

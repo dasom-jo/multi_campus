@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이메일주소 감추기</title>
+</head>
+<body>
+    <div id="userInput">
+        <label>
+            이메일
+            <input type="email" id="userEmail" placeholder="이메일 주소를 입력하세요." autofocus />
+        </label>
+        <button>가리기</button>
+    </div>
+    <div id="result"></div>
+
+    <script>
+        // 사용자가 이메일 주소를 적고, 가리기 버튼을 누르면
+        // good_morning0222@gmail.com
+        // good_morning0***@gmail.com 로 resultDiv에 출력
+    
+        //내가한것: @를 쪼개기가 아니라 @ 선언하고 @기준앞뒤로 붙여넣기
+    let btn =document.querySelector('button');
+    btn.addEventListener('click',()=>{
+        let emailAddr = document.querySelector('#userEmail').value
+        let A = emailAddr.indexOf('@')
+        let newEmail =  emailAddr.substring(0,A-3) + '***@' + emailAddr.substring(A+ 1) 
+        document.querySelector('#result').innerText = newEmail;
+    })
+
+    //1.버튼 요소 가져오기
+    let button = document.querySelector('button');
+    //2.버튼을 눌렀을때 동작
+    button.addEventListener('click',()=>{
+        //3이메일 주소 가져오기
+        let emailAddr = document.querySelector('#userEmail').value;
+        //4.@를 이용해 쪼개기
+        let userId = emailAddr.split('@')[0];
+        let userDomain = emailAddr.split('@')[0];
+        //5.userId에서 부분문자열 추출뒤에서 세개 뺸거+***
+        let maskUserId = userId.split(0.-3) + "***";
+        //6.@,도메인포함 연결
+        let maskEmailAddr = `${maskUserId}@${userDomain}`
+        //7 resultDiv 가져와서 innerText
+        document.querySelector('#result').innerText = maskEmailAddr;
+
+    })
+
+    </script>
+</body>
+</html>

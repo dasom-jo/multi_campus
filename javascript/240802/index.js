@@ -1,0 +1,1 @@
+const input = confirm('수락?')

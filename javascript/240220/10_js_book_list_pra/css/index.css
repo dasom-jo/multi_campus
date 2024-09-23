@@ -1,0 +1,67 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+#container {
+    margin: 50px auto;
+    width: 600px;
+    padding: 10px 20px;
+}
+
+ul{
+    list-style: none;
+}
+
+#bookinfo{
+    margin-top:40px ;
+}
+
+#bookinfo li{
+    font-size: 1em;
+    line-height: 3;
+    
+}
+
+#bookinfo label {
+    display: inline-block;
+    width: 50px;
+}
+
+#booklnfo input {
+    width: 450px;
+    padding: 5px;
+    margin-bottom: 10px;
+}
+
+button {
+    width: 150px;
+    margin: 20px 55px;
+    font-size: 1em;
+    padding: 5px 10px;
+}
+
+#booklist {
+    width: 500px;
+    margin-top: 80px;
+    position: relative;
+}
+
+#booklist li {
+    font-size: 1em;
+    padding: 10px;
+    border-bottom:1px solid #ccc ;
+}
+
+.delButton:hover {
+    cursor: pointer;
+}
+
+.delButton {
+    padding: 5px 10px;
+    font-size:0.8em ;
+    position: absolute;
+    right: 10px;
+
+}

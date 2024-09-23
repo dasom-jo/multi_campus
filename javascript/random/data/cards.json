@@ -1,0 +1,90 @@
+[
+    {
+        "color" : "파랑",
+        "number": "7",
+        "item" : "은수저"
+    },
+    {
+        "color" : "핑크",
+        "number": "9",
+        "item" : "유니콘인형"
+    },
+    {
+        "color" : "녹색",
+        "number": "9",
+        "item" : "네잎클로버"
+    },
+    {
+        "color" : "노랑",
+        "number": "5",
+        "item" : "동전"
+    },
+    {
+        "color" : "보라",
+        "number": "2",
+        "item" : "차키"
+    },
+    {
+        "color" : "빨강",
+        "number": "2",
+        "item" : "자동차"
+    },
+    {
+        "color" : "회색",
+        "number": "8",
+        "item" : "셔츠"
+    },
+    {
+        "color" : "주황",
+        "number": "1",
+        "item" : "빵"
+    },
+    {
+        "color" : "은색",
+        "number": "7",
+        "item" : "반지"
+    },
+    {
+        "color" : "금색",
+        "number": "0",
+        "item" : "노트"
+    },
+    {
+        "color" : "연두색",
+        "number": "34",
+        "item" : "열쇠"
+    },
+    {
+        "color" : "핫핑크",
+        "number": "8",
+        "item" : "컵"
+    },
+    {
+        "color" : "연한분홍",
+        "number": "7",
+        "item" : "꽃"
+    },
+    {
+        "color" : "검정",
+        "number": "1",
+        "item" : "카메라"
+    },
+    {
+        "color" : "노랑",
+        "number": "2",
+        "item" : "스티커"
+    },
+    {
+        "color" : "파랑",
+        "number": "5",
+        "item" : "과자"
+    },
+    {
+        "color" : "흰색",
+        "number": "4",
+        "item" : "충전기"
+    }
+    
+
+
+]

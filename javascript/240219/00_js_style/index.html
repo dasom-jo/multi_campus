@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>자바 스크립트에서 스타일 수정</title>
+</head>
+<body>
+    <h1>자바 스크립트에서 스타일 수정</h1>
+    <script>
+        let title = document.querySelector('h1');
+        title.onclick = function() {
+            title.innerText = '제목변경'; 
+        }
+
+
+        title.onclick = () => {
+            //title.innerText = '제목변경';
+            title.style.color = "red";
+            title.style.backgroundColor = "blue";
+        }
+    </script>
+
+<!--복습하는 과정중  틀린것 
+<script>//이안에 넣어야한다 
+    let title = document.querySelector('h1');// 변수를 지정했다 작은따옴표를 꼭쓰자
+    title.onclick = () => { //클릭다음에도 부등호 있다 
+        title.style.innerText ='변경된 타이틀입니다'; //괄호가 아니라 부등호와 따옴표를 쓴다
+        title.style.background = 'red';//이하동문
+        title.style.fontSize = '50px'; 
+
+    }
+</script>-->
+</body>
+</html>
+
+
