@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>카카오맵</title>
+    <!-- <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b089f492b36f680b441cb8d50dbd2234"></script> -->
+    <script type="text/javascript"
+        src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b089f492b36f680b441cb8d50dbd2234&libraries=clusterer"></script>
+</head>
+
+<body>
+    <div id="map" style="width:500px;height:400px;"></div>
+    <div>
+        <table id="table"></table>
+        <button onclick="changePage(-1)">이전</button>
+        <button onclick="changePage(1)">다음</button>
+    </div>
+    <script>
+        let currentPage = 1;
+            // 지도 그리기
+            const currentLocation = {
+                lat: 37.5025398,
+                lng: 127.0248679
+            }
+            let mapContainer = document.querySelector("#map");
+            let mapOption = {
+                center: new kakao.maps.LatLng(currentLocation.lat, currentLocation.lng),
+                level: 14,
+            };
+            const map = new kakao.maps.Map(mapContainer, mapOption);
+
+            // 마커 클러스터 설정
+            let clusterer = new kakao.maps.MarkerClusterer({
+                map: map,
+                averageCenter: true,
+                minLevel: 10,
+                // calculator: [1, 3, 5],
+                // styles: [{ // calculator 각 사이 값 마다 적용될 스타일을 지정한다
+                //     width: '30px', height: '30px',
+                //     background: 'rgba(51, 204, 255, .8)',
+                //     borderRadius: '15px',
+                //     color: '#000',
+                //     textAlign: 'center',
+                //     fontWeight: 'bold',
+                //     lineHeight: '31px'
+                // },
+                // {
+                //     width: '40px', height: '40px',
+                //     background: 'rgba(255, 153, 0, .8)',
+                //     borderRadius: '20px',
+                //     color: '#000',
+                //     textAlign: 'center',
+                //     fontWeight: 'bold',
+                //     lineHeight: '41px'
+                // },
+                // {
+                //     width: '50px', height: '50px',
+                //     background: 'rgba(255, 51, 204, .8)',
+                //     borderRadius: '25px',
+                //     color: '#000',
+                //     textAlign: 'center',
+                //     fontWeight: 'bold',
+                //     lineHeight: '51px'
+                // },
+                // {
+                //     width: '60px', height: '60px',
+                //     background: 'rgba(255, 80, 80, .8)',
+                //     borderRadius: '30px',
+                //     color: '#000',
+                //     textAlign: 'center',
+                //     fontWeight: 'bold',
+                //     lineHeight: '61px'
+                // }
+                // ]
+            });
+
+            // 
+
+
+            getCampingSites();
+
+            function getCampingSites() {
+                clusterer.clear();
+
+                let serviceKey = 'q7QgZgG%2FJGlyxP1lyFODMTf%2FOPrEqUw%2BV5mbLVleCcZYXs0%2BTajdSojjwewgUv4sjVsnxRYoUPvVD6cux%2FCeYQ%3D%3D'
+                let url = `http://apis.data.go.kr/B551011/GoCamping/basedList?serviceKey=${serviceKey}&pageNo=${currentPage}&MobileOS=ETC&MobileApp=appName&_type=json`
+
+                fetch(url)
+                    .then(response => response.json())
+                    .then(data => {
+                        const campingData = data.response.body.items.item;
+                        let markers = [];
+                        let contents = '';
+
+                        campingData.forEach((camp, index) => {
+                            const mapSetting = makeMapSetting(camp);
+                            kakao.maps.event.addListener(mapSetting.marker, 'mouseover', makeOverListener(map, mapSetting.marker, mapSetting.infowindow));
+                            kakao.maps.event.addListener(mapSetting.marker, 'mouseout', makeOutListener(mapSetting.infowindow));
+                            markers.push(mapSetting.marker);
+
+                            contents += "<tr>"
+                            contents += `<td>${(currentPage - 1) * 10 + index + 1}</td>`
+                            contents += `<td>${camp.facltNm}</td>`
+                            contents += "</tr>"
+                        });
+
+                        clusterer.addMarkers(markers);
+                        document.querySelector('#table').innerHTML = contents;
+                    })
+                    .catch(error => console.error('Error fetching camping data:', error));
+            }
+
+            function makeMapSetting(item) {
+                // let imageSrc = 'https://t1.daumcdn.net/localimg/localimages/07/mapapidoc/marker_red.png'; // 마커이미지의 주소입니다    
+                // let imageSize = new kakao.maps.Size(64, 69); // 마커이미지의 크기입니다
+                return obj = {
+                    marker: new kakao.maps.Marker({
+                        map: map,
+                        position: new kakao.maps.LatLng(item.mapY, item.mapX),
+                        // image: new kakao.maps.MarkerImage(imageSrc, imageSize),
+                    }),
+                    infowindow: new kakao.maps.InfoWindow({
+                        content: item.facltNm
+                    })
+                }
+            }
+
+            // 캠핑장 테이블을 만드는 함수입니다.
+            function makeList(item, index) {
+                console.log(index);
+
+            }
+
+            // 인포윈도우를 표시하는 클로저를 만드는 함수입니다 
+            function makeOverListener(map, marker, infowindow) {
+                return function () {
+                    infowindow.open(map, marker);
+                };
+            }
+
+            // 인포윈도우를 닫는 클로저를 만드는 함수입니다 
+            function makeOutListener(infowindow) {
+                return function () {
+                    infowindow.close();
+                };
+            }
+        function changePage(pageNum) {
+                currentPage += pageNum;
+                if (currentPage <= 0) {
+                    currentPage = 1
+                }
+                getCampingSites();
+            }
+    </script>
+</body>
+
+</html>

@@ -1,0 +1,8 @@
+ul {
+    list-style: square inside;
+    /* list-style-type: square;
+    list-style-position: inside; */
+}
+ol {
+    list-style-type: korean-hanja-informal;
+}

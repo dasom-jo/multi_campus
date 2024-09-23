@@ -1,0 +1,61 @@
+.container {
+    border: 1px solid black;
+    margin: 20px 0;
+}
+
+#user_text {
+    margin: 50px;
+    border: 10px solid blue;
+    padding: 20px;
+}
+
+#mother {
+    background-color: lightgray;
+}
+
+#child {
+    background-color: lightblue;
+    width: 100px;
+    height: 100px;
+}
+
+img {
+    display: block;
+}
+
+ul {
+    list-style: none;
+}
+
+a {
+    text-decoration: none;
+}
+
+#inline li {
+    display: inline;
+    width: 100px;
+    background-color: lightcoral;
+}
+
+#inline-block li {
+    display: inline-block;
+    width: 100px;
+    background-color: lightcoral;
+    text-align: center;
+    line-height: 2.5;
+}
+
+.blue-box {
+    width: 150px;
+    height: 150px;
+    background-color: blue;
+    margin: 20px 0;
+}
+
+.none {
+    display: none;
+}
+
+.hidden {
+    visibility: hidden;
+}

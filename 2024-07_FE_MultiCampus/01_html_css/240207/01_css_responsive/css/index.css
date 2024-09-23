@@ -1,0 +1,82 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-color: #cde7db;
+}
+
+header {
+    width: 100%;
+    height: 150px;
+    background-color: #21d078;
+}
+
+nav {
+    float: left;
+    width: 30%;
+    height: 700px;
+    background-color: #3faa88;
+}
+
+section {
+    float: left;
+    width: 40%;
+    height: 700px;
+    background-color: #3faa63;
+}
+
+aside {
+    float: left;
+    width: 30%;
+    height: 700px;
+    background-color: #3faa44;
+}
+
+footer {
+    clear: both;
+    width: 100%;
+    height: 150px;
+    background-color: #21a078;
+}
+
+/* 1024px - 노트북 */
+@media (max-width: 1200px) {
+    nav {
+        width: 40%;
+    }
+    section {
+        width: 60%;
+    }
+    aside {
+        clear: both;
+        width: 100%;
+        height: 300px
+    }
+}
+
+/* 768px - 태블릿 */
+@media (max-width: 768px) {
+    nav {
+        float: none;
+        width: 100%;
+    }
+    section {
+        float: none;
+        width: 100%;
+    }
+}
+
+/* 425px - 모바일 */
+@media (max-width: 425px) {
+    header {
+        height: 300px;
+    }
+    nav {
+        height: 300px;
+    }
+    section {
+        height: 300px;
+    }
+}

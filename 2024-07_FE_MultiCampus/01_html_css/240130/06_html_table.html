@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테이블 태그</title>
+    <style>
+        table {
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid black;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <table>
+        <!-- caption은 표의 제목을 의미한다. 생략 가능하다. -->
+        <caption>표 캡션</caption>
+        
+        <!-- thead는 표의 헤더 부분을 의미한다. 생략 가능하다. -->
+        <thead>
+            <!-- tr은 행을 의미한다. -->
+            <tr> 
+                <!-- th는 제목셀을 의미한다. -->
+                <th>제목 셀1</th> 
+                <th>제목 셀2</th>
+            </tr>
+        </thead>
+
+        <!-- tbody는 표의 본문 부분을 의미한다. 생략 가능하지만!!! 자동 생성된다. -->
+        <tbody>
+            <tr>
+                <!-- td는 내용셀을 의미한다. -->
+                <td>본문내용 셀1</td>
+                <td>본문내용 셀2</td>
+            </tr>
+            <tr>
+                <td colspan="2">본문내용 셀3</td>
+            </tr>
+            <tr>
+                <td>본문내용 셀4</td>
+                <td rowspan="2">본문내용 셀5</td>
+            </tr>
+            <tr>
+                <td>본문내용 셀6</td>
+            </tr>
+        </tbody>
+
+        <!-- tfoot은 표의 요약 부분을 의미한다. 생략 가능하다.-->
+        <tfoot>
+            <tr>
+                <td>요약 셀1</td>
+                <td>요약 셀2</td>
+            </tr>
+        </tfoot>
+    </table>
+</body>
+</html>

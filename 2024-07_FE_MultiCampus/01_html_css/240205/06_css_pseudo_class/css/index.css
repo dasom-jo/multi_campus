@@ -1,0 +1,133 @@
+:root {
+    --color-main : #0090f7; /* 변수 만들어 사용 */
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+nav a {
+    padding: 8px 16px;
+    background-color: var(--color-main);
+    border: 1px solid blue;
+    text-decoration: none;
+}
+
+/* 링크를 적절히 디자인하려면 LVHA 순서를 지켜서 스타일 지정하자 */
+
+nav a:link {
+    color: white;
+}
+
+nav a:visited {
+    color: white;
+}
+
+nav a:hover {
+    box-shadow: 1px 1px 6px black;
+}
+
+nav a:active {
+    box-shadow: 1px 1px 6px black inset;
+}
+
+#wrapper {
+    display: grid;
+    grid-template-areas: "header" "main" "footer";
+    grid-template-rows: 50px 1000px 100px;
+}
+
+header {
+    grid-area: header;
+    background-color: lightblue;
+}
+
+nav ul {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    line-height: 50px;
+    list-style: none;
+}
+
+nav ul li {
+    /* width: 20%; */
+    text-align: center;
+}
+
+main {
+    display: grid;
+    grid-template-columns: 70% 1fr;
+    grid-template-rows: 80% 1fr;
+    grid-template-areas: 
+        "container aside"
+        "summary summary";
+    grid-area: main;
+    background-color: lightpink;
+}
+
+section {
+    grid-area: container;
+    background-color: lightgreen;
+    text-align: center;
+}
+
+input[type="search"] {
+    margin-top: 50px;
+    width: 561px;
+    height: 44px;
+    border: 1px solid #20212447;
+    border-radius: 22px;
+    box-shadow: 0px 1px 6px 0px #20212447;
+    padding: 0 22px;
+}
+input[type="search"]:focus {
+    outline: none;
+}
+input[type="search"]:disabled {
+    background-color: #a8a8a880;
+}
+.box {
+    margin-top: 50px;
+}
+.gender_box label {
+    padding: 0 10px;
+}
+.gender_chk {
+    accent-color: pink;
+}
+.gender_chk:checked + span {
+    font-weight: bold;
+}
+
+.food_list {
+    list-style-position: inside;
+}
+
+/* .box > p:nth-of-type(2) {
+    background-color: blue;
+} */
+
+.box>p:only-of-type {
+    background-color: red;
+}
+
+.box > p:nth-child(odd) {
+    background-color: red;
+}
+
+aside {
+    grid-area: aside;
+    background-color: lightyellow;
+}
+
+summary {
+    background-color: fuchsia;
+    grid-area: summary;
+}
+
+footer {
+    grid-area: 100px;
+    background-color: lightcoral;
+}

@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>추첨</title>
+</head>
+<body>
+    <input type="number" id="number" value="3"/>
+    <button onclick="findStudent()">찾기</button>
+    <div id="result"></div>
+    <script>
+        students = [
+                '김다빈', '김민수', '김수아', '김우진', '김진영',
+                '노성현', '노효민', '손예림', '오동석', '이가영',
+                '이은수', '박유진', '박형준', '박석원', '박소희',
+                '조다솜', '차민성', '최승관', '하성덕', '호경화'
+            ]
+        function random(students) {
+            return students[Math.floor(Math.random() * students.length)];
+        }
+        function findStudent() {
+            let count = document.querySelector('#number').value;
+            let result = new Set([]);
+            document.querySelector("#result").textContent = "";
+            while (count > 0) {
+                let name = random(students);
+                if (!result.has(name)) {
+                    result.add(name);
+                    count--;
+                }
+            }
+            for (let name of result) {
+                document.querySelector("#result").textContent += `${name} `;
+            }
+        }
+    </script>
+</body>
+</html>

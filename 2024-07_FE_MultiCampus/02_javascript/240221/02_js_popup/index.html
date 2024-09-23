@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>팝업창 열기</title>
+</head>
+<body>
+    <button>팝업창 열기</button>
+    <br/>
+    <a href="../00_js_window/index.html">윈도우 객체1</a>
+    <a href="../01_js_window/index.html">윈도우 객체2</a>
+    <a href="../02_js_popup/index.html">팝업</a>
+    <a href="../03_js_history/index.html">히스토리</a>
+    <br />
+    <button id="back">뒤로가기</button>
+    <button id="forward">앞으로 가기</button>
+    <script>
+        const back = document.querySelector('#back');
+        const forward = document.querySelector('#forward');
+
+        back.addEventListener('click', () => history.back());
+        forward.addEventListener('click', () => history.forward());
+    </script>
+    <script>
+        function openPopup() {
+            let width = 200;
+            let height = 150;
+            // 창 기준 한 가운데 팝업
+            console.log("원본창 위치", screenX, screenY);
+            console.log("원본창 크기", outerWidth, outerHeight);
+            let top = (screenY) + (outerHeight - height) / 2;
+            let left = (screenX) + (outerWidth - width) / 2;
+
+            /* 
+            // 기본 모니터 한 가운데 팝업
+            let top = (screen.availHeight - height) /2;
+            let left = (screen.availWidth - width) / 2;
+            */
+            window.open(
+                './popup.html',
+                '이벤트팝업이에요',
+                `width=${width}, height=${height}, top=${top}, left=${left}`
+            );
+        }
+        const btn = document.querySelector('button');
+        btn.addEventListener('click', openPopup);
+    </script>
+</body>
+</html>

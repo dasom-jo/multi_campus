@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>원의 둘레</title>
+</head>
+<body>
+    
+    <script>
+        // 반지름이 5인 원의 둘레는? 10파이 [2 * 파이 * 반지름]
+        // 반지름이 5인 원의 넓이는? 25파이 [파이 * (반지름 ** 2)]
+        // console.log(Math);
+
+        let radius = 5;
+        let perimeter = 2 * Math.PI * radius; // 둘레
+        let area = Math.PI * (radius ** 2); // 넓이
+        console.log("반지름이 5인 원의 둘레는?", perimeter);
+        console.log("반지름이 5인 원의 넓이는?", area);
+
+        console.log("반지름이 5인 원의 둘레는?[소수점 첫째자리까지]", perimeter.toFixed(1)); // 31.4
+        console.log("반지름이 5인 원의 둘레는?[소수점 셋째자리까지]", perimeter.toFixed(3)); // 31.416
+        
+        console.log("반지름이 5인 원의 둘레는? [내림]", Math.floor(perimeter));
+        console.log("반지름이 5인 원의 둘레는? [올림]", Math.ceil(perimeter));
+        console.log("반지름이 5인 원의 둘레는? [반올림]", Math.round(perimeter));
+
+        // 0 <= Math.random() < 1 사이의 무작위수
+        console.log(Math.random());
+
+        // 0부터 31까지 무작위 정수 (0, 31 포함)
+        // 0 <= Math.random() * 32 < 32
+        console.log(Math.floor(Math.random() * 32));
+
+        // 1부터 31까지 무작위 정수 (1, 31 포함);
+        console.log(Math.floor(Math.random() * 31) + 1);
+    </script>
+</body>
+</html>

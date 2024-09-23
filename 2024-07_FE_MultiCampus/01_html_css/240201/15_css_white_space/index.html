@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>공백 처리 방법 지정</title>
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <h1>white-space</h1>
+    <p id="ws-normal">
+        white-space 속성에 normal을 지정하면,
+        공백과     줄바꿈을      무시하고 한 줄로 표시됩니다.
+        단, 브라우저     너비 범위를     벗어나면 줄바꿈을 합니다.
+    </p>
+    <p id="ws-nowrap">
+        white-space 속성에 nowrap을 지정하면,
+        공백과      줄바꿈을      무시하고 한 줄로 표시됩니다.
+        게다가 브라우저 너비를 벗어나도 줄바꿈을 하지 않습니다.
+    </p>
+    <p id="ws-pre">
+        white-space 속성에 pre를 지정하면,
+        공백과      줄바꿈을          모두 유지한 채 표시됩니다.
+        게다가 브라우저 너비를 벗어나도 줄바꿈을 하지 않습니다.
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Adipisci nam consequatur optio fugiat odit et illo, vitae aliquid officia odio facilis perferendis! Corrupti, quis? Earum eligendi sapiente deleniti accusamus quia.
+    </p>
+    <p id="ws-pre-line">
+        white-space 속성에 pre-line을 지정하면,
+        공백은        무시하고, 줄바꿈은 유지한 채 표시됩니다.
+        또한, 브라우저 너비 범위를 벗어나면 줄바꿈을 합니다.
+        Lorem ipsum dolor, sit amet consectetur adipisicing elit. Tenetur officiis recusandae eveniet officia ab deserunt, quidem laudantium, ratione atque sequi sint placeat culpa magnam nesciunt libero ullam rem! Enim, dignissimos.
+    </p>
+    <p id="ws-pre-wrap">
+        white-space 속성에 pre-wrap을 지정하면,
+        공백과       줄바꿈을         모두 유지한 채 표시됩니다.
+        또한, 브라우저 너비 범위를 벗어나면 줄바꿈을 합니다.
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci soluta totam non quae voluptatem molestias commodi blanditiis, animi accusamus alias, numquam, quidem maxime sunt eaque cupiditate? In nihil unde doloremque.
+    </p>
+</body>
+</html>

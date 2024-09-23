@@ -1,0 +1,53 @@
+ul {
+    list-style: none;
+}
+
+li.hot::after {
+    content: "HOT!";
+    font-size: x-small;
+    background-color: red;
+    color: #fff;
+    margin: 0 10px;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+/* li.new::after {
+    content: "NEW!";
+    font-size: x-small;
+    background-color: blue;
+    color: #fff;
+    margin: 0 10px;
+    padding: 2px 4px;
+    border-radius: 4px;
+} */
+
+li:not(.hot)::after {
+    content: "특가!";
+    font-size: x-small;
+    background-color: blue;
+    color: #fff;
+    margin: 0 10px;
+    padding: 2px 4px;
+    border-radius: 4px;
+}
+
+li::before {
+    display: inline-block;
+    content: "";
+    background-image: url("https://www.iconpacks.net/icons/1/free-heart-icon-992-thumb.png");
+    background-size: 12px 12px;
+    background-repeat: no-repeat;
+    width: 12px;
+    height: 12px;
+    margin-right: 10px;
+}
+
+p::first-letter {
+    font-size: large;
+    font-weight: bold;
+}
+
+p::first-line {
+    font-weight: bold;
+}

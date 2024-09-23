@@ -1,0 +1,31 @@
+* {
+    margin: 0px;
+    padding: 0px;
+}
+
+.basic-fs {
+    font-size: 16px;
+    margin: 15px 10px;
+}
+
+legend {
+    margin: 0 10px;
+}
+
+/* 필수 입력은 핑크색 배경 */
+.required-fs {
+    background-color: pink;
+}
+
+/* 선택 입력은 좋아하는 색 배경 */
+.optional-fs {
+    background-color: gainsboro;
+}
+
+#user_id {
+    color: red;
+}
+
+#password {
+    font-size: large;
+}

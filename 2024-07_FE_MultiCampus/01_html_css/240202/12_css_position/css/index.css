@@ -1,0 +1,39 @@
+.container {
+    border: 1px solid black;
+    margin: 30px;
+    /* position: relative; */
+}
+
+.box1 {
+    width: 100px;
+    padding: 20px;
+    margin-right: 10px;
+    background-color: gold;
+}
+
+.box2 {
+    width: 300px;
+    padding: 20px;
+    background-color: darkcyan;
+}
+
+.relative .box1 {
+    /* float: left; */
+    position: relative;
+    /* static 기준점으로 위치를 변경 가능 */
+    top: 30px;
+    left: 100px;
+}
+
+.relative .box2 {
+    /* float: left; */
+}
+
+.absolute .box1 {
+    /* float: left; */
+    position: absolute;
+    /* static 기준점으로 위치를 변경 가능 */
+    top: 30px;
+    left: 100px;
+}
+

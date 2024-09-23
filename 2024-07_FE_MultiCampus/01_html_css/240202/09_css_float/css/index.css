@@ -1,0 +1,24 @@
+div {
+    width: 80px;
+    height: 80px;
+}
+
+.box1 {
+    float: left;
+    background-color: gold;
+}
+
+.box2 {
+    float: left;
+    background-color: darkcyan;
+}
+
+.box3 {
+    clear:both;
+    float:none;
+    background-color: chartreuse;
+}
+
+.box4 {
+    border: 1px solid;
+}

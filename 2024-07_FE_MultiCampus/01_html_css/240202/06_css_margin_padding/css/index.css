@@ -1,0 +1,18 @@
+.container {
+    width: 100px;
+    height: 100px;
+    background-color: darkkhaki;
+}
+
+.margin {
+    margin: 20px;
+    display: inline-block;
+}
+
+.center {
+    margin: 0 auto;
+}
+
+.padding {
+    padding: 20px;
+}

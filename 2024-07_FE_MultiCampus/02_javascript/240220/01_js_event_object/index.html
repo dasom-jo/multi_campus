@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #box {
+            border: 1px solid black;
+            height: 300px;
+            width: 300px;
+            margin: 0 auto;
+        }
+    </style>
+</head>
+<body>
+    <p>사각형 내부를 클릭해 봅시다.</p>
+    <div id="box"></div>
+    <script>
+        let box = document.querySelector('#box');
+        box.addEventListener('click', (e)=> {
+            console.log(`전체 페이지 기준 위치: ${e.pageX}, ${e.pageY}`);
+            console.log(`브라우저 기준 위치: ${e.clientX}, ${e.clientY}`);
+            console.log(`모니터 화면 기준 위치: ${e.screenX}, ${e.screenY}`);
+            console.log(`이벤트 대상 기준 위치: ${e.offsetX}, ${e.offsetY}`);
+        })
+    </script>
+</body>
+</html>

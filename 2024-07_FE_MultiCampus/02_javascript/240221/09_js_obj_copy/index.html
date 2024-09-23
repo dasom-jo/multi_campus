@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>객체의 복사</title>
+</head>
+<body>
+    <script>
+        let numberA = 100;
+        let numberB = numberA;
+        numberB = 200;
+        console.log(numberA, numberB); // 100, 200
+        console.log(numberA == numberB);
+        
+        /* 얉은 복사 (객체를 복사할 때 필요한 것) */
+        const objA = { title: '1' };
+        const objB = objA; 
+        const objC = Object.assign({}, objA); // 얇은 복사
+        const objD = {...objA} // 얇은 복사
+        objB.title = "2";
+        console.log(objA.title, objB.title, objC.title, objD.title); // 2, 2, 1
+        console.log("objA, objB, objC", objA, objB, objC, objD);
+
+        const arrA = [1, 2, 3]; // [1, 2, 3, 4]
+        const arrB = arrA; // [1, 2, 3, 4]
+        const arrC = arrA.slice(); // [1, 2, 3] 얇은 복사
+        const arrD = [...arrA]; // 얇은 복사
+        arrB.push(4);
+        console.log("arrA == arrB", arrA == arrB);
+        console.log("arrA == arrC", arrA == arrC);
+
+        /* 깊은 복사*/
+        const obj = {
+            name: '최인규',
+            score: {
+                math: 90,
+                eng: 80,
+            }
+        }
+        const obj2 = obj // 객체를 할당할 때, 같은 참조를 가리킨다.
+        const objCopy = {...obj}; // 얉은 복사 : 객체를 복사할 때, 객체는 다른 참조, 속성이 같은 참조를 가리킨다.
+        console.log(obj == objCopy); // false
+        console.log(obj.score == objCopy.score); // true
+
+        const objDeepCopy = JSON.parse(JSON.stringify(obj)); // 깊은 복사
+        console.log(obj.score == objDeepCopy.score); // false
+    </script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트 기초</title>
+</head>
+<body>
+    <input id="btn" type="button" value="클릭"/>
+    <!-- HTML 태그에 스크립트를 함께 쓰면, 스크립트 수정 시 HTML도 함께 수정해야한다. -->
+    <script>
+        let btn = document.querySelector('#btn');
+        function click1() {
+            alert('클릭되었다111');
+        }
+
+        function click2() {
+            alert('클릭되었다222');
+        }
+
+        btn.onclick = click1; // 웹 요소에 직접 함수를 연결
+        // 요소.on이벤트이름 = 함수명;
+        // 요소.on이벤트이름 = function () {};
+        // 요소.on이벤트이름 = () => {};
+        btn.onclick = click2; // 웹 요소에 직접 함수를 연결
+        
+    </script>
+</body>
+</html>

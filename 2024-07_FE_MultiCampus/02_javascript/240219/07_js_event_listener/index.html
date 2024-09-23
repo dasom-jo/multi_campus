@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input id="btn" type="button" value="클릭" />
+    <script>
+        // 요소.on이벤트이름 = 함수명;
+        // 요소.on이벤트이름 = function () {};
+        // 요소.on이벤트이름 = () => {};
+
+        /*
+            on 방식은 덮어씌워지는 방식이지만
+            addEventListener 방식은 누적 이벤트 방식이다.
+            addEventListener는 IE 6,7,8 버전은 지원하지 X
+        */
+        // 요소.addEventListener(이벤트명, 함수, 캡처링여부);
+        let btn = document.querySelector('#btn');
+        // btn.addEventListener("click", () => {}, false)
+        btn.addEventListener("click", () => {
+            alert('a')
+        }) 
+        btn.addEventListener("click", function () {
+            alert('b')
+        })
+    </script>
+</body>
+</html>

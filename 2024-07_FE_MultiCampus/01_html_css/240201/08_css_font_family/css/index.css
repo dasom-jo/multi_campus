@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Gamja+Flower&display=swap');
+
+@font-face {
+    font-family: 'WagleWagle';
+    src: url('../fonts/WagleWagle.woff')format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+.a {
+    font-family: Georgia;
+}
+
+.b {
+    font-family: serif;
+}
+
+.c {
+    font-family: sans-serif;
+}
+
+.d {
+    font-family: monospace;
+}
+
+.e {
+    font-family: cursive;
+}
+
+.f {
+    font-family: fantasy;
+}
+
+.g {
+    font-family: Georgia, "맑은 고딕";
+}
+
+.google {
+    font-family: 'Gamja Flower', sans-serif;
+}
+
+.noonnu {
+    font-family: 'WagleWagle', sans-serif;
+}

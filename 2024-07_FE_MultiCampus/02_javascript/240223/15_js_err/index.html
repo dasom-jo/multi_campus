@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>예외처리</title>
+</head>
+<body>
+    <script>
+        try {
+            console.log('시작');
+            add();
+            console.log('실행 중');
+        } catch (e) {
+            console.error(e);
+            console.error(e.name);
+            console.error(e.message);
+        } finally {
+            console.log('끝');
+        }
+    </script>
+</body>
+</html>

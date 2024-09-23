@@ -1,0 +1,34 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-size: 12px;
+}
+
+section {
+    width: 200px;
+    height: 200px;
+    background-color: #ededed;
+    margin: 50px;
+}
+
+.box {
+    width: 100px;
+    height: 100px;
+    background-color: orange;
+}
+
+.box1:hover {
+    transform: scaleX(1.2);
+    /* transform-origin: right top; */
+}
+
+.box2:hover {
+    transform: scaleY(0.5);
+    transform-origin: right bottom;
+}
+
+.box3:hover {
+    /* transform: scale(1.5, 1.5); */
+    transform: scale(1.5);
+    transform-origin: right bottom;
+}

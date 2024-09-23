@@ -1,0 +1,102 @@
+[
+    {
+        "name": "김다빈",
+        "gender": "여자",
+        "address": "서울시 강동구"
+    },
+    {
+        "name": "김민수",
+        "gender": "남자",
+        "address": "서울시 송파구"
+    },
+    {
+        "name": "김수아",
+        "gender": "여자",
+        "address": "서울시 송파구"
+    },
+    {
+        "name": "김우진",
+        "gender": "남자",
+        "address": "서울시 중랑구"
+    },
+    {
+        "name": "김진영",
+        "gender": "남자",
+        "address": "서울시 강남구"
+    },
+    {
+        "name": "노성현",
+        "gender": "남자",
+        "address": "서울시 강북구"
+    },
+    {
+        "name": "노효민",
+        "gender": "여자",
+        "address": "서울시 중랑구"
+    },
+    {
+        "name": "손예림",
+        "gender": "여자",
+        "address": "서울시 강남구"
+    },
+    {
+        "name": "오동석",
+        "gender": "남자",
+        "address": "서울시 강남구"
+    },
+    {
+        "name": "이가영",
+        "gender": "여자",
+        "address": "서울시 서대문구"
+    },
+    {
+        "name": "이은수",
+        "gender": "여자",
+        "address": "서울시 중랑구"
+    },
+    {
+        "name": "박유진",
+        "gender": "여자",
+        "address": "서울시 중랑구"
+    },
+    {
+        "name": "박형준",
+        "gender": "남자",
+        "address": "서울시 영등포구"
+    },
+    {
+        "name": "박석원",
+        "gender": "남자",
+        "address": "서울시 영등포구"
+    },
+    {
+        "name": "박소희",
+        "gender": "여자",
+        "address": "서울시 강서구"
+    },
+    {
+        "name": "조다솜",
+        "gender": "여자",
+        "address": "서울시 강서구"
+    },
+    {
+        "name": "차민성",
+        "gender": "남자",
+        "address": "서울시 송파구"
+    },
+    {
+        "name": "최승관",
+        "gender": "남자",
+        "address": "서울시 강동구"
+    },
+    {
+        "name": "하성덕",
+        "gender": "남자",
+        "address": "서울시 송파구"
+    },
+    {
+        "name": "호경화",
+        "gender": "여자",
+        "address": "서울시 강서구"
+    }
+]

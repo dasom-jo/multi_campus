@@ -1,0 +1,23 @@
+div {
+    width: 500px;
+    height: 300px;
+}
+
+#linear {
+    background: linear-gradient(240deg,
+            red 20%, yellow 20%,
+            yellow 40%, green 40%,
+            green 60%, blue 60%,
+            blue 80%, purple 80%);
+}
+
+#radial {
+    /* radial-gradient(모양 크기 at 가로위치 세로위치, 중단색상 [중단위치][, 중단색상 [중단위치], 중단색상 [중단위치]])*/
+    /* background: radial-gradient(circle 250px at 10% 10%,
+            red 20%, yellow 20%,
+            yellow 40%, green 40%,
+            green 60%, blue 60%,
+            blue 80%, purple 80%); */
+    background: radial-gradient(farthest-corner circle at 10% 10%,
+                red, yellow, green);
+}

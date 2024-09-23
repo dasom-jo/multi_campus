@@ -1,0 +1,28 @@
+#container {
+    font-size: 30px;
+}
+
+.percent {
+    /* 부모 크기를 기준 */
+    font-size: 50%;
+}
+
+.em {
+    /* 부모 크기를 기준 */
+    font-size: 2em;
+}
+
+.rem {
+    /* root 크기를 기준 */
+    font-size: 1rem;
+}
+
+.vh {
+    /* 뷰포트의 높이를 기준 */
+    font-size: 10vh;
+}
+
+.vw {
+    /* 뷰포트의 너비를 기준 */
+    font-size: 10vw;
+}

@@ -1,0 +1,68 @@
+/* 화면 너비 */
+/* 960px ~~~ 데스크탑 */
+@media (min-width: 960px) {
+    body {
+        background-color: red;
+    }
+    h1::before {
+        content: "1. 데스크탑 : ";
+    }
+    h1::after {
+        content: " - 960px ~";
+    }
+}
+/* 770px ~ 960px 노트북 */
+@media (max-width: 960px) {
+    body {
+        background-color: orange;
+    }
+
+    h1::before {
+        content: "2. 노트북 : ";
+    }
+
+    h1::after {
+        content: " - 770px ~ 960px";
+    }
+}
+
+/* 576px ~ 770px 태블릿 */
+@media (max-width: 770px) {
+    body {
+        background-color: yellow;
+    }
+
+    h1::before {
+        content: "3. 태블릿 : ";
+    }
+
+    h1::after {
+        content: " - 576px ~ 770px";
+    }
+}
+
+/* 0 ~ 576px 모바일 */
+@media (max-width: 576px) {
+    body {
+        background-color: green;
+    }
+
+    h1::before {
+        content: "4. 모바일 : ";
+    }
+
+    h1::after {
+        content: " - 0px ~ 576px";
+    }
+}
+/* @media screen and (orientation: landscape) {
+    body {
+        background-color: red;
+    }
+}
+
+@media screen and (orientation: portrait) {
+    body {
+        background-color: orange;
+    }
+} */

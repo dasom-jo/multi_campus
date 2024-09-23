@@ -1,0 +1,66 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0;
+    min-height: 100vh;
+}
+
+button {
+    background-color: #ddd;
+    padding: 1rem 3rem;
+    border: 1px solid #222;
+    border-radius: 5px;
+    box-shadow: 1px 1px 2px #222;
+}
+
+/* noti-box로 우측 하단에 고정해 놓고, .noti를 그 안에 넣을 것! */
+#noti-box {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    flex-direction: column;
+}
+
+.noti {
+    margin: 0 1rem;
+    padding: 1rem;
+    background-color: #eee;
+    border-left: 3px solid #222;
+    position: relative;
+    overflow: hidden;
+    animation: progress 3s linear forwards;
+}
+.bar {
+    bottom: 0;
+    margin: 0 1rem;
+    left: 0;
+    height: 3px;
+    background-color: #42af50;
+    animation: progressBar 3s linear forwards;
+}
+
+@keyframes progressBar {
+    from {
+        width: 90%;
+        opacity: 1;
+    }
+    to {
+        width: 0%;
+        opacity: 0;
+    } 
+}
+@keyframes progress {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}

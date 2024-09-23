@@ -1,0 +1,17 @@
+.box1 {
+    float: left;
+    position: static; /* 기본값 */
+    /* top: 30px; position: static에서는 이용 불가 */
+    width: 100px;
+    padding: 20px;
+    border: 20px solid;
+    margin-right: 10px;
+    background-color: gold;
+}
+
+.box2 {
+    /* float: left; */
+    width: 300px;
+    padding: 20px;
+    background-color: darkcyan;
+}

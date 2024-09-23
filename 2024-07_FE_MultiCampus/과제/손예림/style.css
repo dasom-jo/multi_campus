@@ -1,0 +1,231 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+a {
+    color: black;
+    text-decoration: none;
+}
+
+li {
+    list-style: none;
+}
+
+body {
+    background-color: #e8dac3;
+}
+
+button {
+    cursor: pointer;
+}
+.main_wrapper {
+    display: flex;
+    justify-content: center;
+    .back_container {
+        padding: 5px 20px;
+        background-color: #f7ecd8;
+        min-width: 1300px;
+        max-width: 1400px;
+        min-height: 450px;
+        position: relative;
+        margin-top: 100px;
+        display: flex;
+        justify-content: space-between;
+        h2 {
+            margin-top: 10px;
+        }
+        .post_container {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            h2 {
+                margin-left: 250px;
+            }
+        }
+        .user_container {
+            position: relative;
+            width: 600px;
+            height: 400px;
+            margin-right: 5px;
+            h2 {
+                margin-left: 250px;
+            }
+        }
+    }
+    .front_container {
+        background-color: #fff;
+        min-width: 600px;
+        min-height: 550px;
+        position: absolute;
+        top: -70px;
+        left: 60px;
+        border-radius: 5px;
+    }
+}
+
+h2 {
+    color: #b88566;
+    margin-bottom: 30px;
+}
+
+table {
+    border-collapse: collapse;
+    background-color: white;
+    thead {
+        background-color: #fff;
+        color: white;
+        th {
+            background-color: #ddc49a;
+            padding: 10px 20px;
+            font-size: 15px;
+            white-space: nowrap;
+        }
+    }
+    tbody td {
+        padding: 5px;
+        text-align: center;
+        button {
+            border: none;
+            background-color: #ddc49a;
+            color: white;
+            padding: 2px;
+            border-radius: 3px;
+        }
+    }
+}
+
+.pagination {
+    position: absolute;
+    bottom: 0;
+    left: 40%;
+    span {
+        font-size: 20px;
+        margin: 0px 5px;
+    }
+    span:hover {
+        border-bottom: 2px solid black;
+        font-weight: 600;
+        cursor: pointer;
+    }
+}
+
+.user_regist {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 10px;
+    form {
+        ul {
+            text-align: right;
+        }
+        li {
+            margin: 10px 0px;
+            input,
+            select {
+                margin-left: 10px;
+            }
+            .gender {
+                margin-left: 40px;
+            }
+        }
+        input,
+        select {
+            width: 150px;
+            height: 30px;
+            border: 1px solid lightgray;
+            border-radius: 5px;
+            padding: 5px;
+        }
+        input[type="radio"] {
+            width: 15px;
+            vertical-align: -8px;
+            cursor: pointer;
+        }
+        input[type="file"] {
+            border: none;
+        }
+        button {
+            width: 100px;
+            height: 40px;
+            background-color: #ddc49a;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            margin-top: 20px;
+        }
+    }
+}
+
+.post_regist {
+    h2 {
+        margin: 0 auto;
+    }
+    form {
+        display: flex;
+        flex-direction: column;
+        padding: 10px;
+        input::placeholder,
+        textarea::placeholder {
+            color: lightgray;
+        }
+        input:focus,
+        textarea:focus {
+            outline: none;
+        }
+        #post_title {
+            height: 50px;
+            border: none;
+            border-bottom: 1px solid lightgray;
+            margin-bottom: 10px;
+            font-size: 25px;
+        }
+        #post_content {
+            border: none;
+            margin-bottom: 10px;
+            border-bottom: 1px solid lightgray;
+            font-size: 20px;
+        }
+        #post_hashtag,
+        #post_user_id {
+            border: none;
+            border-bottom: 1px solid lightgray;
+            font-size: 15px;
+            margin: 10px 0px;
+            padding-bottom: 10px;
+        }
+        button {
+            width: 100px;
+            height: 40px;
+            background-color: #ddc49a;
+            border: none;
+            border-radius: 10px;
+            color: white;
+            margin-top: 20px;
+        }
+    }
+}
+
+.none {
+    visibility: hidden;
+    transition: all 0.5s;
+}
+
+.gone {
+    display: none;
+    transition: all 2s;
+}
+
+.moveRight {
+    transform: translateX(600px);
+    transition: all 1s;
+}
+
+.moveLeft {
+    transform: translate((-600px));
+    transition: all 1s;
+}
+
+@media screen and (min-width: 800px) {
+}

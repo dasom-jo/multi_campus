@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>배열3</title>
+</head>
+<body>
+    <script>
+        let subjects = ['HTML', 'CSS', 'Javascript', 'Python', 'React'];
+        let unstudy = subjects.splice(3);
+        console.log(unstudy);
+
+        // let python = subjects.splice(3, 1);
+        // console.log(python);
+        // console.log(subjects);
+
+        let week = ['일', '월', '화', '수', '목', '금', '토'];
+        let weekday = week.splice(1, 5);
+        let weekend = week;
+        console.log(weekday, weekend.reverse());
+
+        let rainbow = ['빨', '주', '검', '회', '남', '보']
+        // 검, 회 -> 노 초 파
+        rainbow.splice(2, 2, '노', '초' ,'파');
+        console.log(rainbow);
+
+        let dictionary = ['고구마', '나비', '라면', '바보'];
+        // 다람쥐 추가, 몽키 추가
+        dictionary.splice(2, 0, '다람쥐');
+        dictionary.splice(4, 0, '몽키');
+        console.log(dictionary);
+    </script>
+</body>
+</html>

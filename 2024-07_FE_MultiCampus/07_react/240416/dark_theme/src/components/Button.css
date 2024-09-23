@@ -1,0 +1,20 @@
+.Btn {
+    font-weight: 400;
+    margin: 20px;
+    padding: 1rem 2rem;
+    width: 160px;
+    height: 50px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.Btn-light {
+    background-color: darkgrey;
+    border: 2px solid black;
+}
+
+.Btn-dark {
+    background-color: antiquewhite;
+    border: 2px solid white;
+}

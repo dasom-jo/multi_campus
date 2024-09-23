@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>클래스를 이용한 스타일</title>
+    <style>
+        .title {
+            font-size: 16px;
+            font-weight: normal;
+        }
+        .clicked {
+            background-color: red;
+        }
+    </style>
+</head>
+<body>
+    <h1 class="title">클래스를 이용한 스타일</h1>
+    <h2 class="title clicked">클래스를 이용해 스타일을 바꾸자</h2>
+    <script>
+        let title = document.querySelector('h1');
+        let title2 = document.querySelector('h2');
+        title.onclick = function() {
+            // title.className = 'clicked'; 클래스 이름이 변경!
+            title.classList.contains('clicked') ? title.classList.remove('clicked') : title.classList.add('clicked');
+            /* 
+            if (title.classList.contains('clicked')) {
+                title.classList.remove('clicked');
+            } else {
+                title.classList.add('clicked');
+            }
+            */
+        }
+        title2.onclick = function () {
+            title2.classList.toggle('clicked');
+        }
+    </script>
+</body>
+</html>
